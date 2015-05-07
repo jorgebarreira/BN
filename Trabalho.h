@@ -8,7 +8,7 @@
 #include "stel.h"
 #include "aux_tabuleiro.h"
 #include "Main.h"
-#include "aux_muda_tab.h"
+#include "Trabalho.h"
 #include "aux_stack.h"
 #include "desf_f.h"
 #define TRUE 1
@@ -18,7 +18,3 @@
 
 
 #endif
-
-void desfCmd(TAB_BN *,STACK *);
-void aplicaCmd( STACK *);
-int cmd_D(TAB_BN *,STACK *);
