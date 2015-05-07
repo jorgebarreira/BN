@@ -1,0 +1,22 @@
+l to1.in
+v 3
+p> 6 2
+h 6
+p~ 5 1
+p~ 5 2
+p~ 7 1
+p~ 7 2
+p~ 7 7
+p~ 7 9
+p~ 8 7
+po 8 8
+p~ 8 9
+po 2 9
+po 3 9
+po 4 9
+h 2
+h 4
+p~ 3 8
+p~ 3 10
+e file.txt
+m
