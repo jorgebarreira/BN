@@ -8,7 +8,6 @@
 #include "stel.h"
 #include "aux_tabuleiro.h"
 #include "Main.h"
-#include "Trabalho.h"
 #include "aux_muda_tab.h"
 #include "aux_stack.h"
 #include "desf_f.h"
