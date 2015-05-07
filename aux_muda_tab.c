@@ -2,6 +2,7 @@
 #define ___AUX_TABULEIRO_H___
 #include "estrutura_TAB_BN.h"
 #include "estrategias.h"
+#include "estrategias_auxiliares.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,6 +32,8 @@ else if (arg1==2)
     estrategia_2(estado,partida);
 else if (arg1==3)
     estrategia_3(estado,partida);
+else if (arg1==4)
+    estrategia_4(estado,partida);
 else n=-1;
     return n;
 }

@@ -2,6 +2,7 @@
 #define ___AUX_TABULEIRO_H___
 #include "estrutura_TAB_BN.h"
 #include "estrategias.h"
+#include "estrategias_auxiliares.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

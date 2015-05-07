@@ -9,6 +9,7 @@
 #include "stel.h"
 #include "aux_tabuleiro.h"
 #include "Main.h"
+#include "aux_muda_tab.h"
 #include "aux_stack.h"
 #include "desf_f.h"
 #define TRUE 1
@@ -19,9 +20,10 @@
 
 #endif
 
+/**
+funcao para percorrer todo o tabuleiro e sempre que encontrar um segmento preencher agua a volta onde necessario.
+*/
 
-int interpretar(TAB_BN *, char *, STACK *);
-
-void interpretador(TAB_BN *, STACK *);
-
-int main();
+void estrategia_4(TAB_BN *estado,STACK *partida){
+	from_unknown_to_submarine(estado, partida);
+}

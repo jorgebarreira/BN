@@ -2,6 +2,7 @@
 #define ___AUX_TABULEIRO_H___
 #include "estrutura_TAB_BN.h"
 #include "estrategias.h"
+#include "estrategias_auxiliares.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +25,8 @@ void preenche_meio(int ,int ,TAB_BN *,STACK *);
 void preenche_cantos(int ,int ,TAB_BN *,STACK *);
 void arruma_linha(TAB_BN *,int ,STACK *);
 void arruma_coluna(TAB_BN *, int ,STACK *);
-void coloca_o_na_linha (TAB_BN *estado, int linha, STACK *partida);
-void coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida);
+void coloca_o_na_linha (TAB_BN *, int , STACK *);
+void coloca_o_na_coluna (TAB_BN *, int , STACK *);
+void from_unknown_to_submarine(TAB_BN *, STACK *);
 
 

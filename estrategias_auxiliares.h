@@ -9,6 +9,7 @@
 #include "stel.h"
 #include "aux_tabuleiro.h"
 #include "Main.h"
+#include "aux_muda_tab.h"
 #include "aux_stack.h"
 #include "desf_f.h"
 #define TRUE 1
@@ -19,9 +20,7 @@
 
 #endif
 
+void estrategia_4(TAB_BN *, STACK *);
 
-int interpretar(TAB_BN *, char *, STACK *);
 
-void interpretador(TAB_BN *, STACK *);
 
-int main();
