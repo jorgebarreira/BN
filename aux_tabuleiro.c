@@ -41,10 +41,8 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='<'){
 			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
-			altera_estado(estado,i,j+1,'.',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='^'){
-			altera_estado(estado,i+1,j,'.',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 		}
@@ -60,30 +58,25 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='<'){
 			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
-			altera_estado(estado,i,j+1,'.',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
 			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='^'){
-			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
-			altera_estado(estado,i-1,j,'.',partida);
+			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='v'){
 			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
-			altera_estado(estado,i-1,j,'.',partida);
 		}
 		if(estado->tabuleiro[i][j]=='#'){
-			altera_estado(estado,i+1,j,'.',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
-			altera_estado(estado,i-1,j,'.',partida);
 		}
 	}
 	else if(i==(estado->n_linhas)-1 && j==0){
@@ -93,14 +86,12 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='<'){
-			altera_estado(estado,i,j+1,'.',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
 			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='v'){
 			altera_estado(estado,i,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
-			altera_estado(estado,i-1,j,'.',partida);
 		}
 	}
 	else if(i==(estado->n_linhas)-1 && (j!=0 && j!=(estado->n_colunas)-1)){
@@ -114,22 +105,18 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='<'){
 					altera_estado(estado,i-1,j-1,'~',partida);
 				altera_estado(estado,i,j-1,'~',partida);
-					altera_estado(estado,i,j+1,'.',partida);
 				altera_estado(estado,i-1,j+1,'~',partida);
 					altera_estado(estado,i-1,j,'~',partida);
 
 		}
 		else if(estado->tabuleiro[i][j]=='>'){
 					altera_estado(estado,i-1,j-1,'~',partida);
-				altera_estado(estado,i,j-1,'.',partida);
 					altera_estado(estado,i,j+1,'~',partida);
 				altera_estado(estado,i-1,j+1,'~',partida);
 					altera_estado(estado,i-1,j,'~',partida);
 		}
 		if(estado->tabuleiro[i][j]=='#'){
 					altera_estado(estado,i-1,j-1,'~',partida);
-				altera_estado(estado,i,j-1,'.',partida);
-					altera_estado(estado,i,j+1,'.',partida);
 				altera_estado(estado,i-1,j+1,'~',partida);
 					altera_estado(estado,i-1,j,'~',partida);
 		}
@@ -138,7 +125,6 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 					altera_estado(estado,i,j-1,'~',partida);
 				altera_estado(estado,i,j+1,'~',partida);
 					altera_estado(estado,i-1,j+1,'~',partida);
-				altera_estado(estado,i-1,j,'.',partida);
 		}
 	}
 	else if(i==(estado->n_linhas)-1 && j==(estado->n_colunas)-1){
@@ -149,16 +135,11 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		}
 		if(estado->tabuleiro[i][j]=='>'){
 				altera_estado(estado,i-1,j-1,'~',partida);
-				/*estado->tabuleiro[i-1][j-1]='~';*/
-					altera_estado(estado,i,j-1,'.',partida);
-				/*estado->tabuleiro[i][j-1]='.';*/
 				altera_estado(estado,i-1,j,'~',partida);
-				/*estado->tabuleiro[i-1][j]='~';*/
 		}
 		if(estado->tabuleiro[i][j]=='v'){
 				altera_estado(estado,i-1,j-1,'~',partida);
 			altera_estado(estado,i,j-1,'~',partida);
-				altera_estado(estado,i-1,j,'.',partida);
 
 		}
 	}
@@ -173,7 +154,6 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		}
 		else if(estado->tabuleiro[i][j]=='>'){
 				altera_estado(estado,i-1,j-1,'~',partida);
-			altera_estado(estado,i,j-1,'.',partida);
 				altera_estado(estado,i+1,j-1,'~',partida);
 			altera_estado(estado,i+1,j,'~',partida);
 				altera_estado(estado,i-1,j,'~',partida);
@@ -182,7 +162,6 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i-1,j-1,'~',partida);
 				altera_estado(estado,i,j-1,'~',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
-				altera_estado(estado,i+1,j,'.',partida);
 			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='v'){
@@ -190,14 +169,12 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i,j-1,'~',partida);
 				altera_estado(estado,i+1,j-1,'~',partida);
 			altera_estado(estado,i+1,j,'~',partida);
-				altera_estado(estado,i-1,j,'.',partida);
 		}
 		if(estado->tabuleiro[i][j]=='#'){
 			altera_estado(estado,i-1,j-1,'~',partida);
 				altera_estado(estado,i,j-1,'~',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
-				altera_estado(estado,i+1,j,'.',partida);
-			altera_estado(estado,i-1,j,'.',partida);
+
 		}
 	}
 	else if(i==0 && j==(estado->n_colunas)-1){
@@ -208,7 +185,6 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 
 		}
 		else if(estado->tabuleiro[i][j]=='>'){
-			altera_estado(estado,i,j-1,'.',partida);
 				altera_estado(estado,i+1,j-1,'~',partida);
 			altera_estado(estado,i+1,j,'~',partida);
 		}
@@ -231,10 +207,8 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i+1,j-1,'~',partida);
 				altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
-				altera_estado(estado,i,j+1,'.',partida);
 		}
 		if(estado->tabuleiro[i][j]=='>'){
-				altera_estado(estado,i,j-1,'.',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
 				altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
@@ -244,16 +218,13 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		if(estado->tabuleiro[i][j]=='^'){
 			altera_estado(estado,i,j-1,'~',partida);
 				altera_estado(estado,i+1,j-1,'~',partida);
-			altera_estado(estado,i+1,j,'.',partida);
 				altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 		}
 		if(estado->tabuleiro[i][j]=='#'){
-				altera_estado(estado,i,j-1,'.',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
 				altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
-				altera_estado(estado,i,j+1,'.',partida);
 		}
 	}
 }
@@ -261,72 +232,57 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 
 void preenche_meio(int i, int j, TAB_BN *estado, STACK *partida){
 	if(estado->tabuleiro[i][j]=='O'){
-altera_estado(estado,i-1,j-1,'~',partida);
+		altera_estado(estado,i-1,j-1,'~',partida);
 		altera_estado(estado,i,j-1,'~',partida);
-altera_estado(estado,i+1,j-1,'~',partida);
+		altera_estado(estado,i+1,j-1,'~',partida);
 		altera_estado(estado,i+1,j,'~',partida);
-altera_estado(estado,i+1,j+1,'~',partida);
+		altera_estado(estado,i+1,j+1,'~',partida);
 		altera_estado(estado,i,j+1,'~',partida);
-altera_estado(estado,i-1,j+1,'~',partida);
+		altera_estado(estado,i-1,j+1,'~',partida);
 		altera_estado(estado,i-1,j,'~',partida);
 	}
 	else if(estado->tabuleiro[i][j]=='<'){
-altera_estado(estado,i-1,j-1,'~',partida);
+		altera_estado(estado,i-1,j-1,'~',partida);
 		altera_estado(estado,i,j-1,'~',partida);
-altera_estado(estado,i+1,j-1,'~',partida);
+		altera_estado(estado,i+1,j-1,'~',partida);
 		altera_estado(estado,i+1,j,'~',partida);
-altera_estado(estado,i+1,j+1,'~',partida);
-		altera_estado(estado,i,j+1,'.',partida);
-altera_estado(estado,i-1,j+1,'~',partida);
+		altera_estado(estado,i+1,j+1,'~',partida);
+		altera_estado(estado,i-1,j+1,'~',partida);
 		altera_estado(estado,i-1,j,'~',partida);
 	}
 	else if(estado->tabuleiro[i][j]=='>'){
-altera_estado(estado,i-1,j-1,'~',partida);
-		altera_estado(estado,i,j-1,'.',partida);
-altera_estado(estado,i+1,j-1,'~',partida);
+		altera_estado(estado,i-1,j-1,'~',partida);
+		altera_estado(estado,i+1,j-1,'~',partida);
 		altera_estado(estado,i+1,j,'~',partida);
-altera_estado(estado,i+1,j+1,'~',partida);
+		altera_estado(estado,i+1,j+1,'~',partida);
 		altera_estado(estado,i,j+1,'~',partida);
-altera_estado(estado,i-1,j+1,'~',partida);
+		altera_estado(estado,i-1,j+1,'~',partida);
 		altera_estado(estado,i-1,j,'~',partida);
 	}
 	else if(estado->tabuleiro[i][j]=='#'){
-altera_estado(estado,i-1,j-1,'~',partida);
-altera_estado(estado,i,j-1,'.',partida);
-altera_estado(estado,i+1,j-1,'~',partida);
-altera_estado(estado,i+1,j,'.',partida);
-altera_estado(estado,i+1,j+1,'~',partida);
-altera_estado(estado,i,j+1,'.',partida);
-altera_estado(estado,i-1,j+1,'~',partida);
-altera_estado(estado,i-1,j,'.',partida);
+		altera_estado(estado,i-1,j-1,'~',partida);
+		altera_estado(estado,i+1,j-1,'~',partida);
+		altera_estado(estado,i+1,j+1,'~',partida);
+		altera_estado(estado,i-1,j+1,'~',partida);
 	}
 	else if(estado->tabuleiro[i][j]=='^'){
-altera_estado(estado,i-1,j-1,'~',partida);
-		
-altera_estado(estado,i,j-1,'~',partida);
-		
-altera_estado(estado,i+1,j-1,'~',partida);
-		
-altera_estado(estado,i+1,j,'.',partida);
-		
-altera_estado(estado,i+1,j+1,'~',partida);
-		
-altera_estado(estado,i,j+1,'~',partida);
-		
-altera_estado(estado,i-1,j+1,'~',partida);
-		
-altera_estado(estado,i-1,j,'~',partida);
-		
+		altera_estado(estado,i-1,j-1,'~',partida);	
+		altera_estado(estado,i,j-1,'~',partida);
+		altera_estado(estado,i+1,j-1,'~',partida);
+		altera_estado(estado,i+1,j+1,'~',partida);
+		altera_estado(estado,i,j+1,'~',partida);
+		altera_estado(estado,i-1,j+1,'~',partida);
+		altera_estado(estado,i-1,j,'~',partida);
+				
 	}
 	else if(estado->tabuleiro[i][j]=='v'){
-altera_estado(estado,i-1,j-1,'~',partida);		
-altera_estado(estado,i,j-1,'~',partida);		
-altera_estado(estado,i+1,j-1,'~',partida);		
-altera_estado(estado,i+1,j,'~',partida);		
-altera_estado(estado,i+1,j+1,'~',partida);		
-altera_estado(estado,i,j+1,'~',partida);		
-altera_estado(estado,i-1,j+1,'~',partida);
-altera_estado(estado,i-1,j,'.',partida);
+		altera_estado(estado,i-1,j-1,'~',partida);		
+		altera_estado(estado,i,j-1,'~',partida);		
+		altera_estado(estado,i+1,j-1,'~',partida);		
+		altera_estado(estado,i+1,j,'~',partida);		
+		altera_estado(estado,i+1,j+1,'~',partida);		
+		altera_estado(estado,i,j+1,'~',partida);		
+		altera_estado(estado,i-1,j+1,'~',partida);
 		
 	}
 }
@@ -412,7 +368,7 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 	int j;
 	int i;
 
-	/*substitui unknowns ('o') da primeira linha (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/ 
+	/*substitui unknowns ('o') da primeira coluna (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/ 
 	j=0;
 	for (i=1; i<((estado->n_colunas)-1); i++){
 		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+1][j] == '~') && (estado->tabuleiro[i][j+1] == '~') ){
@@ -420,7 +376,7 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 		}
 	}
 
-	/*substitui unknowns ('o') da última linha (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/
+	/*substitui unknowns ('o') da última coluna (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/
 	j=(estado->n_linhas)-1;
 
 	for (i=1; i<((estado->n_colunas)-1); i++){
@@ -429,7 +385,7 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 		}
 	}
 
-	/*substitui unknowns ('o') da primeira coluna (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/
+	/*substitui unknowns ('o') da primeira linha (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/
 	i=0;
 	for (j=1; j<((estado->n_linhas)-1); j++){
 		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+1] == '~') && (estado->tabuleiro[i+1][j] == '~') ){
@@ -437,7 +393,7 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 		}
 	}
 
-	/*substitui unknowns ('o') da primeira coluna (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~' */
+	/*substitui unknowns ('o') da ultima linha (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~' */
 	i=(estado->n_colunas)-1;
 
 	for (j=1; j<((estado->n_linhas)-1); j++){
@@ -465,6 +421,47 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 			if (estado->tabuleiro[i][j] == 'o' && estado->tabuleiro[i-1][j] == '~' && estado->tabuleiro[i+1][j]=='~' && estado->tabuleiro[i][j+1]=='~' && estado->tabuleiro[i][j-1]=='~'){
 				altera_estado(estado, i, j, 'O', partida);
 			}
+		}
+	}
+}
+
+void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
+	int j;
+	int i;
+
+	/*substitui unknowns ('o') da primeira linha (excepto cantos) do tabuleiro por cruisers, se à volta for tudo '~'*/ 
+	i=0;
+	for (j=1; j<((estado->n_colunas)-2); j++){
+		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i][j+1]=='o') && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~')){
+			altera_estado(estado, i, j, '<', partida);
+			altera_estado(estado, i, j+1, '>', partida);
+		}
+	}
+
+	/*substitui unknowns ('o') da ultima linha (excepto cantos) do tabuleiro por cruisers, se à volta for tudo '~'*/ 
+	i=estado->n_linhas-1;
+	for (j=1; j<((estado->n_colunas)-2); j++){
+		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i][j+1]=='o') && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~')){
+			altera_estado(estado, i, j, '<', partida);
+			altera_estado(estado, i, j+1, '>', partida);
+		}
+	}
+
+	/*substitui unknowns ('o') da primeira coluna (excepto cantos) do tabuleiro por cruisers, se à volta for tudo '~'*/ 
+	j=0;
+	for (i=1; i<((estado->n_linhas)-2); i++){
+		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i+1][j]=='o') && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+2][j] == '~')){
+			altera_estado(estado, i, j, '^', partida);
+			altera_estado(estado, i+1, j, 'v', partida);
+		}
+	}
+
+	/*substitui unknowns ('o') da ultima coluna (excepto cantos) do tabuleiro por cruisers, se à volta for tudo '~'*/ 
+	j=estado->n_colunas-1;
+	for (i=1; i<((estado->n_linhas)-2); i++){
+		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i+1][j]=='o') && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+2][j] == '~')){
+			altera_estado(estado, i, j, '^', partida);
+			altera_estado(estado, i+1, j, 'v', partida);
 		}
 	}
 }
