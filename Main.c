@@ -21,7 +21,6 @@
 #endif
 
 
-/*/////////////////////////////////////////////////////////*/
 /** 
 Interpreta um comando passado numa linha 
 
@@ -34,6 +33,7 @@ Interpreta um comando passado numa linha
 @return -1 caso o comando introduzido é invalido, podendo nao pertencer as instruçoes possiveis ou ter informaçao erradas.O valor de retorno tambem pode ser 0 caso o comando a ser executado é a saida do programa. O valor 1 sera retornado quando nao houver problemas na realizaçao da instrução.
 
 */
+
 int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
     char comando[MAX_LINHA];
     char arg1[MAX_LINHA];
@@ -72,15 +72,14 @@ int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
             if(partida->head!=NULL) free(partida->head);
             n = 0;  
           }
-    else if ( (comando[0]=='E') && nargs == 1){
+    else if ( comando[0]=='E' && nargs == 1){
 	partida->head->n_com++;
-        n=cmd_E(comando[1], estado,partida);
+        n=cmd_E( atoi(comando+1) , estado,partida);
 	
 	}
     else if (strcmp(comando,"D") == 0 && nargs==1)
                    n = cmd_D(estado,partida);
     else  n = -1;
-        
  
     /*else printf("Comando Invalido\n"); Erro comando nao existe*/
     return n;

@@ -21,7 +21,7 @@
 #endif
 
 
-int cmd_E(int arg1, TAB_BN *estado,STACK *partida);
+int cmd_E(int , TAB_BN *,STACK *);
 int cmd_p(char *,int ,int , TAB_BN *, STACK *);
 int cmd_h(TAB_BN *, int , STACK *);
 int cmd_v(TAB_BN *, int , STACK *);

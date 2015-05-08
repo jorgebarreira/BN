@@ -39,7 +39,7 @@ Função que invoca a estrategia apropriada.
 
 int cmd_E(int indice, TAB_BN *estado,STACK *partida){
     int n=1;
-switch(indice){
+switch (indice){
 case 1:
     estrategia_1(estado,partida);
     break;
@@ -54,11 +54,25 @@ case 4:
     break;
 default:
 	 n=-1;
+	 break;
 }
     return n;
 }
 
+/*if(indice==1)  
+	 estrategia_1(estado,partida);
+else if(indice==2)
+	estrategia_2(estado,partida);
+   
+else if(indice==3)
+        estrategia_3(estado,partida);
+    
+else if(indice==4)
+    	estrategia_4(estado,partida);
+else n=-1;
+	
 
+*/
 /**
 
 Função que testa o caracter dado pelo jogador. O inteiro de retorno é um boleano.
