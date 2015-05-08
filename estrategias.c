@@ -21,7 +21,13 @@
 #endif
 
 /**
-funcao para percorrer todo o tabuleiro e sempre que encontrar um segmento preencher agua a volta onde necessario.
+Função para percorrer todo o tabuleiro e sempre que encontrar um segmento preencher agua a volta onde necessario.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+
 */
 
 void estrategia_1(TAB_BN *estado,STACK *partida){
@@ -39,9 +45,12 @@ void estrategia_1(TAB_BN *estado,STACK *partida){
 }
 
 /**
-funcao para percorrer todo o tabuleiro e sempre que a linha/coluna já tiver todos os barcos colocar agua.
-@param
-@param
+Estrategia que percorre todo o tabuleiro e sempre que a linha/coluna já tiver todos os barcos colocar agua.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
 */
 
 void estrategia_2(TAB_BN *estado,STACK *partida){
@@ -55,7 +64,14 @@ void estrategia_2(TAB_BN *estado,STACK *partida){
 	if(partida->head->head_jogadas->indcom==partida->head->n_com) partida->head->n_com++;
 }
 
+/**
+Estrategia que percorre todo o tabuleiro e sempre que for possivel adiciona o segmento desconhecido('o') na posiçao.
 
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 void estrategia_3(TAB_BN *estado, STACK *partida){
 	int i;
 	for (i=0; i<(estado->n_linhas); i++){

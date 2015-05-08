@@ -26,6 +26,4 @@ funcao para percorrer todo o tabuleiro e sempre que encontrar um segmento preenc
 
 void estrategia_4(TAB_BN *estado,STACK *partida){
 	from_unknown_to_submarine(estado, partida);
-	from_unknown_to_cruiser(estado, partida);
-	
 }

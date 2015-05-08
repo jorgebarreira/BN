@@ -20,9 +20,15 @@
 
 #endif
 
+/**
+Adiciona um novo jogo a stack e põe o endereço deste como sendo a nova cabeça da stack. Este novo jogo terá o endereço do tabuleiro anterior.
 
-/* Cria uma caixa jogo e poe-a como sendo a nova cabeça da stack */
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
 
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+@return retorna 1 caso tudo correr. Só devolvará -1 se não houver memoria suficiente para a criaçao do novo jogo.
+*/
 int newJOGO(TAB_BN *estado,STACK *partida){
       int n=1;
       JOGO *nova = malloc( sizeof(struct JOGO) );
@@ -46,7 +52,15 @@ int newJOGO(TAB_BN *estado,STACK *partida){
 	return n;
 }
 
-/* Cria uma caixa de jogadas e poe-ha como sendo a nova cabeça de jogada*/
+/**
+Cria uma nova jogada tendo na posição "proxima" o endereço da ultima modificação guardada. Esta nova jogada passa ser a cabeça da nossa
+stack de jogadas.
+
+@param head: endereço da struct JOGO , onde estamos e onde vai ser criada a nova jogada.
+
+@return 1 caso há memoria suficiente para a criaçao da nova jogada; -1 caso isso nao acontecer.
+
+*/
 int newJOGADA(JOGO *head){
     JOGADAS *s; int n =1;
     JOGADAS *tmp = head->head_jogadas;
@@ -61,8 +75,17 @@ int newJOGADA(JOGO *head){
 }
 
 /*if ( ()== NULL ) return tmp;else { }*/
+/**
+Chama a funçao 'newJOGO' para a criação de uma struct, e faz a inicialização dessa, guardando o novo tabuleiro introduzido. 
 
-/* cria uma "caixa" e initializa-a */
+@param estado:Contém toda a informaçao relativo ao tabuleiro usado.
+
+
+@param partida:Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+@return 1 se não há problemas; -1 caso a função 'newJOGO' devolver '-1' signalizando um problema na sua execução.
+
+*/
 int initJOGO(TAB_BN *estado,STACK *partida){
       int n=1;
       if ( (newJOGO(estado,partida)) == -1 ) n=-1;
@@ -77,8 +100,16 @@ int initJOGO(TAB_BN *estado,STACK *partida){
 }
 
 
-/* Funçao que ira retirar um elemento a stack, caso nao haja elementos nessa e existem tabuleiros anteriores tera que carregá-los */
 
+/**
+Função que ira retirar um elemento a stack, caso nao haja elementos nessa e existem tabuleiros anteriores fara o carregamento desses. 
+
+@param estado:Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida:Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+
+*/
 int popStack(TAB_BN *estado,STACK *partida){
     int i = 1; JOGO *tmp = partida->head;
      if(partida->head == NULL) i=-1;
@@ -102,16 +133,43 @@ int popStack(TAB_BN *estado,STACK *partida){
 }
 
 
-/* Altera o estado do tabuleiro e guarda o character anterior */
 
+
+/**
+
+Altera o estado do tabuleiro e guarda o character anterior.
+
+@param estado:Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida:Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+@param linha: Indice no array correspondente a linha onde introduzir o caracter.
+
+@param coluna: Indice no array correspondente a coluna onde introduzir o caracter.
+
+@param symbol: Caracter que sera introduzido no tabuleiro na posiçao linha, coluna, caso o caracter nesta posiçao for differente de symbol.
+
+
+*/
 void altera_estado(TAB_BN *estado,int linha, int coluna, char symbol, STACK *partida){
+if(estado->tabuleiro[linha][coluna]!= symbol){
 	push(linha,coluna, estado, partida);
 	estado->tabuleiro[linha][coluna]= symbol;
-
+}
 }
 
 
-/* Introduz as modificaçoes aportadas ao tabuleiro antes de essas serem feitas */
+/*
+Guarda o caracter do tabuleiro na posiçao [linha][coluna] antes de esse  ser modificado.
+
+@param estado:Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida:Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+@param linha: Indice no array correspondente a linha onde se situa o caracter a guardar.
+
+@param coluna: Indice no array correspondente a coluna onde se situa o caracter a guardar.
+*/
 int push(int linha, int coluna, TAB_BN *estado, STACK *partida){
 	int n=1;	
 	 if( newJOGADA(partida->head) == -1) n =-1; 

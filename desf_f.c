@@ -21,8 +21,15 @@
 #endif
 
 
-/* Funçao que ira desfazer o ultimo comando executado */
+/**
 
+Funçao que irá desfazer o ultimo comando executado. 
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 int cmd_D(TAB_BN *estado,STACK *partida){
       int n=1;
       if(partida->head==NULL && partida->tamanho==1) n=-1;
@@ -32,8 +39,15 @@ int cmd_D(TAB_BN *estado,STACK *partida){
 
 
 
-/*
-desfaz um comando / jogada até ao anterior ;
+/**
+
+Desfaz um comando até ao anterior.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+
 */
 
 void desfCmd(TAB_BN *estado,STACK *partida){
@@ -54,7 +68,10 @@ void desfCmd(TAB_BN *estado,STACK *partida){
 }
 
 
-/*aplica os cmd das jogadas ao tabuleiro que foi carregado. Esta funçao tera que saber se tem ou nao de aplicar as modificaçoes
+/**
+Aplica os cmd das jogadas ao tabuleiro que foi carregado. Esta função aplica-se ao tabuleiro guardado na stack, nao modificando em nada o tabuleiro onde estou a jogar.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 */
 
 void aplicaCmd( STACK *partida){
