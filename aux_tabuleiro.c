@@ -621,16 +621,26 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 	}
 
 	/*substitui unknowns ('o o') do tabuleiro por cruisers, se à volta for tudo '~'*/
+	for (i=1; i<estado->n_colunas-1; i++){
+		for (j=1; j<estado->n_linhas-2; j++){
+			if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i][j+1]=='o' && estado->tabuleiro[i][j-1]=='~' && estado->tabuleiro[i][j+2]=='~'){
+				altera_estado(estado, i, j, '<', partida);
+				altera_estado(estado, i, j+1, '>', partida);
 
+			}
+		}
+	}
 
+	for (i=1; i<estado->n_linhas-2; i++){
+		for (j=1; j<estado->n_colunas-1; j++){
+			if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i+1][j]=='o' && estado->tabuleiro[i-1][j]=='~' && estado->tabuleiro[i+2][j]=='~'){
+				altera_estado(estado, i, j, '^', partida);
+				altera_estado(estado, i+1, j, 'v', partida);
 
-
-
+			}
+		}
+	}
 }
-
-
-
-
 
 
 
