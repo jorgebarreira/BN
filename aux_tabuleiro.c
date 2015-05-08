@@ -20,6 +20,13 @@
 
 #endif
 
+/**
+Funçao que verifica se o caracter é um segmento de barco ou submarino.
+
+@param a: Character que vai ser testado.
+
+@return : Devolve TRUE (1) caso o caracter corresponde a um submarino ou segmento de barco, FALSE (0) caso contrario.
+*/
 int is_segmento(char a){
 	if (a=='O' || a=='<' || a=='>' || a=='#' || a=='^' || a=='v')
 		return TRUE;
@@ -27,8 +34,17 @@ int is_segmento(char a){
 		return FALSE;
 }
 
-/*
-Funções usadas na Estrategia 1
+/**
+Função que preenche os cantos do tabuleiro em função do caracter presente.
+
+@param i: Indice da linha que se quer preencher.
+
+@param j:Indice da coluna que se quer preencher.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
 */
 
 void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
@@ -41,13 +57,15 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='<'){
 			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
+			altera_estado(estado,i,j+1,'.',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='^'){
+			altera_estado(estado,i+1,j,'.',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 		}
 	}
-	else if((i!=0 && i!=(estado->n_linhas)-1) && j==0){
+	else if((i!=0 && i<=(estado->n_linhas)-1) && j==0){
 		if(estado->tabuleiro[i][j]=='O'){
 			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
@@ -58,25 +76,30 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='<'){
 			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
+			altera_estado(estado,i,j+1,'.',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
 			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='^'){
+			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
-			altera_estado(estado,i-1,j,'~',partida);
+			altera_estado(estado,i-1,j,'.',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='v'){
 			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
+			altera_estado(estado,i-1,j,'.',partida);
 		}
 		if(estado->tabuleiro[i][j]=='#'){
+			altera_estado(estado,i+1,j,'.',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
+			altera_estado(estado,i-1,j,'.',partida);
 		}
 	}
 	else if(i==(estado->n_linhas)-1 && j==0){
@@ -86,12 +109,14 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='<'){
+			altera_estado(estado,i,j+1,'.',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
 			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='v'){
 			altera_estado(estado,i,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
+			altera_estado(estado,i-1,j,'.',partida);
 		}
 	}
 	else if(i==(estado->n_linhas)-1 && (j!=0 && j!=(estado->n_colunas)-1)){
@@ -105,18 +130,22 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='<'){
 					altera_estado(estado,i-1,j-1,'~',partida);
 				altera_estado(estado,i,j-1,'~',partida);
+					altera_estado(estado,i,j+1,'.',partida);
 				altera_estado(estado,i-1,j+1,'~',partida);
 					altera_estado(estado,i-1,j,'~',partida);
 
 		}
 		else if(estado->tabuleiro[i][j]=='>'){
 					altera_estado(estado,i-1,j-1,'~',partida);
+				altera_estado(estado,i,j-1,'.',partida);
 					altera_estado(estado,i,j+1,'~',partida);
 				altera_estado(estado,i-1,j+1,'~',partida);
 					altera_estado(estado,i-1,j,'~',partida);
 		}
 		if(estado->tabuleiro[i][j]=='#'){
 					altera_estado(estado,i-1,j-1,'~',partida);
+				altera_estado(estado,i,j-1,'.',partida);
+					altera_estado(estado,i,j+1,'.',partida);
 				altera_estado(estado,i-1,j+1,'~',partida);
 					altera_estado(estado,i-1,j,'~',partida);
 		}
@@ -125,6 +154,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 					altera_estado(estado,i,j-1,'~',partida);
 				altera_estado(estado,i,j+1,'~',partida);
 					altera_estado(estado,i-1,j+1,'~',partida);
+				altera_estado(estado,i-1,j,'.',partida);
 		}
 	}
 	else if(i==(estado->n_linhas)-1 && j==(estado->n_colunas)-1){
@@ -135,11 +165,16 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		}
 		if(estado->tabuleiro[i][j]=='>'){
 				altera_estado(estado,i-1,j-1,'~',partida);
+				
+					altera_estado(estado,i,j-1,'.',partida);
+				
 				altera_estado(estado,i-1,j,'~',partida);
+				
 		}
 		if(estado->tabuleiro[i][j]=='v'){
 				altera_estado(estado,i-1,j-1,'~',partida);
 			altera_estado(estado,i,j-1,'~',partida);
+				altera_estado(estado,i-1,j,'.',partida);
 
 		}
 	}
@@ -154,6 +189,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		}
 		else if(estado->tabuleiro[i][j]=='>'){
 				altera_estado(estado,i-1,j-1,'~',partida);
+			altera_estado(estado,i,j-1,'.',partida);
 				altera_estado(estado,i+1,j-1,'~',partida);
 			altera_estado(estado,i+1,j,'~',partida);
 				altera_estado(estado,i-1,j,'~',partida);
@@ -162,6 +198,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i-1,j-1,'~',partida);
 				altera_estado(estado,i,j-1,'~',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
+				altera_estado(estado,i+1,j,'.',partida);
 			altera_estado(estado,i-1,j,'~',partida);
 		}
 		else if(estado->tabuleiro[i][j]=='v'){
@@ -169,12 +206,14 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i,j-1,'~',partida);
 				altera_estado(estado,i+1,j-1,'~',partida);
 			altera_estado(estado,i+1,j,'~',partida);
+				altera_estado(estado,i-1,j,'.',partida);
 		}
 		if(estado->tabuleiro[i][j]=='#'){
 			altera_estado(estado,i-1,j-1,'~',partida);
 				altera_estado(estado,i,j-1,'~',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
-
+				altera_estado(estado,i+1,j,'.',partida);
+			altera_estado(estado,i-1,j,'.',partida);
 		}
 	}
 	else if(i==0 && j==(estado->n_colunas)-1){
@@ -185,6 +224,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 
 		}
 		else if(estado->tabuleiro[i][j]=='>'){
+			altera_estado(estado,i,j-1,'.',partida);
 				altera_estado(estado,i+1,j-1,'~',partida);
 			altera_estado(estado,i+1,j,'~',partida);
 		}
@@ -207,8 +247,10 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i+1,j-1,'~',partida);
 				altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
+				altera_estado(estado,i,j+1,'.',partida);
 		}
 		if(estado->tabuleiro[i][j]=='>'){
+				altera_estado(estado,i,j-1,'.',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
 				altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
@@ -218,71 +260,93 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		if(estado->tabuleiro[i][j]=='^'){
 			altera_estado(estado,i,j-1,'~',partida);
 				altera_estado(estado,i+1,j-1,'~',partida);
+			altera_estado(estado,i+1,j,'.',partida);
 				altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 		}
 		if(estado->tabuleiro[i][j]=='#'){
+				altera_estado(estado,i,j-1,'.',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
 				altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
+				altera_estado(estado,i,j+1,'.',partida);
 		}
 	}
 }
 
+/**
+Função que preenche lugares dentro do tabuleiro em função do caracter presente.
 
+@param i: Indice da linha que se quer preencher.
+
+@param j:Indice da coluna que se quer preencher.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 void preenche_meio(int i, int j, TAB_BN *estado, STACK *partida){
 	if(estado->tabuleiro[i][j]=='O'){
-		altera_estado(estado,i-1,j-1,'~',partida);
+	altera_estado(estado,i-1,j-1,'~',partida);
 		altera_estado(estado,i,j-1,'~',partida);
-		altera_estado(estado,i+1,j-1,'~',partida);
+	altera_estado(estado,i+1,j-1,'~',partida);
 		altera_estado(estado,i+1,j,'~',partida);
-		altera_estado(estado,i+1,j+1,'~',partida);
+	altera_estado(estado,i+1,j+1,'~',partida);
 		altera_estado(estado,i,j+1,'~',partida);
-		altera_estado(estado,i-1,j+1,'~',partida);
+	altera_estado(estado,i-1,j+1,'~',partida);
 		altera_estado(estado,i-1,j,'~',partida);
 	}
 	else if(estado->tabuleiro[i][j]=='<'){
-		altera_estado(estado,i-1,j-1,'~',partida);
+	altera_estado(estado,i-1,j-1,'~',partida);
 		altera_estado(estado,i,j-1,'~',partida);
-		altera_estado(estado,i+1,j-1,'~',partida);
+	altera_estado(estado,i+1,j-1,'~',partida);
 		altera_estado(estado,i+1,j,'~',partida);
-		altera_estado(estado,i+1,j+1,'~',partida);
-		altera_estado(estado,i-1,j+1,'~',partida);
+	altera_estado(estado,i+1,j+1,'~',partida);
+		altera_estado(estado,i,j+1,'.',partida);
+	altera_estado(estado,i-1,j+1,'~',partida);
 		altera_estado(estado,i-1,j,'~',partida);
 	}
 	else if(estado->tabuleiro[i][j]=='>'){
-		altera_estado(estado,i-1,j-1,'~',partida);
-		altera_estado(estado,i+1,j-1,'~',partida);
+	altera_estado(estado,i-1,j-1,'~',partida);
+		altera_estado(estado,i,j-1,'.',partida);
+	altera_estado(estado,i+1,j-1,'~',partida);
 		altera_estado(estado,i+1,j,'~',partida);
-		altera_estado(estado,i+1,j+1,'~',partida);
+	altera_estado(estado,i+1,j+1,'~',partida);
 		altera_estado(estado,i,j+1,'~',partida);
-		altera_estado(estado,i-1,j+1,'~',partida);
+	altera_estado(estado,i-1,j+1,'~',partida);
 		altera_estado(estado,i-1,j,'~',partida);
 	}
 	else if(estado->tabuleiro[i][j]=='#'){
-		altera_estado(estado,i-1,j-1,'~',partida);
-		altera_estado(estado,i+1,j-1,'~',partida);
-		altera_estado(estado,i+1,j+1,'~',partida);
-		altera_estado(estado,i-1,j+1,'~',partida);
+	altera_estado(estado,i-1,j-1,'~',partida);
+		altera_estado(estado,i,j-1,'.',partida);
+	altera_estado(estado,i+1,j-1,'~',partida);
+		altera_estado(estado,i+1,j,'.',partida);
+	altera_estado(estado,i+1,j+1,'~',partida);
+		altera_estado(estado,i,j+1,'.',partida);
+	altera_estado(estado,i-1,j+1,'~',partida);
+		altera_estado(estado,i-1,j,'.',partida);
 	}
 	else if(estado->tabuleiro[i][j]=='^'){
-		altera_estado(estado,i-1,j-1,'~',partida);	
-		altera_estado(estado,i,j-1,'~',partida);
-		altera_estado(estado,i+1,j-1,'~',partida);
-		altera_estado(estado,i+1,j+1,'~',partida);
-		altera_estado(estado,i,j+1,'~',partida);
-		altera_estado(estado,i-1,j+1,'~',partida);
-		altera_estado(estado,i-1,j,'~',partida);
-				
+		altera_estado(estado,i-1,j-1,'~',partida);		
+	altera_estado(estado,i,j-1,'~',partida);		
+		altera_estado(estado,i+1,j-1,'~',partida);		
+	altera_estado(estado,i+1,j,'.',partida);		
+		altera_estado(estado,i+1,j+1,'~',partida);		
+	altera_estado(estado,i,j+1,'~',partida);		
+		altera_estado(estado,i-1,j+1,'~',partida);		
+	altera_estado(estado,i-1,j,'~',partida);
+		
 	}
 	else if(estado->tabuleiro[i][j]=='v'){
-		altera_estado(estado,i-1,j-1,'~',partida);		
+	altera_estado(estado,i-1,j-1,'~',partida);		
 		altera_estado(estado,i,j-1,'~',partida);		
-		altera_estado(estado,i+1,j-1,'~',partida);		
+	altera_estado(estado,i+1,j-1,'~',partida);		
 		altera_estado(estado,i+1,j,'~',partida);		
-		altera_estado(estado,i+1,j+1,'~',partida);		
+	altera_estado(estado,i+1,j+1,'~',partida);		
 		altera_estado(estado,i,j+1,'~',partida);		
-		altera_estado(estado,i-1,j+1,'~',partida);
+	altera_estado(estado,i-1,j+1,'~',partida);
+		altera_estado(estado,i-1,j,'.',partida);
 		
 	}
 }
@@ -291,7 +355,16 @@ void preenche_meio(int i, int j, TAB_BN *estado, STACK *partida){
 /*
 Funções usadas na Estrategia 2
 */
+/**
+Função que caso a linha seja completa,isto é, ja estao todos os segmentos metidos na linha, preencha os lugares desconhecidas ('.') por agua ('~').
 
+@param linha: Indice da linha que se quer testar.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 void arruma_linha(TAB_BN *estado, int linha, STACK *partida){
 	int j;
 	int count_boats=0;
@@ -310,7 +383,16 @@ void arruma_linha(TAB_BN *estado, int linha, STACK *partida){
 	}
 }
 
+/**
+Função que caso a coluna seja completa, isto é, ja estao todos os segmentos metidos na coluna, preencha os lugares desconhecidos ('.') por agua ('~').
 
+@param coluna: Indice da coluna que se quer testar.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 void arruma_coluna(TAB_BN *estado, int coluna, STACK *partida){
 	int i;
 	int count_boats=0;
@@ -330,6 +412,16 @@ void arruma_coluna(TAB_BN *estado, int coluna, STACK *partida){
 	}
 }
 
+/**
+Função que verifica o conteudo de uma linha e caso seja possivel mete o caracter 'o' nos lugares desconhecidos ('.').
+
+@param linha: Indice da linha que se quer testar.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 void coloca_o_na_linha (TAB_BN *estado, int linha, STACK *partida){
 	int j;
 	int count = 0;
@@ -346,6 +438,16 @@ void coloca_o_na_linha (TAB_BN *estado, int linha, STACK *partida){
 		}
 	}
 }
+/**
+Função que verifica o conteudo de uma coluna e caso seja possivel mete o caracter 'o' nos lugares desconhecidos ('.').
+
+@param coluna: Indice da coluna que se quer testar.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 
 void coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida){
 	int i;
@@ -363,12 +465,22 @@ void coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida){
 		}
 	}
 }
+/**
+Função que testa no interior do tabuleiro (exclui-se os cantos por serem casos especiais) se for possivel substituir segmentos desconhecidos de barcos por submarinos.
+
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
+
 
 void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 	int j;
 	int i;
 
-	/*substitui unknowns ('o') da primeira coluna (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/ 
+	/* substitui unknowns ('o') da primeira linha (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~' */
 	j=0;
 	for (i=1; i<((estado->n_colunas)-1); i++){
 		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+1][j] == '~') && (estado->tabuleiro[i][j+1] == '~') ){
@@ -376,7 +488,7 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 		}
 	}
 
-	/*substitui unknowns ('o') da última coluna (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/
+	/* substitui unknowns ('o') da última linha (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~' */
 	j=(estado->n_linhas)-1;
 
 	for (i=1; i<((estado->n_colunas)-1); i++){
@@ -385,7 +497,7 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 		}
 	}
 
-	/*substitui unknowns ('o') da primeira linha (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~'*/
+	/* substitui unknowns ('o') da primeira coluna (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~' */
 	i=0;
 	for (j=1; j<((estado->n_linhas)-1); j++){
 		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+1] == '~') && (estado->tabuleiro[i+1][j] == '~') ){
@@ -393,7 +505,7 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 		}
 	}
 
-	/*substitui unknowns ('o') da ultima linha (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~' */
+	/* substitui unknowns ('o') da primeira coluna (excepto cantos) do tabuleiro por submarinos, se à volta for tudo '~' */
 	i=(estado->n_colunas)-1;
 
 	for (j=1; j<((estado->n_linhas)-1); j++){
@@ -402,7 +514,9 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 		}
 	}
 
-	/*substitui unknowns ('o') dos cantos por submarinos, se à volta for tudo '~'*/
+	/* substitui unknowns ('o') dos cantos por submarinos, se à volta for tudo '~'*/
+	i=0;
+	j=0;
 	if (estado->tabuleiro[0][0]=='o' && estado->tabuleiro[0][1]=='~' && estado->tabuleiro[1][0]=='~')
 		altera_estado(estado, 0, 0, 'O', partida);
 
@@ -507,6 +621,8 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 	}
 
 	/*substitui unknowns ('o o') do tabuleiro por cruisers, se à volta for tudo '~'*/
+
+
 
 
 

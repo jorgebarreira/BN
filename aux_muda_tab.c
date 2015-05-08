@@ -24,17 +24,37 @@
 
 /*////////////////// ESTRATEGIAS //////////////////////////*/
 
-int cmd_E(int arg1, TAB_BN *estado,STACK *partida){
+/**
+
+Função que invoca a estrategia apropriada.
+
+@param indice: Inteiro correspondente ao numero da estrategia que se quer aplicar.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro.
+
+@return retorna 1 caso tudo correr bem.Só devolvará 0 se o caracter dado nao pertencer a lista definida.
+*/
+
+int cmd_E(int indice, TAB_BN *estado,STACK *partida){
     int n=1;
-    if(arg1 ==1)
+switch(indice){
+case 1:
     estrategia_1(estado,partida);
-else if (arg1==2)
+    break;
+case 2:
     estrategia_2(estado,partida);
-else if (arg1==3)
+    break;
+case 3:
     estrategia_3(estado,partida);
-else if (arg1==4)
+    break;
+case 4:
     estrategia_4(estado,partida);
-else n=-1;
+    break;
+default:
+	 n=-1;
+}
     return n;
 }
 
@@ -66,6 +86,8 @@ Este caracter está contido no array comando indice 1.
 @param arg2 : corresponde à coluna onde o jogador quer mudar o caracter.
 
 @param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro.
 
 @return retorna 1 caso tudo correr. Só devolvará -1 se a linha dada for maior do que a do número de linha definido.
 */
@@ -111,6 +133,8 @@ Função para transformar os elementos não determinados de uma coluna em água.
 @param estado : Contém toda a informação relativa ao tabuleiro usado.
 
 @param num_coluna : corresponde ao número da coluna que o jogador quer modificar.
+
+@param partida : endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro.
 
 @return retorna 1 caso tudo correr.Só devolvará -1 se a linha dada é maior do que a do numero de colunas definido.
 */
