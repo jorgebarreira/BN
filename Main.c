@@ -77,6 +77,8 @@ int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
         n=cmd_E( atoi(comando+1) , estado,partida);
 	
 	}
+  else if((strcmp(comando , "V") == 0) && nargs == 1)
+        n=cmd_V(estado);
     else if (strcmp(comando,"D") == 0 && nargs==1)
                    n = cmd_D(estado,partida);
     else  n = -1;

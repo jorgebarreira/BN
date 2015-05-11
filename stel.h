@@ -22,6 +22,7 @@
 int cmd_l(TAB_BN *,char *,STACK *);
 int cmd_c(TAB_BN *, STACK *);
 int cmd_m(TAB_BN *);
+int cmd_V(TAB_BN *estado);
 void imprimeTab(TAB_BN *,FILE *);
 int cmd_e(TAB_BN *, char *) ;
 int ler_ficheiro(FILE *,TAB_BN *);

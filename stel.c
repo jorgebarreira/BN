@@ -189,3 +189,24 @@ int cmd_l(TAB_BN *estado,char ficheiro[], STACK *partida){
     if (fp!=NULL) fclose(fp); /* é preciso fechar o ficheiro !! */
     return r;
 }
+
+int cmd_V(TAB_BN *estado){
+  int i,j;
+  int res,res2,res3;
+  res=verifica_info(estado);
+  for(i=0;i<estado->n_linhas;i++){
+    for(j=0;j<estado->n_colunas;j++){
+      if(is_segmento(estado->tabuleiro[i][j])){
+        if(i==0 || j==0 || i==(estado->n_linhas)-1 || j==(estado->n_colunas)-1)
+          res2=verifica_cantos(i,j,estado);
+        else
+          res3=verifica_meio(i,j,estado);
+      }
+    }
+  }
+  if(res && res2 && res3)
+    printf("Tabuleiro válido\n");
+  else
+    printf("Tabuleiro invalido\n");
+  return 1;
+}
