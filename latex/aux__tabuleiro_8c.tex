@@ -1,0 +1,281 @@
+\hypertarget{aux__tabuleiro_8c}{\section{aux\-\_\-tabuleiro.\-c File Reference}
+\label{aux__tabuleiro_8c}\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}}
+}
+{\ttfamily \#include \char`\"{}estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estrategias.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estrategias\-\_\-auxiliares.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}stel.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-tabuleiro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Main.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{aux__tabuleiro_8c_a7c15c1a8a59ab5207f36fdc903698f79}{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}
+\item 
+\#define \hyperlink{aux__tabuleiro_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
+\item 
+\#define \hyperlink{aux__tabuleiro_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
+\item 
+\#define \hyperlink{aux__tabuleiro_8c_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~100
+\item 
+\#define \hyperlink{aux__tabuleiro_8c_a9e310b9f673a2ac6b8090780f3027fbf}{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}~1024
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{aux__tabuleiro_8c_ae81956abae3ea132cc6284b030b9316c}{is\-\_\-segmento} (char a)
+\item 
+void \hyperlink{aux__tabuleiro_8c_aa7e22f78872a4c490b3999c9b752ecb5}{preenche\-\_\-cantos} (int i, int j, \hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+\item 
+void \hyperlink{aux__tabuleiro_8c_a92fec3d6afb30069f11893107d3a097a}{preenche\-\_\-meio} (int i, int j, \hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+\item 
+void \hyperlink{aux__tabuleiro_8c_aad6c6bde37008d40eba831a81360904e}{arruma\-\_\-linha} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, int linha, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+\item 
+void \hyperlink{aux__tabuleiro_8c_a8cc4777c85f1050da045e7c239deabea}{arruma\-\_\-coluna} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, int coluna, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+\item 
+void \hyperlink{aux__tabuleiro_8c_a1b0b9e25bfadc76c1e47e6bc77800ecf}{coloca\-\_\-o\-\_\-na\-\_\-linha} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, int linha, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+\item 
+void \hyperlink{aux__tabuleiro_8c_af498399080b2b8ebaa8a124ebd8b0600}{coloca\-\_\-o\-\_\-na\-\_\-coluna} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, int coluna, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+\item 
+void \hyperlink{aux__tabuleiro_8c_a7c8c2b26dc93db9ab5274d6090c1c247}{from\-\_\-unknown\-\_\-to\-\_\-submarine} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+\item 
+void \hyperlink{aux__tabuleiro_8c_a58633fd834dff1881289be06035ddb0d}{from\-\_\-unknown\-\_\-to\-\_\-destroyer} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+\item 
+int \hyperlink{aux__tabuleiro_8c_a5216a70d9fae4bd405e05c34e1b0ca10}{verifica\-\_\-info} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado)
+\item 
+int \hyperlink{aux__tabuleiro_8c_a7f1e2b8bf6874397b20f6c0fe2af4f6e}{verifica\-\_\-char} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, int i, int j, char a)
+\item 
+int \hyperlink{aux__tabuleiro_8c_a4e922213d93899fc2b40401cbf82b781}{verifica\-\_\-cantos} (int i, int j, \hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado)
+\item 
+int \hyperlink{aux__tabuleiro_8c_a54ac0c26c91722b0f9df18abf3f259f2}{verifica\-\_\-meio} (int i, int j, \hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{aux__tabuleiro_8c_a7c15c1a8a59ab5207f36fdc903698f79}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}\label{aux__tabuleiro_8c_a7c15c1a8a59ab5207f36fdc903698f79}
+\hypertarget{aux__tabuleiro_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{aux__tabuleiro_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{aux__tabuleiro_8c_a9e310b9f673a2ac6b8090780f3027fbf}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
+\index{M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-H\-A~1024}}\label{aux__tabuleiro_8c_a9e310b9f673a2ac6b8090780f3027fbf}
+\hypertarget{aux__tabuleiro_8c_a0592dba56693fad79136250c11e5a7fe}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+\index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~100}}\label{aux__tabuleiro_8c_a0592dba56693fad79136250c11e5a7fe}
+\hypertarget{aux__tabuleiro_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{aux__tabuleiro_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{aux__tabuleiro_8c_a8cc4777c85f1050da045e7c239deabea}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!arruma\-\_\-coluna@{arruma\-\_\-coluna}}
+\index{arruma\-\_\-coluna@{arruma\-\_\-coluna}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{arruma\-\_\-coluna}]{\setlength{\rightskip}{0pt plus 5cm}void arruma\-\_\-coluna (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{int}]{coluna, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a8cc4777c85f1050da045e7c239deabea}
+Função que caso a coluna seja completa, isto é, ja estao todos os segmentos metidos na coluna, preencha os lugares desconhecidos ('.') por agua ('$\sim$').
+
+
+\begin{DoxyParams}{Parameters}
+{\em coluna} & Indice da coluna que se quer testar.\\
+\hline
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__tabuleiro_8c_aad6c6bde37008d40eba831a81360904e}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!arruma\-\_\-linha@{arruma\-\_\-linha}}
+\index{arruma\-\_\-linha@{arruma\-\_\-linha}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{arruma\-\_\-linha}]{\setlength{\rightskip}{0pt plus 5cm}void arruma\-\_\-linha (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{int}]{linha, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_aad6c6bde37008d40eba831a81360904e}
+Função que caso a linha seja completa,isto é, ja estao todos os segmentos metidos na linha, preencha os lugares desconhecidas ('.') por agua ('$\sim$').
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Indice da linha que se quer testar.\\
+\hline
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__tabuleiro_8c_af498399080b2b8ebaa8a124ebd8b0600}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!coloca\-\_\-o\-\_\-na\-\_\-coluna@{coloca\-\_\-o\-\_\-na\-\_\-coluna}}
+\index{coloca\-\_\-o\-\_\-na\-\_\-coluna@{coloca\-\_\-o\-\_\-na\-\_\-coluna}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{coloca\-\_\-o\-\_\-na\-\_\-coluna}]{\setlength{\rightskip}{0pt plus 5cm}void coloca\-\_\-o\-\_\-na\-\_\-coluna (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{int}]{coluna, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_af498399080b2b8ebaa8a124ebd8b0600}
+Função que verifica o conteudo de uma coluna e caso seja possivel mete o caracter 'o' nos lugares desconhecidos ('.').
+
+
+\begin{DoxyParams}{Parameters}
+{\em coluna} & Indice da coluna que se quer testar.\\
+\hline
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__tabuleiro_8c_a1b0b9e25bfadc76c1e47e6bc77800ecf}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!coloca\-\_\-o\-\_\-na\-\_\-linha@{coloca\-\_\-o\-\_\-na\-\_\-linha}}
+\index{coloca\-\_\-o\-\_\-na\-\_\-linha@{coloca\-\_\-o\-\_\-na\-\_\-linha}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{coloca\-\_\-o\-\_\-na\-\_\-linha}]{\setlength{\rightskip}{0pt plus 5cm}void coloca\-\_\-o\-\_\-na\-\_\-linha (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{int}]{linha, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a1b0b9e25bfadc76c1e47e6bc77800ecf}
+Função que verifica o conteudo de uma linha e caso seja possivel mete o caracter 'o' nos lugares desconhecidos ('.').
+
+
+\begin{DoxyParams}{Parameters}
+{\em linha} & Indice da linha que se quer testar.\\
+\hline
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__tabuleiro_8c_a58633fd834dff1881289be06035ddb0d}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!from\-\_\-unknown\-\_\-to\-\_\-destroyer@{from\-\_\-unknown\-\_\-to\-\_\-destroyer}}
+\index{from\-\_\-unknown\-\_\-to\-\_\-destroyer@{from\-\_\-unknown\-\_\-to\-\_\-destroyer}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{from\-\_\-unknown\-\_\-to\-\_\-destroyer}]{\setlength{\rightskip}{0pt plus 5cm}void from\-\_\-unknown\-\_\-to\-\_\-destroyer (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a58633fd834dff1881289be06035ddb0d}
+\hypertarget{aux__tabuleiro_8c_a7c8c2b26dc93db9ab5274d6090c1c247}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!from\-\_\-unknown\-\_\-to\-\_\-submarine@{from\-\_\-unknown\-\_\-to\-\_\-submarine}}
+\index{from\-\_\-unknown\-\_\-to\-\_\-submarine@{from\-\_\-unknown\-\_\-to\-\_\-submarine}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{from\-\_\-unknown\-\_\-to\-\_\-submarine}]{\setlength{\rightskip}{0pt plus 5cm}void from\-\_\-unknown\-\_\-to\-\_\-submarine (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a7c8c2b26dc93db9ab5274d6090c1c247}
+Função que testa no interior do tabuleiro (exclui-\/se os cantos por serem casos especiais) se for possivel substituir segmentos desconhecidos de barcos por submarinos.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__tabuleiro_8c_ae81956abae3ea132cc6284b030b9316c}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!is\-\_\-segmento@{is\-\_\-segmento}}
+\index{is\-\_\-segmento@{is\-\_\-segmento}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{is\-\_\-segmento}]{\setlength{\rightskip}{0pt plus 5cm}int is\-\_\-segmento (
+\begin{DoxyParamCaption}
+\item[{char}]{a}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_ae81956abae3ea132cc6284b030b9316c}
+Funçao que verifica se o caracter é um segmento de barco ou submarino.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Character que vai ser testado.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\-: Devolve T\-R\-U\-E (1) caso o caracter corresponde a um submarino ou segmento de barco, F\-A\-L\-S\-E (0) caso contrario. 
+\end{DoxyReturn}
+\hypertarget{aux__tabuleiro_8c_aa7e22f78872a4c490b3999c9b752ecb5}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!preenche\-\_\-cantos@{preenche\-\_\-cantos}}
+\index{preenche\-\_\-cantos@{preenche\-\_\-cantos}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{preenche\-\_\-cantos}]{\setlength{\rightskip}{0pt plus 5cm}void preenche\-\_\-cantos (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_aa7e22f78872a4c490b3999c9b752ecb5}
+Função que preenche os cantos do tabuleiro em função do caracter presente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Indice da linha que se quer preencher.\\
+\hline
+{\em j} & Indice da coluna que se quer preencher.\\
+\hline
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__tabuleiro_8c_a92fec3d6afb30069f11893107d3a097a}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!preenche\-\_\-meio@{preenche\-\_\-meio}}
+\index{preenche\-\_\-meio@{preenche\-\_\-meio}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{preenche\-\_\-meio}]{\setlength{\rightskip}{0pt plus 5cm}void preenche\-\_\-meio (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a92fec3d6afb30069f11893107d3a097a}
+Função que preenche lugares dentro do tabuleiro em função do caracter presente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Indice da linha que se quer preencher.\\
+\hline
+{\em j} & Indice da coluna que se quer preencher.\\
+\hline
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__tabuleiro_8c_a4e922213d93899fc2b40401cbf82b781}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!verifica\-\_\-cantos@{verifica\-\_\-cantos}}
+\index{verifica\-\_\-cantos@{verifica\-\_\-cantos}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{verifica\-\_\-cantos}]{\setlength{\rightskip}{0pt plus 5cm}int verifica\-\_\-cantos (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a4e922213d93899fc2b40401cbf82b781}
+\hypertarget{aux__tabuleiro_8c_a7f1e2b8bf6874397b20f6c0fe2af4f6e}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!verifica\-\_\-char@{verifica\-\_\-char}}
+\index{verifica\-\_\-char@{verifica\-\_\-char}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{verifica\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}int verifica\-\_\-char (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{char}]{a}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a7f1e2b8bf6874397b20f6c0fe2af4f6e}
+\hypertarget{aux__tabuleiro_8c_a5216a70d9fae4bd405e05c34e1b0ca10}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!verifica\-\_\-info@{verifica\-\_\-info}}
+\index{verifica\-\_\-info@{verifica\-\_\-info}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{verifica\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}int verifica\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a5216a70d9fae4bd405e05c34e1b0ca10}
+\hypertarget{aux__tabuleiro_8c_a54ac0c26c91722b0f9df18abf3f259f2}{\index{aux\-\_\-tabuleiro.\-c@{aux\-\_\-tabuleiro.\-c}!verifica\-\_\-meio@{verifica\-\_\-meio}}
+\index{verifica\-\_\-meio@{verifica\-\_\-meio}!aux_tabuleiro.c@{aux\-\_\-tabuleiro.\-c}}
+\subsubsection[{verifica\-\_\-meio}]{\setlength{\rightskip}{0pt plus 5cm}int verifica\-\_\-meio (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado}
+\end{DoxyParamCaption}
+)}}\label{aux__tabuleiro_8c_a54ac0c26c91722b0f9df18abf3f259f2}

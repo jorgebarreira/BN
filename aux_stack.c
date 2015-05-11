@@ -23,9 +23,9 @@
 /**
 Adiciona um novo jogo a stack e põe o endereço deste como sendo a nova cabeça da stack. Este novo jogo terá o endereço do tabuleiro anterior.
 
-@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+@param estado: Contém toda a informaçao relativo ao tabuleiro usado.
 
-@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 @return retorna 1 caso tudo correr. Só devolvará -1 se não houver memoria suficiente para a criaçao do novo jogo.
 */
@@ -78,10 +78,10 @@ int newJOGADA(JOGO *head){
 /**
 Chama a funçao 'newJOGO' para a criação de uma struct, e faz a inicialização dessa, guardando o novo tabuleiro introduzido. 
 
-@param estado:Contém toda a informaçao relativo ao tabuleiro usado.
+@param estado: Contém toda a informaçao relativo ao tabuleiro usado.
 
 
-@param partida:Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 @return 1 se não há problemas; -1 caso a função 'newJOGO' devolver '-1' signalizando um problema na sua execução.
 
@@ -104,9 +104,9 @@ int initJOGO(TAB_BN *estado,STACK *partida){
 /**
 Função que ira retirar um elemento a stack, caso nao haja elementos nessa e existem tabuleiros anteriores fara o carregamento desses. 
 
-@param estado:Contém toda a informaçao relativo ao tabuleiro usado.
+@param estado: Contém toda a informaçao relativo ao tabuleiro usado.
 
-@param partida:Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 
 */
@@ -139,9 +139,9 @@ int popStack(TAB_BN *estado,STACK *partida){
 
 Altera o estado do tabuleiro e guarda o character anterior.
 
-@param estado:Contém toda a informaçao relativo ao tabuleiro usado.
+@param estado: Contém toda a informaçao relativo ao tabuleiro usado.
 
-@param partida:Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 @param linha: Indice no array correspondente a linha onde introduzir o caracter.
 
@@ -159,12 +159,12 @@ if(estado->tabuleiro[linha][coluna]!= symbol){
 }
 
 
-/*
+/**
 Guarda o caracter do tabuleiro na posiçao [linha][coluna] antes de esse  ser modificado.
 
-@param estado:Contém toda a informaçao relativo ao tabuleiro usado.
+@param estado: Contém toda a informaçao relativo ao tabuleiro usado.
 
-@param partida:Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 @param linha: Indice no array correspondente a linha onde se situa o caracter a guardar.
 

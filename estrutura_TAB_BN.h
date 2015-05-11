@@ -20,6 +20,10 @@
 
 #endif
 #define MAX_SIZE 100
+
+/**
+Estrutura de dados contendo todas as informações relativas ao tabuleiro de jogo.
+*/
 typedef struct tab_bn{
     int n_linhas;
     int n_colunas;
@@ -28,14 +32,20 @@ typedef struct tab_bn{
     char tabuleiro[MAX_SIZE][MAX_SIZE];
 } TAB_BN;
 
+/**
+Estrutura de dados que contem informaçao sob o local onde um novo caracter foi introduzido no tabuleiro.
+*/
 typedef struct JOGADAS{
   int indcom;
   int linha ;
   int coluna;
-  char modificado;
   struct JOGADAS *proxima;
+  char modificado;
 } JOGADAS;
 
+/**
+Estrutura de dados que guarda o tabuleiro de jogada onde estou, e possui uma lista interligada de jogadas assim como o endereço para o jogo anterior.
+*/
 typedef struct JOGO{
   TAB_BN estado;
   int n_elementos;
@@ -43,7 +53,9 @@ typedef struct JOGO{
   JOGADAS *head_jogadas;
   struct JOGO *proximo;
 } JOGO;
-
+/**
+Estrutura de dados que representa a stack usada para guardar os jogos que foram feitos.
+*/
 typedef struct STACK_L{
       JOGO *head;
       int tamanho;

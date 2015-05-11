@@ -1,0 +1,182 @@
+\hypertarget{aux__stack_8h}{\section{aux\-\_\-stack.\-h File Reference}
+\label{aux__stack_8h}\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}}
+}
+{\ttfamily \#include \char`\"{}estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estrategias.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estrategias\-\_\-auxiliares.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}stel.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-tabuleiro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Main.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{aux__stack_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
+\item 
+\#define \hyperlink{aux__stack_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
+\item 
+\#define \hyperlink{aux__stack_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~100
+\item 
+\#define \hyperlink{aux__stack_8h_a9e310b9f673a2ac6b8090780f3027fbf}{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}~1024
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{aux__stack_8h_a405f833c331356b6a1fe6b776b82a689}{pop\-Stack} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+\item 
+int \hyperlink{aux__stack_8h_a66b29d2b8b74622aa4be16da4c8f3b90}{new\-J\-O\-G\-O} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+\item 
+int \hyperlink{aux__stack_8h_ab546fdc7caf9050dfcb3dd15adf52f1b}{new\-J\-O\-G\-A\-D\-A} (\hyperlink{structJOGO}{J\-O\-G\-O} $\ast$)
+\item 
+int \hyperlink{aux__stack_8h_ae7ec11af269f2521867ff0e8693eeac6}{init\-J\-O\-G\-O} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+\item 
+void \hyperlink{aux__stack_8h_a7a179635917abc9acd03bf1e96bf30d6}{altera\-\_\-estado} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, int, int, char, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+\item 
+int \hyperlink{aux__stack_8h_a016498c3e6516b8c03744fe92be6389b}{push} (int, int, \hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{aux__stack_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{aux__stack_8h_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{aux__stack_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
+\index{M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-H\-A~1024}}\label{aux__stack_8h_a9e310b9f673a2ac6b8090780f3027fbf}
+\hypertarget{aux__stack_8h_a0592dba56693fad79136250c11e5a7fe}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+\index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~100}}\label{aux__stack_8h_a0592dba56693fad79136250c11e5a7fe}
+\hypertarget{aux__stack_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{aux__stack_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{aux__stack_8h_a7a179635917abc9acd03bf1e96bf30d6}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!altera\-\_\-estado@{altera\-\_\-estado}}
+\index{altera\-\_\-estado@{altera\-\_\-estado}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{altera\-\_\-estado}]{\setlength{\rightskip}{0pt plus 5cm}void altera\-\_\-estado (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{int}]{linha, }
+\item[{int}]{coluna, }
+\item[{char}]{symbol, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__stack_8h_a7a179635917abc9acd03bf1e96bf30d6}
+Altera o estado do tabuleiro e guarda o character anterior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
+\hline
+{\em linha} & Indice no array correspondente a linha onde introduzir o caracter.\\
+\hline
+{\em coluna} & Indice no array correspondente a coluna onde introduzir o caracter.\\
+\hline
+{\em symbol} & Caracter que sera introduzido no tabuleiro na posiçao linha, coluna, caso o caracter nesta posiçao for differente de symbol. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__stack_8h_ae7ec11af269f2521867ff0e8693eeac6}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!init\-J\-O\-G\-O@{init\-J\-O\-G\-O}}
+\index{init\-J\-O\-G\-O@{init\-J\-O\-G\-O}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{init\-J\-O\-G\-O}]{\setlength{\rightskip}{0pt plus 5cm}int init\-J\-O\-G\-O (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__stack_8h_ae7ec11af269f2521867ff0e8693eeac6}
+Chama a funçao 'new\-J\-O\-G\-O' para a criação de uma struct, e faz a inicialização dessa, guardando o novo tabuleiro introduzido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 se não há problemas; -\/1 caso a função 'new\-J\-O\-G\-O' devolver '-\/1' signalizando um problema na sua execução. 
+\end{DoxyReturn}
+\hypertarget{aux__stack_8h_ab546fdc7caf9050dfcb3dd15adf52f1b}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!new\-J\-O\-G\-A\-D\-A@{new\-J\-O\-G\-A\-D\-A}}
+\index{new\-J\-O\-G\-A\-D\-A@{new\-J\-O\-G\-A\-D\-A}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{new\-J\-O\-G\-A\-D\-A}]{\setlength{\rightskip}{0pt plus 5cm}int new\-J\-O\-G\-A\-D\-A (
+\begin{DoxyParamCaption}
+\item[{{\bf J\-O\-G\-O} $\ast$}]{head}
+\end{DoxyParamCaption}
+)}}\label{aux__stack_8h_ab546fdc7caf9050dfcb3dd15adf52f1b}
+Cria uma nova jogada tendo na posição \char`\"{}proxima\char`\"{} o endereço da ultima modificação guardada. Esta nova jogada passa ser a cabeça da nossa stack de jogadas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & endereço da struct \hyperlink{structJOGO}{J\-O\-G\-O} , onde estamos e onde vai ser criada a nova jogada.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 caso há memoria suficiente para a criaçao da nova jogada; -\/1 caso isso nao acontecer. 
+\end{DoxyReturn}
+\hypertarget{aux__stack_8h_a66b29d2b8b74622aa4be16da4c8f3b90}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!new\-J\-O\-G\-O@{new\-J\-O\-G\-O}}
+\index{new\-J\-O\-G\-O@{new\-J\-O\-G\-O}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{new\-J\-O\-G\-O}]{\setlength{\rightskip}{0pt plus 5cm}int new\-J\-O\-G\-O (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__stack_8h_a66b29d2b8b74622aa4be16da4c8f3b90}
+Adiciona um novo jogo a stack e põe o endereço deste como sendo a nova cabeça da stack. Este novo jogo terá o endereço do tabuleiro anterior.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+retorna 1 caso tudo correr. Só devolvará -\/1 se não houver memoria suficiente para a criaçao do novo jogo. 
+\end{DoxyReturn}
+\hypertarget{aux__stack_8h_a405f833c331356b6a1fe6b776b82a689}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!pop\-Stack@{pop\-Stack}}
+\index{pop\-Stack@{pop\-Stack}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{pop\-Stack}]{\setlength{\rightskip}{0pt plus 5cm}int pop\-Stack (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__stack_8h_a405f833c331356b6a1fe6b776b82a689}
+Função que ira retirar um elemento a stack, caso nao haja elementos nessa e existem tabuleiros anteriores fara o carregamento desses.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}
+\hypertarget{aux__stack_8h_a016498c3e6516b8c03744fe92be6389b}{\index{aux\-\_\-stack.\-h@{aux\-\_\-stack.\-h}!push@{push}}
+\index{push@{push}!aux_stack.h@{aux\-\_\-stack.\-h}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}int push (
+\begin{DoxyParamCaption}
+\item[{int}]{linha, }
+\item[{int}]{coluna, }
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{aux__stack_8h_a016498c3e6516b8c03744fe92be6389b}
+Guarda o caracter do tabuleiro na posiçao \mbox{[}linha\mbox{]}\mbox{[}coluna\mbox{]} antes de esse ser modificado.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
+\hline
+{\em linha} & Indice no array correspondente a linha onde se situa o caracter a guardar.\\
+\hline
+{\em coluna} & Indice no array correspondente a coluna onde se situa o caracter a guardar. \\
+\hline
+\end{DoxyParams}
