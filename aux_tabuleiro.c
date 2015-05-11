@@ -67,7 +67,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i,j+1,'~',partida);
 		}
-		else if(estado->tabuleiro[i][j]=='o'){
+		else if(estado->tabuleiro[i][j]=='o')
 			altera_estado(estado,i+1,j+1,'~',partida);
 	}
 	else if((i!=0 && i!=(estado->n_linhas)-1) && j==0){
@@ -114,6 +114,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='o'){
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
+		}
 	}
 	else if(i==(estado->n_linhas)-1 && j==0){
 		if(estado->tabuleiro[i][j]=='O'){
@@ -133,7 +134,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			if(is_segmento(estado->tabuleiro[i-1][j]) == 0)
 				altera_estado(estado,i-1,j,'o',partida);
 		}
-		else if(estado->tabuleiro[i][j]=='o'){
+		else if(estado->tabuleiro[i][j]=='o')
 			altera_estado(estado,i-1,j+1,'~',partida);
 	}
 	else if(i==(estado->n_linhas)-1 && (j!=0 && j!=(estado->n_colunas)-1)){
@@ -181,6 +182,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='o'){
 			altera_estado(estado,i-1,j-1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
+		}
 	}
 	else if(i==(estado->n_linhas)-1 && j==(estado->n_colunas)-1){
 		if(estado->tabuleiro[i][j]=='O'){
@@ -201,7 +203,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 				altera_estado(estado,i-1,j,'o',partida);
 
 		}
-		else if(estado->tabuleiro[i][j]=='o'){
+		else if(estado->tabuleiro[i][j]=='o')
 			altera_estado(estado,i-1,j-1,'~',partida);
 	}
 	else if((i!=0 && i!=(estado->n_linhas)-1) && j==(estado->n_colunas)-1){
@@ -249,6 +251,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='o'){
 			altera_estado(estado,i-1,j-1,'~',partida);
 			altera_estado(estado,i+1,j-1,'~',partida);
+		}
 	}
 	else if(i==0 && j==(estado->n_colunas)-1){
 		if(estado->tabuleiro[i][j]=='O'){
@@ -269,7 +272,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			if(is_segmento(estado->tabuleiro[i+1][j]) == 0)
 				altera_estado(estado,i+1,j,'o',partida);
 		}
-		else if(estado->tabuleiro[i][j]=='o'){
+		else if(estado->tabuleiro[i][j]=='o')
 			altera_estado(estado,i+1,j-1,'~',partida);
 	}
 	else if(i==0 && (j!=0 && j!=(estado->n_colunas)-1)){
@@ -317,6 +320,7 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 		else if(estado->tabuleiro[i][j]=='o'){
 			altera_estado(estado,i+1,j-1,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
+		}
 	}
 }
 
@@ -398,6 +402,7 @@ void preenche_meio(int i, int j, TAB_BN *estado, STACK *partida){
 			altera_estado(estado,i+1,j-1,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
+	}
 }
 
 
