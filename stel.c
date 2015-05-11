@@ -205,8 +205,8 @@ int cmd_V(TAB_BN *estado){
     }
   }
   if(res && res2 && res3)
-    printf("Tabuleiro válido\n");
+    printf("Tabuleiro válido.\n");
   else
-    printf("Tabuleiro invalido\n");
+    printf("Tabuleiro inválido.\n");
   return 1;
 }
