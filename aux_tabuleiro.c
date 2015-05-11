@@ -543,105 +543,59 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 	int j;
 	int i;
 
-	/*substitui unknowns ('o o') da primeira linha (excepto cantos) do tabuleiro por cruisers, se à volta for tudo '~'*/ 
-	i=0;
-	for (j=1; j<((estado->n_colunas)-2); j++){
-		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i][j+1]=='o') && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~')){
-			altera_estado(estado, i, j, '<', partida);
-			altera_estado(estado, i, j+1, '>', partida);
-		}
-	}
-
-	/*substitui unknowns ('o o') da ultima linha (excepto cantos) do tabuleiro por cruisers, se à volta for tudo '~'*/ 
-	i=estado->n_linhas-1;
-	for (j=1; j<((estado->n_colunas)-2); j++){
-		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i][j+1]=='o') && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~')){
-			altera_estado(estado, i, j, '<', partida);
-			altera_estado(estado, i, j+1, '>', partida);
-		}
-	}
-
-	/*substitui unknowns ('o o') da primeira coluna (excepto cantos) do tabuleiro por cruisers, se à volta for tudo '~'*/ 
-	j=0;
-	for (i=1; i<((estado->n_linhas)-2); i++){
-		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i+1][j]=='o') && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+2][j] == '~')){
-			altera_estado(estado, i, j, '^', partida);
-			altera_estado(estado, i+1, j, 'v', partida);
-		}
-	}
-
-	/*substitui unknowns ('o o') da ultima coluna (excepto cantos) do tabuleiro por cruisers, se à volta for tudo '~'*/ 
-	j=estado->n_colunas-1;
-	for (i=1; i<((estado->n_linhas)-2); i++){
-		if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i+1][j]=='o') && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+2][j] == '~')){
-			altera_estado(estado, i, j, '^', partida);
-			altera_estado(estado, i+1, j, 'v', partida);
-		}
-	}
-
-	/*substitui unknowns ('o o') dos cantos do tabuleiro por cruisers, se à volta for tudo '~'*/
-	if (estado->tabuleiro[0][0]=='o' && estado->tabuleiro[1][0]=='o' && estado->tabuleiro[2][0]=='~'){
-		altera_estado(estado, 0, 0, '^', partida);
-		altera_estado(estado, 1, 0, 'v', partida);
-	}
-
-	if (estado->tabuleiro[0][0]=='o' && estado->tabuleiro[0][1]=='o'  && estado->tabuleiro[0][2]=='~'){
-		altera_estado(estado, 0, 0, '<', partida);
-		altera_estado(estado, 0, 1, '>', partida);
-	}
-
-	if (estado->tabuleiro[estado->n_linhas-1][0]=='o' && estado->tabuleiro[estado->n_linhas-1][1]=='o' && estado->tabuleiro[estado->n_linhas-1][2]=='~'){
-		altera_estado(estado, estado->n_linhas-1, 0, '<', partida);
-		altera_estado(estado, estado->n_linhas-1, 1, '>', partida);
-	}
-	
-	if (estado->tabuleiro[estado->n_linhas-1][0]=='o' && estado->tabuleiro[estado->n_linhas-2][0]=='o' && estado->tabuleiro[estado->n_linhas-3][0]=='~' ){
-		altera_estado(estado, estado->n_linhas-1, 0, 'v', partida);
-		altera_estado(estado, estado->n_linhas-2, 0, '^', partida);
-	}
-
-	if (estado->tabuleiro[0][estado->n_colunas-1]=='o' && estado->tabuleiro[0][estado->n_colunas-2]=='o' && estado->tabuleiro[0][estado->n_colunas-3]=='~' ){
-		altera_estado(estado, 0, estado->n_colunas-1, '>', partida);
-		altera_estado(estado, 0, estado->n_colunas-2, '<', partida);
-	}
-
-	if (estado->tabuleiro[0][estado->n_colunas-1]=='o' && estado->tabuleiro[1][estado->n_colunas-1]=='o' && estado->tabuleiro[2][estado->n_colunas-1]=='~' ){
-		altera_estado(estado, 0, estado->n_colunas-1, '^', partida);
-		altera_estado(estado, 1, estado->n_colunas-1, 'v', partida);
-	}
-
-	if (estado->tabuleiro[estado->n_linhas-1][estado->n_colunas-1]=='o' && estado->tabuleiro[estado->n_linhas-1][estado->n_colunas-2]=='o' && estado->tabuleiro[estado->n_linhas-1][estado->n_colunas-3]=='~' ){
-		altera_estado(estado, estado->n_linhas-1, estado->n_colunas-1, '>', partida);
-		altera_estado(estado, estado->n_linhas-1, estado->n_colunas-2, '<', partida);
-	}
-
-	if (estado->tabuleiro[estado->n_linhas-1][estado->n_colunas-1]=='o' && estado->tabuleiro[estado->n_linhas-2][estado->n_colunas-1]=='o' && estado->tabuleiro[estado->n_linhas-3][estado->n_colunas-1]=='~' ){
-		altera_estado(estado, estado->n_linhas-1, estado->n_colunas-1, 'v', partida);
-		altera_estado(estado, estado->n_linhas-2, estado->n_colunas-1, '^', partida);
-	}
-
-	/*substitui unknowns ('o o') do tabuleiro por cruisers, se à volta for tudo '~'*/
-	for (i=1; i<estado->n_colunas-1; i++){
-		for (j=1; j<estado->n_linhas-2; j++){
-			if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i][j+1]=='o' && estado->tabuleiro[i][j-1]=='~' && estado->tabuleiro[i][j+2]=='~'){
+	for (i=0; i<estado->n_linhas; i++){
+		for (j=1; j<((estado->n_colunas)-2); j++){
+			if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i][j+1]=='o') && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~')){
 				altera_estado(estado, i, j, '<', partida);
 				altera_estado(estado, i, j+1, '>', partida);
-
 			}
 		}
 	}
 
-	for (i=1; i<estado->n_linhas-2; i++){
-		for (j=1; j<estado->n_colunas-1; j++){
-			if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i+1][j]=='o' && estado->tabuleiro[i-1][j]=='~' && estado->tabuleiro[i+2][j]=='~'){
+	for (j=0; j<estado->n_colunas; j++){
+		for (i=1; i<((estado->n_colunas)-2); i++){
+			if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i+1][j]=='o') && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+2][j] == '~')){
 				altera_estado(estado, i, j, '^', partida);
 				altera_estado(estado, i+1, j, 'v', partida);
-
 			}
 		}
 	}
-}
 
+
+	j=0;
+	for (i=0; i<estado->n_linhas; i++){
+		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i][j+1]=='o' && estado->tabuleiro[i][j+2]=='~'){
+			altera_estado(estado, i, j, '<', partida);
+			altera_estado(estado, i, j+1, '>', partida);
+		}
+	}
+
+	i=0;
+	for (j=0; j<estado->n_colunas; j++){
+		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i+1][j]=='o' && estado->tabuleiro[i+2][j]=='~'){
+			altera_estado(estado, i, j, '^', partida);
+			altera_estado(estado, i+1, j, 'v', partida);
+		}
+	}
+
+
+	j=estado->n_colunas-1;
+	for (i=0; i<estado->n_linhas; i++){
+		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i][j-1]=='o' && estado->tabuleiro[i][j-2]=='~'){
+			altera_estado(estado, i, j, '>', partida);
+			altera_estado(estado, i, j-1, '<', partida);
+		}
+	}
+
+	i=estado->n_linhas-1;
+	for (j=0; j<estado->n_colunas; j++){
+		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i-1][j]=='o' && estado->tabuleiro[i-2][j]=='~'){
+			altera_estado(estado, i, j, 'v', partida);
+			altera_estado(estado, i-1, j, '^', partida);
+		}
+	}
+
+}
 
 
 
