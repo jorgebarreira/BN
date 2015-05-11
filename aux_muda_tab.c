@@ -22,7 +22,6 @@
 
 
 
-/*////////////////// ESTRATEGIAS //////////////////////////*/
 
 /**
 
@@ -73,8 +72,8 @@ else n=-1;
 	
 
 */
-/**
 
+/**
 Função que testa o caracter dado pelo jogador. O inteiro de retorno é um boleano.
 
 @param caracter : Caracter que vai ser testado para verificar se pertence à lista de caracteres definida no jogo.
@@ -93,15 +92,15 @@ int pertence(char caracter) {
 Função que põe na linha (arg2) e na coluna(arg2) escolhida pelo jogador,o caracter por ele fornecido.
 Este caracter está contido no array comando indice 1.
 
-@param comando : Array que contém  o comando usado no indice 0 e o caracter a introduzir no indice 1.
+@param comando: Array que contém  o comando usado no indice 0 e o caracter a introduzir no indice 1.
 
-@param arg1 : corresponde ao número da linha onde o jogador quer mudar o caracter.
+@param l1: corresponde ao número da linha onde o jogador quer mudar o caracter.
 
-@param arg2 : corresponde à coluna onde o jogador quer mudar o caracter.
+@param c2: corresponde à coluna onde o jogador quer mudar o caracter.
 
-@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+@param estado: Contém toda a informaçao relativo ao tabuleiro usado.
 
-@param partida : Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro.
+@param partida: Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro.
 
 @return retorna 1 caso tudo correr. Só devolvará -1 se a linha dada for maior do que a do número de linha definido.
 */

@@ -39,7 +39,7 @@ Função que preenche os cantos do tabuleiro em função do caracter presente.
 
 @param i: Indice da linha que se quer preencher.
 
-@param j:Indice da coluna que se quer preencher.
+@param j: Indice da coluna que se quer preencher.
 
 @param estado : Contém toda a informaçao relativo ao tabuleiro usado.
 
@@ -325,7 +325,7 @@ Função que preenche lugares dentro do tabuleiro em função do caracter presen
 
 @param i: Indice da linha que se quer preencher.
 
-@param j:Indice da coluna que se quer preencher.
+@param j: Indice da coluna que se quer preencher.
 
 @param estado : Contém toda a informaçao relativo ao tabuleiro usado.
 

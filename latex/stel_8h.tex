@@ -1,0 +1,138 @@
+\hypertarget{stel_8h}{\section{stel.\-h File Reference}
+\label{stel_8h}\index{stel.\-h@{stel.\-h}}
+}
+{\ttfamily \#include \char`\"{}estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estrategias.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estrategias\-\_\-auxiliares.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}stel.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-tabuleiro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Main.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stel_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
+\item 
+\#define \hyperlink{stel_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
+\item 
+\#define \hyperlink{stel_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~100
+\item 
+\#define \hyperlink{stel_8h_a9e310b9f673a2ac6b8090780f3027fbf}{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}~1024
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{stel_8h_a34dc52d46e289c207f04cd6dff987bad}{cmd\-\_\-l} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, char $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+\item 
+int \hyperlink{stel_8h_ae33fa160f6397424e2d4628f28d0f26f}{cmd\-\_\-c} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+\item 
+int \hyperlink{stel_8h_ae774297274031ad2be9c1f643fc95bba}{cmd\-\_\-m} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$)
+\item 
+int \hyperlink{stel_8h_ac6a0042c9f37f47e062ce4ee474fae5c}{cmd\-\_\-\-V} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado)
+\item 
+void \hyperlink{stel_8h_a6809ffa8dee25ffa77db7fa2d2bd2dd0}{imprime\-Tab} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, F\-I\-L\-E $\ast$)
+\item 
+int \hyperlink{stel_8h_ae5f2a70adbda5fa88b11234cec7ff8d6}{cmd\-\_\-e} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, char $\ast$)
+\item 
+int \hyperlink{stel_8h_af748db96c29aa9b4f2cd75606c243886}{ler\-\_\-ficheiro} (F\-I\-L\-E $\ast$, \hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stel_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{stel.\-h@{stel.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!stel.h@{stel.\-h}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{stel_8h_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{stel_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{stel.\-h@{stel.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
+\index{M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}!stel.h@{stel.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-H\-A~1024}}\label{stel_8h_a9e310b9f673a2ac6b8090780f3027fbf}
+\hypertarget{stel_8h_a0592dba56693fad79136250c11e5a7fe}{\index{stel.\-h@{stel.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+\index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!stel.h@{stel.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~100}}\label{stel_8h_a0592dba56693fad79136250c11e5a7fe}
+\hypertarget{stel_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{stel.\-h@{stel.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!stel.h@{stel.\-h}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{stel_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{stel_8h_ae33fa160f6397424e2d4628f28d0f26f}{\index{stel.\-h@{stel.\-h}!cmd\-\_\-c@{cmd\-\_\-c}}
+\index{cmd\-\_\-c@{cmd\-\_\-c}!stel.h@{stel.\-h}}
+\subsubsection[{cmd\-\_\-c}]{\setlength{\rightskip}{0pt plus 5cm}int cmd\-\_\-c (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{stel_8h_ae33fa160f6397424e2d4628f28d0f26f}
+Função que irá recolher no ecrã toda a informação relativa ao tabuleiro do jogo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & Apontador da estrutura que contém toda a informação sobre o tabuleiro.\\
+\hline
+{\em partida} & Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve 1 no final se correr bem. Devolve -\/1 caso nao haja informaçao que chega 
+\end{DoxyReturn}
+\hypertarget{stel_8h_ae5f2a70adbda5fa88b11234cec7ff8d6}{\index{stel.\-h@{stel.\-h}!cmd\-\_\-e@{cmd\-\_\-e}}
+\index{cmd\-\_\-e@{cmd\-\_\-e}!stel.h@{stel.\-h}}
+\subsubsection[{cmd\-\_\-e}]{\setlength{\rightskip}{0pt plus 5cm}int cmd\-\_\-e (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{, }
+\item[{char $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{stel_8h_ae5f2a70adbda5fa88b11234cec7ff8d6}
+\hypertarget{stel_8h_a34dc52d46e289c207f04cd6dff987bad}{\index{stel.\-h@{stel.\-h}!cmd\-\_\-l@{cmd\-\_\-l}}
+\index{cmd\-\_\-l@{cmd\-\_\-l}!stel.h@{stel.\-h}}
+\subsubsection[{cmd\-\_\-l}]{\setlength{\rightskip}{0pt plus 5cm}int cmd\-\_\-l (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{, }
+\item[{char $\ast$}]{, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{stel_8h_a34dc52d46e289c207f04cd6dff987bad}
+\hypertarget{stel_8h_ae774297274031ad2be9c1f643fc95bba}{\index{stel.\-h@{stel.\-h}!cmd\-\_\-m@{cmd\-\_\-m}}
+\index{cmd\-\_\-m@{cmd\-\_\-m}!stel.h@{stel.\-h}}
+\subsubsection[{cmd\-\_\-m}]{\setlength{\rightskip}{0pt plus 5cm}int cmd\-\_\-m (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado}
+\end{DoxyParamCaption}
+)}}\label{stel_8h_ae774297274031ad2be9c1f643fc95bba}
+Função que irá apresentar no ecrã o estado onde se encontra o tabuleiro.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & -\/ Apontador da estrutura que contém toda a informação sobre o tabuleiro.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve 1 no final.
+\end{DoxyReturn}
+Nota\-: Nao vejo possíveis erros que possam ocorrer durante a impressão. \hypertarget{stel_8h_ac6a0042c9f37f47e062ce4ee474fae5c}{\index{stel.\-h@{stel.\-h}!cmd\-\_\-\-V@{cmd\-\_\-\-V}}
+\index{cmd\-\_\-\-V@{cmd\-\_\-\-V}!stel.h@{stel.\-h}}
+\subsubsection[{cmd\-\_\-\-V}]{\setlength{\rightskip}{0pt plus 5cm}int cmd\-\_\-\-V (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado}
+\end{DoxyParamCaption}
+)}}\label{stel_8h_ac6a0042c9f37f47e062ce4ee474fae5c}
+\hypertarget{stel_8h_a6809ffa8dee25ffa77db7fa2d2bd2dd0}{\index{stel.\-h@{stel.\-h}!imprime\-Tab@{imprime\-Tab}}
+\index{imprime\-Tab@{imprime\-Tab}!stel.h@{stel.\-h}}
+\subsubsection[{imprime\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}void imprime\-Tab (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{, }
+\item[{F\-I\-L\-E $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{stel_8h_a6809ffa8dee25ffa77db7fa2d2bd2dd0}
+\hypertarget{stel_8h_af748db96c29aa9b4f2cd75606c243886}{\index{stel.\-h@{stel.\-h}!ler\-\_\-ficheiro@{ler\-\_\-ficheiro}}
+\index{ler\-\_\-ficheiro@{ler\-\_\-ficheiro}!stel.h@{stel.\-h}}
+\subsubsection[{ler\-\_\-ficheiro}]{\setlength{\rightskip}{0pt plus 5cm}int ler\-\_\-ficheiro (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{, }
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{stel_8h_af748db96c29aa9b4f2cd75606c243886}

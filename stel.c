@@ -24,7 +24,9 @@
 
 Função que irá recolher no ecrã toda a informação relativa ao tabuleiro do jogo.
 
-@param estado - Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 @return Devolve 1 no final se correr bem.
     Devolve -1 caso nao haja informaçao que chega
