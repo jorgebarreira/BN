@@ -576,6 +576,51 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 		}
 	}
 
+	for (j=0; j<estado->n_colunas; j++){
+		for (i=1; i<((estado->n_colunas)-3); i++){
+			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && is_segmento(estado->tabuleiro[i+2][j]) && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+3][j] == '~') ){
+				altera_estado(estado, i, j, '^', partida);
+				altera_estado(estado, i+1, j, '#', partida);
+				altera_estado(estado, i+2, j, 'v', partida);
+			}
+		}
+	}
+
+	j=0;
+	for (i=0; i<estado->n_linhas; i++){
+		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && is_segmento(estado->tabuleiro[i][j+2]) && estado->tabuleiro[i][j+3]=='~'){
+			altera_estado(estado, i, j, '<', partida);
+			altera_estado(estado, i, j+1, '#', partida);
+			altera_estado(estado, i, j+2, '>', partida);
+		}
+	}
+
+	i=0;
+	for (j=0; j<estado->n_colunas; j++){
+		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && is_segmento(estado->tabuleiro[i+2][j]) && estado->tabuleiro[i+3][j]=='~'){
+			altera_estado(estado, i, j, '^', partida);
+			altera_estado(estado, i+1, j, '#', partida);
+			altera_estado(estado, i+2, j, 'v', partida);
+		}
+	}
+
+	j=estado->n_colunas-1;
+	for (i=0; i<estado->n_linhas; i++){
+		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j-1]) && is_segmento(estado->tabuleiro[i][j-2]) && estado->tabuleiro[i][j-3]=='~'){
+			altera_estado(estado, i, j, '>', partida);
+			altera_estado(estado, i, j-1, '#', partida);
+			altera_estado(estado, i, j-2, '<', partida);
+		}
+	}
+
+	i=estado->n_linhas-1;
+	for (j=0; j<estado->n_colunas; j++){
+		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i-1][j]) && is_segmento(estado->tabuleiro[i-2][j]) && estado->tabuleiro[i-3][j]=='~'){
+			altera_estado(estado, i, j, 'v', partida);
+			altera_estado(estado, i-1, j, '#', partida);
+			altera_estado(estado, i-2, j, '^', partida);
+		}
+	}
 }
 
 
