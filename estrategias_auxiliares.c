@@ -13,7 +13,7 @@
 #include "aux_stack.h"
 #include "desf_f.h"
 #define TRUE 1
-#define FALSE -1
+#define FALSE 0
 #define MAX_SIZE 100
 #define MAX_LINHA 1024
 
@@ -26,5 +26,5 @@ funcao para percorrer todo o tabuleiro e sempre que encontrar um segmento preenc
 
 void estrategia_4(TAB_BN *estado,STACK *partida){
 	from_unknown_to_submarine(estado, partida);
-	from_unknown_to_cruiser(estado, partida);
+	from_unknown_to_destroyer(estado, partida);
 }

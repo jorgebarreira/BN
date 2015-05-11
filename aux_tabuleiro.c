@@ -13,7 +13,7 @@
 #include "aux_stack.h"
 #include "desf_f.h"
 #define TRUE 1
-#define FALSE -1
+#define FALSE 0
 #define MAX_SIZE 100
 #define MAX_LINHA 1024
 
@@ -28,7 +28,7 @@ Funçao que verifica se o caracter é um segmento de barco ou submarino.
 @return : Devolve TRUE (1) caso o caracter corresponde a um submarino ou segmento de barco, FALSE (0) caso contrario.
 */
 int is_segmento(char a){
-	if (a=='O' || a=='<' || a=='>' || a=='#' || a=='^' || a=='v')
+	if (a=='O' || a=='<' || a=='>' || a=='#' || a=='^' || a=='v' || a=='o')
 		return TRUE;
 	else 
 		return FALSE;
@@ -465,6 +465,9 @@ void coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida){
 		}
 	}
 }
+
+
+
 /**
 Função que testa no interior do tabuleiro (exclui-se os cantos por serem casos especiais) se for possivel substituir segmentos desconhecidos de barcos por submarinos.
 
@@ -539,22 +542,24 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 	}
 }
 
-void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
+void from_unknown_to_destroyer(TAB_BN *estado, STACK *partida){
 	int j;
 	int i;
 
 	for (i=0; i<estado->n_linhas; i++){
 		for (j=1; j<((estado->n_colunas)-2); j++){
-			if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i][j+1]=='o') && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~')){
+			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~') ){
 				altera_estado(estado, i, j, '<', partida);
 				altera_estado(estado, i, j+1, '>', partida);
 			}
 		}
 	}
 
+
+
 	for (j=0; j<estado->n_colunas; j++){
 		for (i=1; i<((estado->n_colunas)-2); i++){
-			if ((estado->tabuleiro[i][j] == 'o') && (estado->tabuleiro[i+1][j]=='o') && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+2][j] == '~')){
+			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+2][j] == '~') ){
 				altera_estado(estado, i, j, '^', partida);
 				altera_estado(estado, i+1, j, 'v', partida);
 			}
@@ -564,7 +569,7 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 
 	j=0;
 	for (i=0; i<estado->n_linhas; i++){
-		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i][j+1]=='o' && estado->tabuleiro[i][j+2]=='~'){
+		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && estado->tabuleiro[i][j+2]=='~'){
 			altera_estado(estado, i, j, '<', partida);
 			altera_estado(estado, i, j+1, '>', partida);
 		}
@@ -572,7 +577,7 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 
 	i=0;
 	for (j=0; j<estado->n_colunas; j++){
-		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i+1][j]=='o' && estado->tabuleiro[i+2][j]=='~'){
+		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && estado->tabuleiro[i+2][j]=='~'){
 			altera_estado(estado, i, j, '^', partida);
 			altera_estado(estado, i+1, j, 'v', partida);
 		}
@@ -581,7 +586,7 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 
 	j=estado->n_colunas-1;
 	for (i=0; i<estado->n_linhas; i++){
-		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i][j-1]=='o' && estado->tabuleiro[i][j-2]=='~'){
+		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j-1]) && estado->tabuleiro[i][j-2]=='~' ){
 			altera_estado(estado, i, j, '>', partida);
 			altera_estado(estado, i, j-1, '<', partida);
 		}
@@ -589,17 +594,12 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 
 	i=estado->n_linhas-1;
 	for (j=0; j<estado->n_colunas; j++){
-		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i-1][j]=='o' && estado->tabuleiro[i-2][j]=='~'){
+		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i-1][j]) && estado->tabuleiro[i-2][j]=='~'){
 			altera_estado(estado, i, j, 'v', partida);
 			altera_estado(estado, i-1, j, '^', partida);
 		}
 	}
-
 }
-
-
-
-
 
 
 
