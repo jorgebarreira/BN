@@ -508,7 +508,7 @@ void from_unknown_to_destroyer(TAB_BN *estado, STACK *partida){
 
 	for (i=0; i<estado->n_linhas; i++){
 		for (j=1; j<((estado->n_colunas)-2); j++){
-			if (is_segmento(estado->tabuleiro[i][j]) && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~') ){
+			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~') ){
 				altera_estado(estado, i, j, '<', partida);
 				altera_estado(estado, i, j+1, '>', partida);
 			}
@@ -559,6 +559,9 @@ void from_unknown_to_destroyer(TAB_BN *estado, STACK *partida){
 			altera_estado(estado, i-1, j, '^', partida);
 		}
 	}
+	i=0;
+	j=0;
+
 }
 
 
