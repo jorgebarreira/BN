@@ -26,8 +26,22 @@ funcao para percorrer todo o tabuleiro e sempre que encontrar um segmento preenc
 */
 
 void estrategia_4(TAB_BN *estado,STACK *partida){
-	from_unknown_to_submarine(estado, partida);
-	from_unknown_to_destroyer(estado, partida);
-	from_unknown_to_cruiser(estado, partida);
-	from_unknown_to_battleship(estado, partida);
+
+	if (estado->n_linhas > 2 && estado->n_colunas > 2){
+		from_unknown_to_submarine(estado, partida);
+	}
+
+	if (estado->n_linhas > 3 && estado->n_colunas > 3){
+		from_unknown_to_destroyer(estado, partida);
+	}
+
+	if (estado->n_linhas > 4 && estado->n_colunas > 4){
+		from_unknown_to_cruiser(estado, partida);
+	}
+
+	if (estado->n_linhas > 5 && estado->n_colunas > 5){
+		from_unknown_to_battleship(estado, partida);
+	}
+
+
 }
