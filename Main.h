@@ -11,6 +11,7 @@
 #include "Main.h"
 #include "aux_stack.h"
 #include "desf_f.h"
+#include "interpretador.h"
 #define TRUE 1
 #define FALSE 0
 #define MAX_SIZE 100

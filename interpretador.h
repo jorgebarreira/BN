@@ -21,10 +21,5 @@
 
 #endif
 
-void estrategia_1(TAB_BN *, STACK *);
-
-void estrategia_2(TAB_BN *, STACK *);
-
-void estrategia_3(TAB_BN *,STACK *);
-
-
+int interpretar(TAB_BN *, char *, STACK *);
+void interpretador(TAB_BN *, STACK *);
