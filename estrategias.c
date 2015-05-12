@@ -43,6 +43,8 @@ void estrategia_1(TAB_BN *estado,STACK *partida){
 			}
 		}
 	}
+
+	estrategia_4(estado, partida);
 }
 
 /**
@@ -62,6 +64,8 @@ void estrategia_2(TAB_BN *estado,STACK *partida){
 	for (i=0;i<(estado->n_colunas);i++){
 		arruma_coluna(estado, i,partida);
 	}
+
+	estrategia_4(estado, partida);
 	if(partida->head->head_jogadas->indcom==partida->head->n_com) partida->head->n_com++;
 }
 
@@ -81,4 +85,5 @@ void estrategia_3(TAB_BN *estado, STACK *partida){
 	for (i=0; i<(estado->n_colunas); i++){
 		coloca_o_na_coluna(estado, i, partida);
 	}	
+	estrategia_4(estado, partida);
 }
