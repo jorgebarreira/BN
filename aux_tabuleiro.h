@@ -34,6 +34,7 @@ void from_unknown_to_cruiser(TAB_BN *, STACK *);
 void from_unknown_to_battleship(TAB_BN *, STACK *);
 int verifica_info(TAB_BN *);
 int verifica_char(TAB_BN *, int , int , char );
+int verifica_lado(TAB_BN *, int, int);
 int verifica_cantos(int, int, TAB_BN *);
 int verifica_meio(int , int , TAB_BN *);
 
