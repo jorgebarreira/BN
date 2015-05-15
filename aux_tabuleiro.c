@@ -810,21 +810,28 @@ int verifica_char(TAB_BN *estado, int i, int j, char a){
 		return 1;
 }
 
+int verifica_lado(TAB_BN *estado, int i, int j){
+	if(estado->tabuleiro[i][j] == '~' || estado->tabuleiro[i][j] == '.')
+		return 0;
+	else
+		return 1;
+}
+
 int verifica_cantos(int i, int j, TAB_BN *estado){
 	int resultado = 1;
 	if(i==0 && j==0){
 		if(estado->tabuleiro[i][j] == '>' || estado->tabuleiro[i][j] == '#' || estado->tabuleiro[i][j] == 'v')
 			resultado = 0;
 		else if(estado->tabuleiro[i][j] == 'O'){
-			if(estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~')
+			if(verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '<'){
-			if(estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || verifica_char(estado, i, j+1, '>'))
+			if(verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_char(estado, i, j+1, '>'))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '^'){
-			if(verifica_char(estado, i+1, j, 'v') || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~')
+			if(verifica_char(estado, i+1, j, 'v') || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1))
 				resultado = 0;
 		}
 	}
@@ -832,23 +839,23 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 		if(estado->tabuleiro[i][j] == '>')
 			resultado = 0;
 		else if(estado->tabuleiro[i][j] == 'O'){
-			if(estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '<'){
-			if(estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || verifica_char(estado, i, j+1, '>') || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_char(estado, i, j+1, '>') || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '#'){
-			if(verifica_char(estado, i+1, j, 'v') || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || verifica_char(estado, i-1, j, '^'))
+			if(verifica_char(estado, i+1, j, 'v') || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_char(estado, i-1, j, '^'))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == 'v'){
-			if(estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || verifica_char(estado, i-1, j, '^'))
+			if(verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_char(estado, i-1, j, '^'))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '^'){
-			if(verifica_char(estado, i+1, j, 'v') || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_char(estado, i+1, j, 'v') || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}	
 	}
@@ -856,15 +863,15 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 		if(estado->tabuleiro[i][j] == '>' || estado->tabuleiro[i][j] == '#' || estado->tabuleiro[i][j] == '^')
 			resultado = 0;
 		else if(estado->tabuleiro[i][j] == 'O'){
-			if(estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~' )
+			if(verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j) )
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '<'){
-			if(verifica_char(estado, i, j+1, '>') || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~' )
+			if(verifica_char(estado, i, j+1, '>') || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j) )
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == 'v'){
-			if(estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || verifica_char(estado, i-1, j, '^') )
+			if(verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_char(estado, i-1, j, '^') )
 				resultado = 0;
 		}
 	}
@@ -872,23 +879,23 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 		if(estado->tabuleiro[i][j] == '^')
 			resultado = 0;
 		else if(estado->tabuleiro[i][j] == 'O'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '<'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || verifica_char(estado, i, j+1, '>') || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_char(estado, i, j+1, '>') || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '>'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || verifica_char(estado, i, j-1, '<') || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i-1, j-1) || verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '#'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || verifica_char(estado, i, j-1, '<') || verifica_char(estado, i, j+1, '>') || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i-1, j-1) || verifica_char(estado, i, j-1, '<') || verifica_char(estado, i, j+1, '>') || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == 'v'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || verifica_char(estado, i-1, j, '^'))
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_char(estado, i-1, j, '^'))
 				resultado = 0;
 		}
 	}
@@ -896,15 +903,15 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 		if(estado->tabuleiro[i][j] == '<' || estado->tabuleiro[i][j] == '#' || estado->tabuleiro[i][j] == '^')
 			resultado = 0;
 		else if(estado->tabuleiro[i][j] == 'O'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i-1][j] != '~' )
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i-1, j) )
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '>'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || verifica_char(estado, i, j-1, '<') || estado->tabuleiro[i-1][j] != '~' )
+			if(verifica_lado(estado, i-1, j-1) || verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i-1, j) )
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == 'v'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || verifica_char(estado, i-1, j, '^'))
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_char(estado, i-1, j, '^'))
 				resultado = 0;
 		}
 	}
@@ -912,23 +919,23 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 		if(estado->tabuleiro[i][j] == '<')
 			resultado = 0;
 		else if(estado->tabuleiro[i][j] == 'O'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '>'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || verifica_char(estado, i, j-1, '<') || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i-1, j-1) || verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '#'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || verifica_char(estado, i+1, j, 'v') || verifica_char(estado, i-1, j, '^'))
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_char(estado, i+1, j, 'v') || verifica_char(estado, i-1, j, '^'))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == 'v'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || verifica_char(estado, i-1, j, '^'))
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_char(estado, i-1, j, '^'))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '^'){
-			if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || verifica_char(estado, i+1, j, 'v') || estado->tabuleiro[i-1][j] != '~')
+			if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_char(estado, i+1, j, 'v') || verifica_lado(estado, i-1, j))
 				resultado = 0;
 		}
 	}
@@ -936,15 +943,15 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 		if(estado->tabuleiro[i][j] == '<' || estado->tabuleiro[i][j] == 'v' || estado->tabuleiro[i][j] == '#')
 			resultado = 0;
 		else if(estado->tabuleiro[i][j] == 'O'){
-			if(estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' )
+			if(verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) )
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '>'){
-			if(verifica_char(estado, i, j-1, '<') || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' )
+			if(verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) )
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '^'){
-			if(estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || verifica_char(estado, i+1, j, 'v'))
+			if(verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_char(estado, i+1, j, 'v'))
 				resultado = 0;
 		}
 	}
@@ -952,23 +959,23 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 		if(estado->tabuleiro[i][j] == 'v')
 			resultado = 0;
 		else if(estado->tabuleiro[i][j] == 'O'){
-			if(estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~')
+			if(verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '<'){
-			if(estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || verifica_char(estado, i, j+1, '>'))
+			if(verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_char(estado, i, j+1, '>'))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '>'){
-			if(verifica_char(estado, i, j-1, '<') || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~')
+			if(verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '#'){
-			if(verifica_char(estado, i, j-1, '<') || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || verifica_char(estado, i, j+1, '>'))
+			if(verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_char(estado, i, j+1, '>'))
 				resultado = 0;
 		}
 		else if(estado->tabuleiro[i][j] == '^'){
-			if(estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || verifica_char(estado, i+1, j, 'v') || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~')
+			if(verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_char(estado, i+1, j, 'v') || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1))
 				resultado = 0;
 		}
 	}
@@ -979,27 +986,27 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 int verifica_meio(int i, int j, TAB_BN *estado){
 	int resultado = 1;
 	if(estado->tabuleiro[i][j] == 'O'){
-		if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+		if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 			resultado = 0;
 	}
 	else if(estado->tabuleiro[i][j] == '<'){
-		if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || verifica_char(estado, i, j+1,'>') || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+		if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_char(estado, i, j+1,'>') || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 			resultado = 0;
 	}
 	else if(estado->tabuleiro[i][j] == '>'){
-		if(estado->tabuleiro[i-1][j-1] != '~' || verifica_char(estado, i, j-1, '<') || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+		if(verifica_lado(estado, i-1, j-1) || verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 			resultado = 0;
 	}
 	else if(estado->tabuleiro[i][j] == '#'){
-		if(estado->tabuleiro[i-1][j-1] != '~' || verifica_char(estado, i, j-1, '<') || estado->tabuleiro[i+1][j-1] != '~' || verifica_char(estado, i+1, j, 'v') || estado->tabuleiro[i+1][j+1] != '~' || verifica_char(estado, i, j+1, '>') || estado->tabuleiro[i-1][j+1] != '~' || verifica_char(estado, i-1, j, '^'))
+		if(verifica_lado(estado, i-1, j-1) || verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i+1, j-1) || verifica_char(estado, i+1, j, 'v') || verifica_lado(estado, i+1, j+1) || verifica_char(estado, i, j+1, '>') || verifica_lado(estado, i-1, j+1) || verifica_char(estado, i-1, j, '^'))
 			resultado = 0;
 	}
 	else if(estado->tabuleiro[i][j] == 'v'){
-		if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || estado->tabuleiro[i+1][j] != '~' || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || verifica_char(estado ,i-1, j, '^'))
+		if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_lado(estado, i+1, j) || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_char(estado ,i-1, j, '^'))
 			resultado = 0;
 	}
 	else if(estado->tabuleiro[i][j] == '^'){
-		if(estado->tabuleiro[i-1][j-1] != '~' || estado->tabuleiro[i][j-1] != '~' || estado->tabuleiro[i+1][j-1] != '~' || verifica_char(estado, i+1, j, 'v') || estado->tabuleiro[i+1][j+1] != '~' || estado->tabuleiro[i][j+1] != '~' || estado->tabuleiro[i-1][j+1] != '~' || estado->tabuleiro[i-1][j] != '~')
+		if(verifica_lado(estado, i-1, j-1) || verifica_lado(estado, i, j-1) || verifica_lado(estado, i+1, j-1) || verifica_char(estado, i+1, j, 'v') || verifica_lado(estado, i+1, j+1) || verifica_lado(estado, i, j+1) || verifica_lado(estado, i-1, j+1) || verifica_lado(estado, i-1, j))
 			resultado = 0;
 	}
 	return resultado;
