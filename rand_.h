@@ -44,5 +44,6 @@
 /* Fim da condiçao if do inicio.*/
 #endif
 
-int interpretar(TAB_BN *, char *, STACK *);
-void interpretador(TAB_BN *, STACK *);
+int verifica_posicao(TAB_BN *,int);
+int rand_to(int );
+JOGADAS *jogada_aleatoria(TAB_BN *, STACK *);

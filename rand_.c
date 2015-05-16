@@ -43,74 +43,88 @@
 
 /* Fim da condiçao if do inicio.*/
 #endif
+/*
+void topo_do_tab(TAB_BN *estado, int linha, int coluna){
 
+if(estado->tabuleiro[linha][coluna-1]=='<'
 
-/**
-
-Funçao que irá desfazer o ultimo comando executado. 
-
-@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
-
-@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
-
-*/
-int cmd_D(TAB_BN *estado,STACK *partida){
-      int n=1;
-      if(partida->head==NULL && partida->tamanho==1) n=-1;
-      else popStack(estado,partida);
-      return n;
 }
 
-
-
-/**
-
-Desfaz um comando até ao anterior.
-
-@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
-
-@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
-
-
+void verificar_voltas(int linha,int coluna, TAB_BN *estado){
+if(linha ==0)
+	 topo_do_tab(estado, linha,coluna);
+else if(linha==(estado->n_linhas-1))
+	 baixo_do_tab(estado,linha,coluna);
+else if(coluna==0)
+	esquerda_do_tab(estado,linha,coluna);
+else if(coluna==(estado->n_colunas-1)	
+	direita_do_tab(estado,linha,coluna);
+else meio_do_tab(estado,linha,coluna);
 */
+/**
+Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao desse na linha.
 
-void desfCmd(TAB_BN *estado,STACK *partida){
-        int i; JOGADAS *tmp;
-        i= partida->head->head_jogadas->indcom ;
-        
-        while((partida->head->head_jogadas!=NULL) && (partida->head->head_jogadas->indcom==i ) ){
+@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
 
-             int l = partida->head->head_jogadas->linha, col = partida->head->head_jogadas->coluna;
+@param linha: Numero da linha que vai ser percorrida.
 
-             estado->tabuleiro[l][col] = partida->head->head_jogadas->modificado;
-             tmp = partida->head->head_jogadas; /* uma vez desfazido é preciso libertar a memoria;*/
-             partida->head->head_jogadas=partida->head->head_jogadas->proxima; /* modifica-se a cabeça da lista;*/
-             
-             free(tmp); /* liberta-se a antiga cabeça.*/
-             partida->head->n_elementos--;
-            }
+@return: A coluna que pode ser modificada na linha ou -1 caso a linha ja esta preenchida.
+*/
+int encontra_posicao(TAB_BN *estado,int linha){
+int r=1;
+int i=0;
+while(estado->tabuleiro[linha][i]!='.' && i<estado->n_linhas) i++;
+if(i==estado->n_colunas) r=-1; 
+else r=i;
+/*
+{
+    char c= estado->tabuleiro[linha][i];
+    verificar_voltas(linha,i, estado);
+}
+*/
+return r;
 }
 
-
 /**
-Aplica os cmd das jogadas ao tabuleiro que foi carregado. Esta função aplica-se ao tabuleiro guardado na stack, nao modificando em nada o tabuleiro onde estou a jogar.
+Funçao que devolve um numero entre 0 e o seu argumento incluido.
 
-@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+@param n: Inteiro que serve a criar o intervalo dos numeros que serao devolvidos.
+
+@return Devolve um inteiro aleatorio entre 0 e n.
 */
+int rand_to(int n){
+int w= RAND_MAX/(n+1);
+int limit= w*(n+1);
+int r;
+do
+ r=rand();
+while(r>=limit);
+return (r/w);
+}
+/**
+Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.
 
-void aplicaCmd( STACK *partida){
-	JOGADAS *tmp = partida->head->head_jogadas;
 
-while( partida->head->head_jogadas!=NULL){
+@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
 
-	int linha=partida->head->head_jogadas->linha;
-	int coluna=partida->head->head_jogadas->coluna;
+@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
-partida->head->estado.tabuleiro[linha][coluna]=partida->head->head_jogadas->modificado;
-partida->head->head_jogadas=partida->head->head_jogadas->proxima;
+@return Devolve um inteiro aleatorio entre 0 e n.
+*/
+JOGADAS *jogada_aleatoria(TAB_BN *estado, STACK *partida){
+JOGADAS *tmp; int linha; int ciclo=-1; int coluna;
+tmp=partida->head->head_jogadas;
+srand((unsigned int) time (NULL));
+do{
+linha=rand_to(estado->n_linhas-1);
+coluna=encontra_posicao(estado,linha);
+if(coluna!=-1){
+	altera_estado(estado, linha,coluna,'o',partida);
+	ciclo=1;
+	      }
 
-					}
-partida->head->head_jogadas= tmp;
+}while(ciclo==-1);
+return tmp;
 }
 
 
