@@ -13,6 +13,7 @@
 {\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,10 +29,6 @@
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
-\item 
-int \hyperlink{Main_8c_a0537b3f8100d5a9221e224a25871f209}{interpretar} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, char $\ast$linha, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
-\item 
-void \hyperlink{Main_8c_a35f7c9a5dff6d363c7cd9053ce34f800}{interpretador} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
 \item 
 int \hyperlink{Main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \end{DoxyCompactItemize}
@@ -56,46 +53,6 @@ int \hyperlink{Main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 
 
 \subsection{Function Documentation}
-\hypertarget{Main_8c_a35f7c9a5dff6d363c7cd9053ce34f800}{\index{Main.\-c@{Main.\-c}!interpretador@{interpretador}}
-\index{interpretador@{interpretador}!Main.c@{Main.\-c}}
-\subsubsection[{interpretador}]{\setlength{\rightskip}{0pt plus 5cm}void interpretador (
-\begin{DoxyParamCaption}
-\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
-\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
-\end{DoxyParamCaption}
-)}}\label{Main_8c_a35f7c9a5dff6d363c7cd9053ce34f800}
-Interpretador de comandos.
-
-
-\begin{DoxyParams}{Parameters}
-{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
-\hline
-{\em partida} & \-: Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro. \\
-\hline
-\end{DoxyParams}
-\hypertarget{Main_8c_a0537b3f8100d5a9221e224a25871f209}{\index{Main.\-c@{Main.\-c}!interpretar@{interpretar}}
-\index{interpretar@{interpretar}!Main.c@{Main.\-c}}
-\subsubsection[{interpretar}]{\setlength{\rightskip}{0pt plus 5cm}int interpretar (
-\begin{DoxyParamCaption}
-\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
-\item[{char $\ast$}]{linha, }
-\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
-\end{DoxyParamCaption}
-)}}\label{Main_8c_a0537b3f8100d5a9221e224a25871f209}
-Interpreta um comando passado numa linha
-
-
-\begin{DoxyParams}{Parameters}
-{\em linha} & Endereço do array/string que contem as informaçoes que foram escritas no standart input.\\
-\hline
-{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
-\hline
-{\em partida} & \-: Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro.\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
--\/1 caso o comando introduzido é invalido, podendo nao pertencer as instruçoes possiveis ou ter informaçao erradas.\-O valor de retorno tambem pode ser 0 caso o comando a ser executado é a saida do programa. O valor 1 sera retornado quando nao houver problemas na realizaçao da instrução. 
-\end{DoxyReturn}
 \hypertarget{Main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{Main.\-c@{Main.\-c}!main@{main}}
 \index{main@{main}!Main.c@{Main.\-c}}
 \subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (

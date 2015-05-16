@@ -98,6 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="aux__muda__tab_8h_source.html">aux_muda_tab.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="aux__stack_8h_source.html">aux_stack.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="desf__f_8h_source.html">desf_f.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="interpretador_8h_source.html">interpretador.h</a>&quot;</code><br/>
 </div>
 <p><a href="stel_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -310,6 +311,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Comando que veriifica se o nosso tabuleiro esta valido ou nao.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devolve 1. Função que verifica se a informação do tabuleiro é válida.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -321,13 +336,13 @@ Functions</h2></td></tr>
           <td class="memname">void imprimeTab </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>estado</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>fp</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -336,6 +351,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Função que irá escrever no ficheiro escolhido o tabuleiro assim como todas as informações relativas a este.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+    <tr><td class="paramname">fp</td><td>Ficheiro que foi aberto e onde vai ser escrito o tabuleiro. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -347,13 +370,13 @@ Functions</h2></td></tr>
           <td class="memname">int ler_ficheiro </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>fp</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>estado</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -362,13 +385,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Função que irá ler as informaçoes presentes no ficheiro aberto.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+    <tr><td class="paramname">fp</td><td>Ficheiro onde vai ser lido a informaçao sob o tabuleiro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devolve 1 se nao houver problemas, -1 caso haja uma anomalia. </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 11 2015 18:19:50 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 16 2015 11:33:50 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -13,6 +13,7 @@
 {\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,4 +61,12 @@ void \hyperlink{estrategias__auxiliares_8c_a484e569cbaf57288388091df8b4160c0}{es
 \item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
 \end{DoxyParamCaption}
 )}}\label{estrategias__auxiliares_8c_a484e569cbaf57288388091df8b4160c0}
-funcao para percorrer todo o tabuleiro e sempre que encontrar um segmento preencher agua a volta onde necessario. 
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) pelos 4 respectivos tipos de barcos existentes ('O', '$<$$>$', '$<$\#$>$', '$<$\#\#$>$') quando à volta for tudo '$\sim$' ou esses caracteres se encontrem no limite do tabuleiro
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
+\hline
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+\hline
+\end{DoxyParams}

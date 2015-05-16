@@ -811,7 +811,13 @@ void from_unknown_to_middle_vertical(TAB_BN *estado, STACK *partida, int coluna)
 }
 
 
+/**
+Função que verifica se o tabuleiro é válido tendo em conta as informações das linhas e das colunas.
+Caso o número de segmentos de barcos detetados sejam maiores que as informações da respectiva linha ou coluna, o tabuleiro é inválido.
 
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+*/
 
 
 
@@ -835,6 +841,20 @@ int verifica_info(TAB_BN *estado){
 	return resultado;
 }
 
+/**
+Função que verifica se numa determinada posição poderá existir um segmento de barco.
+Esse segmento poderá ser '#', 'o', '.' ou um segmento passado como parâmetro.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param i: Indice da linha que se quer testar.
+
+@param j: Indice da coluna que se quer testar.
+
+@param a: Segmento que se quer verificar se existe numa determinada posição.
+
+*/
+
 int verifica_char(TAB_BN *estado, int i, int j, char a){
 	if(estado->tabuleiro[i][j] == a || estado->tabuleiro[i][j] == '#' || estado->tabuleiro[i][j] == 'o' || estado->tabuleiro[i][j] == '.')
 		return 0;
@@ -842,12 +862,36 @@ int verifica_char(TAB_BN *estado, int i, int j, char a){
 		return 1;
 }
 
+
+/**
+Função que verifica se numa determinada posição nao existem segmentos de barco.
+Nessa posição só poderão existir os caractéres '~' e '.'.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param i: Indice da linha que se quer testar.
+
+@param j: Indice da coluna que se quer testar.
+
+*/
+
 int verifica_lado(TAB_BN *estado, int i, int j){
 	if(estado->tabuleiro[i][j] == '~' || estado->tabuleiro[i][j] == '.')
 		return 0;
 	else
 		return 1;
 }
+
+/**
+Função que verifica para os cantos do tabuleiro, mediante o tipo de segmento encontrado, se os caractéres à sua volta são válidos.
+
+@param i: Indice da linha que se quer testar.
+
+@param j: Indice da coluna que se quer testar.
+
+@param estado: Contém toda a informaçao relativo ao tabuleiro usado.
+
+*/
 
 int verifica_cantos(int i, int j, TAB_BN *estado){
 	int resultado = 1;
@@ -1014,6 +1058,17 @@ int verifica_cantos(int i, int j, TAB_BN *estado){
 	return resultado;
 }
 
+
+/**
+Função que verifica para o interior do tabuleiro, mediante o tipo de segmento encontrado, se os caractéres à sua volta são válidos.
+
+@param i: Indice da linha que se quer testar.
+
+@param j: Indice da coluna que se quer testar.
+
+@param estado: Contém toda a informaçao relativo ao tabuleiro usado.
+
+*/
 
 int verifica_meio(int i, int j, TAB_BN *estado){
 	int resultado = 1;

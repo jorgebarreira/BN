@@ -113,17 +113,24 @@ int cmd_m(TAB_BN *estado){
     return 1;
 }
 
+/**
 
+Função que irá escrever no ficheiro escolhido o tabuleiro assim como todas as informações relativas a este.
+
+@param estado - Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param fp: Ficheiro que foi aberto e onde vai ser escrito o tabuleiro.
+*/
 void imprimeTab(TAB_BN *estado,FILE *fp) {
     int indLinha,indCol;
     fprintf(fp, "%d %d\n",estado->n_linhas, estado->n_colunas);
 
-    for(indLinha=0; indLinha <= estado->n_linhas; indLinha++)
-         if(indLinha != estado->n_linhas) fprintf(fp,"%d ",estado->info_linhas[indLinha]);
+    for(indLinha=0; indLinha < estado->n_linhas; indLinha++)
+         if(indLinha != (estado->n_linhas-1)) fprintf(fp,"%d ",estado->info_linhas[indLinha]);
          else fprintf(fp,"%d\n",estado->info_linhas[indLinha]);
 
-    for(indCol=0; indCol <= estado->n_colunas; indCol++)
-           if(indCol != estado->n_colunas) fprintf(fp, "%d ",estado->info_colunas[indCol]);
+    for(indCol=0; indCol < estado->n_colunas; indCol++)
+           if(indCol != (estado->n_colunas-1)) fprintf(fp, "%d ",estado->info_colunas[indCol]);
            else fprintf(fp, "%d\n", estado->info_colunas[indCol]);
           
     for(indLinha=0;indLinha<estado->n_linhas;indLinha++) 
@@ -134,12 +141,24 @@ void imprimeTab(TAB_BN *estado,FILE *fp) {
           };
 
 }
-/* O tabuleiro escrito tem o formato do Output */
+
+
+/**
+Função que escreve o tabuleiro num ficheiro.
+
+@param estado - Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param ficheiro: string que contem o nome do ficheiro onde se quer escrever. Este pode ja existir sendo aberto neste caso, ou nao existir ,criando-se um novo.
+
+@return Devolve 1 se conseguiu escrever dentro do ficheiro, -1 caso nao foi possivel abrir este. 
+
+*/
+
 int cmd_e(TAB_BN *estado, char ficheiro[]) {
     int r = 1;
     FILE *fp;
     if((fp = fopen(ficheiro,"w")) == NULL){
-                                      printf("Impossível criar o ficheiro\n");
+                                      printf("Impossível abrir/criar o ficheiro\n");
                                       r=-1;
     }else imprimeTab( estado, fp);
     fclose(fp); /* é preciso fechar o ficheiro !! */
@@ -147,9 +166,18 @@ int cmd_e(TAB_BN *estado, char ficheiro[]) {
 
 }
 
+/**
+
+Função que irá ler as informaçoes presentes no ficheiro aberto.
+
+@param estado - Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param fp: Ficheiro onde vai ser lido a informaçao sob o tabuleiro.
+
+@return Devolve 1 se nao houver problemas, -1 caso haja uma anomalia.
 
 
-
+*/
 int ler_ficheiro(FILE *fp,TAB_BN *estado){
     int lin;
     int r=1; /* permite tirar os varios returns. O seu resultado nao mudará se não houver problemas durante a execução.*/
@@ -158,6 +186,7 @@ int ler_ficheiro(FILE *fp,TAB_BN *estado){
     char resto_linha[MAX_LINHA];
     if(fgets(linha_lida, MAX_LINHA,fp) == NULL) return -1;
     sscanf(linha_lida, "%d %d", &estado->n_linhas, &estado->n_colunas);
+if(estado->n_linhas!= estado->n_colunas) { printf("O tabuleiro tem que ser quadrado."); return -1;};
     if(fgets(linha_lida, MAX_LINHA, fp)!=NULL)
       for (lin=0; lin<estado->n_linhas; lin++){
           sscanf(linha_lida, "%d %[^\n]", &estado->info_linhas[lin],resto_linha);
@@ -179,12 +208,25 @@ int ler_ficheiro(FILE *fp,TAB_BN *estado){
     return r;
 }
 
+/**
+
+Função que irá abrir o ficheiro ,caso existe, e vai lê-lo.
+
+@param estado - Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param ficheiro: String com o nome do ficheiro contendo as informaçoes sobre o tabuleiro que se quer carregar.
+
+@param partida: Stack onde vai ser carregada e iniciado este novo tabuleiro.
+
+@return Devolve 1 se conseguiu ler o ficheiro, -1 caso nao foi possivel abrir este. 
+*/
+
 int cmd_l(TAB_BN *estado,char ficheiro[], STACK *partida){
     int r=1;
     FILE *fp;
     fp=fopen(ficheiro,"r");
     if(fp != NULL){
-		 if(partida->head != NULL) initJOGO(estado,partida);
+		 if(partida->head != NULL)  initJOGO(estado,partida);
                   	r=ler_ficheiro(fp, estado);
 		 if(partida->head == NULL) initJOGO(estado,partida);
 		  }
@@ -192,10 +234,19 @@ int cmd_l(TAB_BN *estado,char ficheiro[], STACK *partida){
     if (fp!=NULL) fclose(fp); /* é preciso fechar o ficheiro !! */
     return r;
 }
+/**
+Comando que veriifica se o nosso tabuleiro esta valido ou nao.
+
+@param estado - Apontador da estrutura que contém toda a informação sob o tabuleiro.
+
+
+@return Devolve 1. 
+*/
+
 
 int cmd_V(TAB_BN *estado){
   int i,j;
-  int res,res2,res3;
+  int res,res2 = 1,res3= 1;
   res=verifica_info(estado);
   for(i=0;i<estado->n_linhas;i++){
     for(j=0;j<estado->n_colunas;j++){
