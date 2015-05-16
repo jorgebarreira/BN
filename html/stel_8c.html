@@ -98,6 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="aux__muda__tab_8h_source.html">aux_muda_tab.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="aux__stack_8h_source.html">aux_stack.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="desf__f_8h_source.html">desf_f.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="interpretador_8h_source.html">interpretador.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -249,6 +250,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Função que escreve o tabuleiro num ficheiro.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+    <tr><td class="paramname">ficheiro</td><td>string que contem o nome do ficheiro onde se quer escrever. Este pode ja existir sendo aberto neste caso, ou nao existir ,criando-se um novo.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devolve 1 se conseguiu escrever dentro do ficheiro, -1 caso nao foi possivel abrir este. </dd></dl>
 
 </div>
 </div>
@@ -281,6 +291,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Função que irá abrir o ficheiro ,caso existe, e vai lê-lo.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+    <tr><td class="paramname">ficheiro</td><td>String com o nome do ficheiro contendo as informaçoes sobre o tabuleiro que se quer carregar.</td></tr>
+    <tr><td class="paramname">partida</td><td>Stack onde vai ser carregada e iniciado este novo tabuleiro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devolve 1 se conseguiu ler o ficheiro, -1 caso nao foi possivel abrir este. </dd></dl>
 
 </div>
 </div>
@@ -322,6 +342,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Comando que veriifica se o nosso tabuleiro esta valido ou nao.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devolve 1. Função que verifica se a informação do tabuleiro é válida.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -348,6 +382,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Função que irá escrever no ficheiro escolhido o tabuleiro assim como todas as informações relativas a este.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+    <tr><td class="paramname">fp</td><td>Ficheiro que foi aberto e onde vai ser escrito o tabuleiro. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -374,13 +416,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Função que irá ler as informaçoes presentes no ficheiro aberto.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+    <tr><td class="paramname">fp</td><td>Ficheiro onde vai ser lido a informaçao sob o tabuleiro.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Devolve 1 se nao houver problemas, -1 caso haja uma anomalia. </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 11 2015 18:19:50 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 16 2015 11:33:50 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

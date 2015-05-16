@@ -97,25 +97,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="aux__muda__tab_8h.html">aux_muda_tab.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="aux__stack_8h.html">aux_stack.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="desf__f_8h.html">desf_f.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="aux__muda__tab_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">   15</a></span>&#160;<span class="preprocessor">#define TRUE 1</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="aux__muda__tab_8h.html#aa93f0eb578d23995850d61f7d61c55c1">   16</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FALSE 0</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="aux__muda__tab_8h.html#a0592dba56693fad79136250c11e5a7fe">   17</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_SIZE 100</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="aux__muda__tab_8h.html#a9e310b9f673a2ac6b8090780f3027fbf">   18</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_LINHA 1024</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#acd9f1421101524610851e4831a5d9aa2">cmd_E</a>(<span class="keywordtype">int</span> , <a class="code" href="structtab__bn.html">TAB_BN</a> *,<a class="code" href="structSTACK__L.html">STACK</a> *);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#a051c7c1d634b3b61cb9edb847e1b6de3">cmd_p</a>(<span class="keywordtype">char</span> *,<span class="keywordtype">int</span> ,<span class="keywordtype">int</span> , <a class="code" href="structtab__bn.html">TAB_BN</a> *, <a class="code" href="structSTACK__L.html">STACK</a> *);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#a35a3af6d6eee9b7a28732580295dff8e">cmd_h</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *, <span class="keywordtype">int</span> , <a class="code" href="structSTACK__L.html">STACK</a> *);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#abe2398424daad2460070e725cf15b55a">cmd_v</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *, <span class="keywordtype">int</span> , <a class="code" href="structSTACK__L.html">STACK</a> *);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#aba53266076b1ba73d7dc0db01a58c9ee">pertence</a>(<span class="keywordtype">char</span> );</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interpretador_8h.html">interpretador.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="aux__muda__tab_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">   16</a></span>&#160;<span class="preprocessor">#define TRUE 1</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="aux__muda__tab_8h.html#aa93f0eb578d23995850d61f7d61c55c1">   17</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FALSE 0</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="aux__muda__tab_8h.html#a0592dba56693fad79136250c11e5a7fe">   18</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_SIZE 100</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="aux__muda__tab_8h.html#a9e310b9f673a2ac6b8090780f3027fbf">   19</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_LINHA 1024</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#acd9f1421101524610851e4831a5d9aa2">cmd_E</a>(<span class="keywordtype">int</span> , <a class="code" href="structtab__bn.html">TAB_BN</a> *,<a class="code" href="structSTACK__L.html">STACK</a> *);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#a051c7c1d634b3b61cb9edb847e1b6de3">cmd_p</a>(<span class="keywordtype">char</span> *,<span class="keywordtype">int</span> ,<span class="keywordtype">int</span> , <a class="code" href="structtab__bn.html">TAB_BN</a> *, <a class="code" href="structSTACK__L.html">STACK</a> *);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#a35a3af6d6eee9b7a28732580295dff8e">cmd_h</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *, <span class="keywordtype">int</span> , <a class="code" href="structSTACK__L.html">STACK</a> *);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#abe2398424daad2460070e725cf15b55a">cmd_v</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *, <span class="keywordtype">int</span> , <a class="code" href="structSTACK__L.html">STACK</a> *);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span> <a class="code" href="aux__muda__tab_8h.html#aba53266076b1ba73d7dc0db01a58c9ee">pertence</a>(<span class="keywordtype">char</span> );</div>
 <div class="ttc" id="aux__tabuleiro_8h_html"><div class="ttname"><a href="aux__tabuleiro_8h.html">aux_tabuleiro.h</a></div></div>
 <div class="ttc" id="aux__muda__tab_8h_html_a051c7c1d634b3b61cb9edb847e1b6de3"><div class="ttname"><a href="aux__muda__tab_8h.html#a051c7c1d634b3b61cb9edb847e1b6de3">cmd_p</a></div><div class="ttdeci">int cmd_p(char *, int, int, TAB_BN *, STACK *)</div></div>
-<div class="ttc" id="aux__muda__tab_8h_html_acd9f1421101524610851e4831a5d9aa2"><div class="ttname"><a href="aux__muda__tab_8h.html#acd9f1421101524610851e4831a5d9aa2">cmd_E</a></div><div class="ttdeci">int cmd_E(int, TAB_BN *, STACK *)</div><div class="ttdef"><b>Definition:</b> aux_muda_tab.c:39</div></div>
-<div class="ttc" id="structSTACK__L_html"><div class="ttname"><a href="structSTACK__L.html">STACK_L</a></div><div class="ttdef"><b>Definition:</b> estrutura_TAB_BN.h:47</div></div>
-<div class="ttc" id="aux__muda__tab_8h_html_aba53266076b1ba73d7dc0db01a58c9ee"><div class="ttname"><a href="aux__muda__tab_8h.html#aba53266076b1ba73d7dc0db01a58c9ee">pertence</a></div><div class="ttdeci">int pertence(char)</div><div class="ttdef"><b>Definition:</b> aux_muda_tab.c:83</div></div>
+<div class="ttc" id="aux__muda__tab_8h_html_acd9f1421101524610851e4831a5d9aa2"><div class="ttname"><a href="aux__muda__tab_8h.html#acd9f1421101524610851e4831a5d9aa2">cmd_E</a></div><div class="ttdeci">int cmd_E(int, TAB_BN *, STACK *)</div><div class="ttdef"><b>Definition:</b> aux_muda_tab.c:40</div></div>
+<div class="ttc" id="structSTACK__L_html"><div class="ttname"><a href="structSTACK__L.html">STACK_L</a></div><div class="ttdef"><b>Definition:</b> estrutura_TAB_BN.h:60</div></div>
+<div class="ttc" id="interpretador_8h_html"><div class="ttname"><a href="interpretador_8h.html">interpretador.h</a></div></div>
+<div class="ttc" id="aux__muda__tab_8h_html_aba53266076b1ba73d7dc0db01a58c9ee"><div class="ttname"><a href="aux__muda__tab_8h.html#aba53266076b1ba73d7dc0db01a58c9ee">pertence</a></div><div class="ttdeci">int pertence(char)</div><div class="ttdef"><b>Definition:</b> aux_muda_tab.c:84</div></div>
 <div class="ttc" id="estrategias__auxiliares_8h_html"><div class="ttname"><a href="estrategias__auxiliares_8h.html">estrategias_auxiliares.h</a></div></div>
 <div class="ttc" id="aux__muda__tab_8h_html"><div class="ttname"><a href="aux__muda__tab_8h.html">aux_muda_tab.h</a></div></div>
 <div class="ttc" id="Main_8h_html"><div class="ttname"><a href="Main_8h.html">Main.h</a></div></div>
@@ -123,14 +125,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="desf__f_8h_html"><div class="ttname"><a href="desf__f_8h.html">desf_f.h</a></div></div>
 <div class="ttc" id="estrategias_8h_html"><div class="ttname"><a href="estrategias_8h.html">estrategias.h</a></div></div>
 <div class="ttc" id="estrutura__TAB__BN_8h_html"><div class="ttname"><a href="estrutura__TAB__BN_8h.html">estrutura_TAB_BN.h</a></div></div>
-<div class="ttc" id="structtab__bn_html"><div class="ttname"><a href="structtab__bn.html">tab_bn</a></div><div class="ttdef"><b>Definition:</b> estrutura_TAB_BN.h:23</div></div>
-<div class="ttc" id="aux__muda__tab_8h_html_abe2398424daad2460070e725cf15b55a"><div class="ttname"><a href="aux__muda__tab_8h.html#abe2398424daad2460070e725cf15b55a">cmd_v</a></div><div class="ttdeci">int cmd_v(TAB_BN *, int, STACK *)</div><div class="ttdef"><b>Definition:</b> aux_muda_tab.c:154</div></div>
-<div class="ttc" id="aux__muda__tab_8h_html_a35a3af6d6eee9b7a28732580295dff8e"><div class="ttname"><a href="aux__muda__tab_8h.html#a35a3af6d6eee9b7a28732580295dff8e">cmd_h</a></div><div class="ttdeci">int cmd_h(TAB_BN *, int, STACK *)</div><div class="ttdef"><b>Definition:</b> aux_muda_tab.c:131</div></div>
+<div class="ttc" id="structtab__bn_html"><div class="ttname"><a href="structtab__bn.html">tab_bn</a></div><div class="ttdef"><b>Definition:</b> estrutura_TAB_BN.h:28</div></div>
+<div class="ttc" id="aux__muda__tab_8h_html_abe2398424daad2460070e725cf15b55a"><div class="ttname"><a href="aux__muda__tab_8h.html#abe2398424daad2460070e725cf15b55a">cmd_v</a></div><div class="ttdeci">int cmd_v(TAB_BN *, int, STACK *)</div><div class="ttdef"><b>Definition:</b> aux_muda_tab.c:155</div></div>
+<div class="ttc" id="aux__muda__tab_8h_html_a35a3af6d6eee9b7a28732580295dff8e"><div class="ttname"><a href="aux__muda__tab_8h.html#a35a3af6d6eee9b7a28732580295dff8e">cmd_h</a></div><div class="ttdeci">int cmd_h(TAB_BN *, int, STACK *)</div><div class="ttdef"><b>Definition:</b> aux_muda_tab.c:132</div></div>
 <div class="ttc" id="stel_8h_html"><div class="ttname"><a href="stel_8h.html">stel.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 11 2015 18:19:49 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 16 2015 11:33:50 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

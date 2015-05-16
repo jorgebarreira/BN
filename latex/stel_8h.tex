@@ -13,6 +13,7 @@
 {\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -120,19 +121,55 @@ Nota\-: Nao vejo possíveis erros que possam ocorrer durante a impressão. \hype
 \item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado}
 \end{DoxyParamCaption}
 )}}\label{stel_8h_ac6a0042c9f37f47e062ce4ee474fae5c}
+Comando que veriifica se o nosso tabuleiro esta valido ou nao.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & -\/ Apontador da estrutura que contém toda a informação sobre o tabuleiro.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve 1. Função que verifica se a informação do tabuleiro é válida.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado. \\
+\hline
+\end{DoxyParams}
 \hypertarget{stel_8h_a6809ffa8dee25ffa77db7fa2d2bd2dd0}{\index{stel.\-h@{stel.\-h}!imprime\-Tab@{imprime\-Tab}}
 \index{imprime\-Tab@{imprime\-Tab}!stel.h@{stel.\-h}}
 \subsubsection[{imprime\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}void imprime\-Tab (
 \begin{DoxyParamCaption}
-\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{, }
-\item[{F\-I\-L\-E $\ast$}]{}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{F\-I\-L\-E $\ast$}]{fp}
 \end{DoxyParamCaption}
 )}}\label{stel_8h_a6809ffa8dee25ffa77db7fa2d2bd2dd0}
+Função que irá escrever no ficheiro escolhido o tabuleiro assim como todas as informações relativas a este.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & -\/ Apontador da estrutura que contém toda a informação sobre o tabuleiro.\\
+\hline
+{\em fp} & Ficheiro que foi aberto e onde vai ser escrito o tabuleiro. \\
+\hline
+\end{DoxyParams}
 \hypertarget{stel_8h_af748db96c29aa9b4f2cd75606c243886}{\index{stel.\-h@{stel.\-h}!ler\-\_\-ficheiro@{ler\-\_\-ficheiro}}
 \index{ler\-\_\-ficheiro@{ler\-\_\-ficheiro}!stel.h@{stel.\-h}}
 \subsubsection[{ler\-\_\-ficheiro}]{\setlength{\rightskip}{0pt plus 5cm}int ler\-\_\-ficheiro (
 \begin{DoxyParamCaption}
-\item[{F\-I\-L\-E $\ast$}]{, }
-\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado}
 \end{DoxyParamCaption}
 )}}\label{stel_8h_af748db96c29aa9b4f2cd75606c243886}
+Função que irá ler as informaçoes presentes no ficheiro aberto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & -\/ Apontador da estrutura que contém toda a informação sobre o tabuleiro.\\
+\hline
+{\em fp} & Ficheiro onde vai ser lido a informaçao sob o tabuleiro.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve 1 se nao houver problemas, -\/1 caso haja uma anomalia. 
+\end{DoxyReturn}

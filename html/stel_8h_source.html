@@ -97,42 +97,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="aux__muda__tab_8h.html">aux_muda_tab.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="aux__stack_8h.html">aux_stack.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="desf__f_8h.html">desf_f.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="stel_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">   15</a></span>&#160;<span class="preprocessor">#define TRUE 1</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="stel_8h.html#aa93f0eb578d23995850d61f7d61c55c1">   16</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FALSE 0</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="stel_8h.html#a0592dba56693fad79136250c11e5a7fe">   17</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_SIZE 100</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="stel_8h.html#a9e310b9f673a2ac6b8090780f3027fbf">   18</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_LINHA 1024</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span><span class="keywordtype">int</span> <a class="code" href="stel_8h.html#a34dc52d46e289c207f04cd6dff987bad">cmd_l</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *,<span class="keywordtype">char</span> *,<a class="code" href="structSTACK__L.html">STACK</a> *);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#ae33fa160f6397424e2d4628f28d0f26f">cmd_c</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *, <a class="code" href="structSTACK__L.html">STACK</a> *);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#ae774297274031ad2be9c1f643fc95bba">cmd_m</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#ac6a0042c9f37f47e062ce4ee474fae5c">cmd_V</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *estado);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> <a class="code" href="stel_8h.html#a6809ffa8dee25ffa77db7fa2d2bd2dd0">imprimeTab</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *,FILE *);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#ae5f2a70adbda5fa88b11234cec7ff8d6">cmd_e</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *, <span class="keywordtype">char</span> *) ;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#af748db96c29aa9b4f2cd75606c243886">ler_ficheiro</a>(FILE *,<a class="code" href="structtab__bn.html">TAB_BN</a> *);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interpretador_8h.html">interpretador.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="stel_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">   16</a></span>&#160;<span class="preprocessor">#define TRUE 1</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="stel_8h.html#aa93f0eb578d23995850d61f7d61c55c1">   17</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FALSE 0</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="stel_8h.html#a0592dba56693fad79136250c11e5a7fe">   18</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_SIZE 100</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="stel_8h.html#a9e310b9f673a2ac6b8090780f3027fbf">   19</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MAX_LINHA 1024</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="keywordtype">int</span> <a class="code" href="stel_8h.html#a34dc52d46e289c207f04cd6dff987bad">cmd_l</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *,<span class="keywordtype">char</span> *,<a class="code" href="structSTACK__L.html">STACK</a> *);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#ae33fa160f6397424e2d4628f28d0f26f">cmd_c</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *, <a class="code" href="structSTACK__L.html">STACK</a> *);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#ae774297274031ad2be9c1f643fc95bba">cmd_m</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#ac6a0042c9f37f47e062ce4ee474fae5c">cmd_V</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *estado);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="stel_8h.html#a6809ffa8dee25ffa77db7fa2d2bd2dd0">imprimeTab</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *,FILE *);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#ae5f2a70adbda5fa88b11234cec7ff8d6">cmd_e</a>(<a class="code" href="structtab__bn.html">TAB_BN</a> *, <span class="keywordtype">char</span> *) ;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span> <a class="code" href="stel_8h.html#af748db96c29aa9b4f2cd75606c243886">ler_ficheiro</a>(FILE *,<a class="code" href="structtab__bn.html">TAB_BN</a> *);</div>
 <div class="ttc" id="stel_8h_html_a34dc52d46e289c207f04cd6dff987bad"><div class="ttname"><a href="stel_8h.html#a34dc52d46e289c207f04cd6dff987bad">cmd_l</a></div><div class="ttdeci">int cmd_l(TAB_BN *, char *, STACK *)</div></div>
 <div class="ttc" id="aux__tabuleiro_8h_html"><div class="ttname"><a href="aux__tabuleiro_8h.html">aux_tabuleiro.h</a></div></div>
-<div class="ttc" id="structSTACK__L_html"><div class="ttname"><a href="structSTACK__L.html">STACK_L</a></div><div class="ttdef"><b>Definition:</b> estrutura_TAB_BN.h:47</div></div>
-<div class="ttc" id="stel_8h_html_a6809ffa8dee25ffa77db7fa2d2bd2dd0"><div class="ttname"><a href="stel_8h.html#a6809ffa8dee25ffa77db7fa2d2bd2dd0">imprimeTab</a></div><div class="ttdeci">void imprimeTab(TAB_BN *, FILE *)</div><div class="ttdef"><b>Definition:</b> stel.c:116</div></div>
+<div class="ttc" id="structSTACK__L_html"><div class="ttname"><a href="structSTACK__L.html">STACK_L</a></div><div class="ttdef"><b>Definition:</b> estrutura_TAB_BN.h:60</div></div>
+<div class="ttc" id="interpretador_8h_html"><div class="ttname"><a href="interpretador_8h.html">interpretador.h</a></div></div>
+<div class="ttc" id="stel_8h_html_a6809ffa8dee25ffa77db7fa2d2bd2dd0"><div class="ttname"><a href="stel_8h.html#a6809ffa8dee25ffa77db7fa2d2bd2dd0">imprimeTab</a></div><div class="ttdeci">void imprimeTab(TAB_BN *, FILE *)</div><div class="ttdef"><b>Definition:</b> stel.c:124</div></div>
 <div class="ttc" id="estrategias__auxiliares_8h_html"><div class="ttname"><a href="estrategias__auxiliares_8h.html">estrategias_auxiliares.h</a></div></div>
 <div class="ttc" id="aux__muda__tab_8h_html"><div class="ttname"><a href="aux__muda__tab_8h.html">aux_muda_tab.h</a></div></div>
-<div class="ttc" id="stel_8h_html_af748db96c29aa9b4f2cd75606c243886"><div class="ttname"><a href="stel_8h.html#af748db96c29aa9b4f2cd75606c243886">ler_ficheiro</a></div><div class="ttdeci">int ler_ficheiro(FILE *, TAB_BN *)</div><div class="ttdef"><b>Definition:</b> stel.c:152</div></div>
+<div class="ttc" id="stel_8h_html_af748db96c29aa9b4f2cd75606c243886"><div class="ttname"><a href="stel_8h.html#af748db96c29aa9b4f2cd75606c243886">ler_ficheiro</a></div><div class="ttdeci">int ler_ficheiro(FILE *, TAB_BN *)</div><div class="ttdef"><b>Definition:</b> stel.c:181</div></div>
 <div class="ttc" id="Main_8h_html"><div class="ttname"><a href="Main_8h.html">Main.h</a></div></div>
 <div class="ttc" id="stel_8h_html_ae5f2a70adbda5fa88b11234cec7ff8d6"><div class="ttname"><a href="stel_8h.html#ae5f2a70adbda5fa88b11234cec7ff8d6">cmd_e</a></div><div class="ttdeci">int cmd_e(TAB_BN *, char *)</div></div>
 <div class="ttc" id="aux__stack_8h_html"><div class="ttname"><a href="aux__stack_8h.html">aux_stack.h</a></div></div>
 <div class="ttc" id="desf__f_8h_html"><div class="ttname"><a href="desf__f_8h.html">desf_f.h</a></div></div>
 <div class="ttc" id="estrategias_8h_html"><div class="ttname"><a href="estrategias_8h.html">estrategias.h</a></div></div>
 <div class="ttc" id="estrutura__TAB__BN_8h_html"><div class="ttname"><a href="estrutura__TAB__BN_8h.html">estrutura_TAB_BN.h</a></div></div>
-<div class="ttc" id="structtab__bn_html"><div class="ttname"><a href="structtab__bn.html">tab_bn</a></div><div class="ttdef"><b>Definition:</b> estrutura_TAB_BN.h:23</div></div>
-<div class="ttc" id="stel_8h_html_ae33fa160f6397424e2d4628f28d0f26f"><div class="ttname"><a href="stel_8h.html#ae33fa160f6397424e2d4628f28d0f26f">cmd_c</a></div><div class="ttdeci">int cmd_c(TAB_BN *, STACK *)</div><div class="ttdef"><b>Definition:</b> stel.c:35</div></div>
-<div class="ttc" id="stel_8h_html_ac6a0042c9f37f47e062ce4ee474fae5c"><div class="ttname"><a href="stel_8h.html#ac6a0042c9f37f47e062ce4ee474fae5c">cmd_V</a></div><div class="ttdeci">int cmd_V(TAB_BN *estado)</div><div class="ttdef"><b>Definition:</b> stel.c:195</div></div>
+<div class="ttc" id="structtab__bn_html"><div class="ttname"><a href="structtab__bn.html">tab_bn</a></div><div class="ttdef"><b>Definition:</b> estrutura_TAB_BN.h:28</div></div>
+<div class="ttc" id="stel_8h_html_ae33fa160f6397424e2d4628f28d0f26f"><div class="ttname"><a href="stel_8h.html#ae33fa160f6397424e2d4628f28d0f26f">cmd_c</a></div><div class="ttdeci">int cmd_c(TAB_BN *, STACK *)</div><div class="ttdef"><b>Definition:</b> stel.c:36</div></div>
+<div class="ttc" id="stel_8h_html_ac6a0042c9f37f47e062ce4ee474fae5c"><div class="ttname"><a href="stel_8h.html#ac6a0042c9f37f47e062ce4ee474fae5c">cmd_V</a></div><div class="ttdeci">int cmd_V(TAB_BN *estado)</div><div class="ttdef"><b>Definition:</b> stel.c:253</div></div>
 <div class="ttc" id="stel_8h_html"><div class="ttname"><a href="stel_8h.html">stel.h</a></div></div>
-<div class="ttc" id="stel_8h_html_ae774297274031ad2be9c1f643fc95bba"><div class="ttname"><a href="stel_8h.html#ae774297274031ad2be9c1f643fc95bba">cmd_m</a></div><div class="ttdeci">int cmd_m(TAB_BN *)</div><div class="ttdef"><b>Definition:</b> stel.c:77</div></div>
+<div class="ttc" id="stel_8h_html_ae774297274031ad2be9c1f643fc95bba"><div class="ttname"><a href="stel_8h.html#ae774297274031ad2be9c1f643fc95bba">cmd_m</a></div><div class="ttdeci">int cmd_m(TAB_BN *)</div><div class="ttdef"><b>Definition:</b> stel.c:78</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 11 2015 18:19:49 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 16 2015 11:33:50 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
