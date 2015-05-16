@@ -141,6 +141,7 @@ void imprimeTab(TAB_BN *estado,FILE *fp) {
           };
 
 }
+<<<<<<< HEAD
 
 /**
 
@@ -153,6 +154,19 @@ Função que irá apresentar no ecrã o estado onde se encontra o tabuleiro.
 @return Devolve 1 se conseguiu escrever dentro do ficheiro, -1 caso nao foi possivel abrir este. 
 
 */
+=======
+/* O tabuleiro escrito tem o formato do Output */
+
+/**
+Função que escreve o tabuleiro num ficheiro.
+
+@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param ficheiro : nome do ficheiro onde se pretende escrever.
+
+*/
+
+>>>>>>> 792981b8cc2a982a1abdef27d72f1461ed0845da
 int cmd_e(TAB_BN *estado, char ficheiro[]) {
     int r = 1;
     FILE *fp;
@@ -166,6 +180,7 @@ int cmd_e(TAB_BN *estado, char ficheiro[]) {
 }
 
 
+<<<<<<< HEAD
 
 /**
 
@@ -179,6 +194,8 @@ Função que irá ler as informaçoes presentes no ficheiro aberto.
 
 
 */
+=======
+>>>>>>> 792981b8cc2a982a1abdef27d72f1461ed0845da
 int ler_ficheiro(FILE *fp,TAB_BN *estado){
     int lin;
     int r=1; /* permite tirar os varios returns. O seu resultado nao mudará se não houver problemas durante a execução.*/
@@ -210,6 +227,7 @@ if(estado->n_linhas!= estado->n_colunas) { printf("O tabuleiro tem que ser quadr
 }
 
 /**
+<<<<<<< HEAD
 
 Função que irá abrir o ficheiro ,caso existe, e vai lê-lo.
 
@@ -221,6 +239,18 @@ Função que irá abrir o ficheiro ,caso existe, e vai lê-lo.
 
 @return Devolve 1 se conseguiu ler o ficheiro, -1 caso nao foi possivel abrir este. 
 */
+=======
+Função que lê um tabuleiro a partir de um ficheiro.
+
+@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param ficheiro : nome do ficheiro que se pretende abrir.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
+
+>>>>>>> 792981b8cc2a982a1abdef27d72f1461ed0845da
 int cmd_l(TAB_BN *estado,char ficheiro[], STACK *partida){
     int r=1;
     FILE *fp;
