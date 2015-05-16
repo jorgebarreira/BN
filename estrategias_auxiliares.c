@@ -21,8 +21,14 @@
 
 #endif
 
+
 /**
-funcao para percorrer todo o tabuleiro e sempre que encontrar um segmento preencher agua a volta onde necessario.
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) pelos 4 respectivos tipos de barcos existentes ('O', '<>', '<#>', '<##>') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
 */
 
 void estrategia_4(TAB_BN *estado,STACK *partida){

@@ -524,8 +524,7 @@ void coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida){
 
 
 /**
-Função que testa no interior do tabuleiro (exclui-se os cantos por serem casos especiais) se for possivel substituir segmentos desconhecidos de barcos por submarinos.
-
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por submarinos ('O') quando à volta for tudo '~' ou esse caracter se encontre no limite do tabuleiro
 
 @param estado : Contém toda a informaçao relativo ao tabuleiro usado.
 
@@ -588,6 +587,17 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 		altera_estado(estado,estado->n_linhas-1,estado->n_colunas-1,'O', partida);
 }
 
+
+
+/**
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por destroyers ('<>') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
+
 void from_unknown_to_destroyer(TAB_BN *estado, STACK *partida){
 	int j;
 	int i;
@@ -647,6 +657,15 @@ void from_unknown_to_destroyer(TAB_BN *estado, STACK *partida){
 	}
 }
 
+
+/**
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por cruisers ('<#>') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 
 void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 	int j;
@@ -708,6 +727,16 @@ void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
 		}
 	}
 }
+
+
+/**
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por battleships ('<##>') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 
 void from_unknown_to_battleship(TAB_BN *estado, STACK *partida){
 
