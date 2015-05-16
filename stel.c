@@ -126,11 +126,11 @@ void imprimeTab(TAB_BN *estado,FILE *fp) {
     fprintf(fp, "%d %d\n",estado->n_linhas, estado->n_colunas);
 
     for(indLinha=0; indLinha <= estado->n_linhas; indLinha++)
-         if(indLinha != estado->n_linhas) fprintf(fp,"%d ",estado->info_linhas[indLinha]);
+         if(indLinha != (estado->n_linhas-1)) fprintf(fp,"%d ",estado->info_linhas[indLinha]);
          else fprintf(fp,"%d\n",estado->info_linhas[indLinha]);
 
     for(indCol=0; indCol <= estado->n_colunas; indCol++)
-           if(indCol != estado->n_colunas) fprintf(fp, "%d ",estado->info_colunas[indCol]);
+           if(indCol != (estado->n_colunas-1)) fprintf(fp, "%d ",estado->info_colunas[indCol]);
            else fprintf(fp, "%d\n", estado->info_colunas[indCol]);
           
     for(indLinha=0;indLinha<estado->n_linhas;indLinha++) 
@@ -234,7 +234,8 @@ int cmd_l(TAB_BN *estado,char ficheiro[], STACK *partida){
     if (fp!=NULL) fclose(fp); /* é preciso fechar o ficheiro !! */
     return r;
 }
-
+/*
+<<<<<<< HEAD*/
 /**
 Comando que veriifica se o nosso tabuleiro esta valido ou nao.
 
@@ -243,6 +244,16 @@ Comando que veriifica se o nosso tabuleiro esta valido ou nao.
 
 @return Devolve 1. 
 */
+/*=======*/
+
+/**
+Função que verifica se a informação do tabuleiro é válida.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+*/
+
+/*>>>>>>> 354d8715c40aa4d4313c34c047793611453e3307*/
 int cmd_V(TAB_BN *estado){
   int i,j;
   int res,res2 = 1,res3= 1;

@@ -66,7 +66,7 @@ void estrategia_2(TAB_BN *estado,STACK *partida){
 	}
 
 	estrategia_4(estado, partida);
-	if(partida->head->head_jogadas->indcom==partida->head->n_com) partida->head->n_com++;
+	/*if(partida->head->head_jogadas!=NULL && partida->head->head_jogadas->indcom==partida->head->n_com) partida->head->n_com++;*/
 }
 
 /**
