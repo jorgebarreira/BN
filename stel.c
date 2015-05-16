@@ -135,6 +135,16 @@ void imprimeTab(TAB_BN *estado,FILE *fp) {
 
 }
 /* O tabuleiro escrito tem o formato do Output */
+
+/**
+Função que escreve o tabuleiro num ficheiro.
+
+@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param ficheiro : nome do ficheiro onde se pretende escrever.
+
+*/
+
 int cmd_e(TAB_BN *estado, char ficheiro[]) {
     int r = 1;
     FILE *fp;
@@ -146,8 +156,6 @@ int cmd_e(TAB_BN *estado, char ficheiro[]) {
     return r;
 
 }
-
-
 
 
 int ler_ficheiro(FILE *fp,TAB_BN *estado){
@@ -178,6 +186,17 @@ int ler_ficheiro(FILE *fp,TAB_BN *estado){
     }
     return r;
 }
+
+/**
+Função que lê um tabuleiro a partir de um ficheiro.
+
+@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
+
+@param ficheiro : nome do ficheiro que se pretende abrir.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+*/
 
 int cmd_l(TAB_BN *estado,char ficheiro[], STACK *partida){
     int r=1;
