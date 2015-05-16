@@ -193,6 +193,14 @@ int cmd_l(TAB_BN *estado,char ficheiro[], STACK *partida){
     return r;
 }
 
+
+/**
+Função que verifica se a informação do tabuleiro é válida.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+*/
+
 int cmd_V(TAB_BN *estado){
   int i,j;
   int res,res2,res3;
