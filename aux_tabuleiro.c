@@ -590,224 +590,227 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 
 
 /**
-Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por destroyers ('<>') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por barcos de tamanho N ('<#...N#>') horizontalmente quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
 
 @param estado : Contém toda a informaçao relativo ao tabuleiro usado.
 
 @param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
+@param linha : Linha do tabuleiro sobre a qual a função vai exercer efeito.
+
+
 */
 
-void from_unknown_to_destroyer(TAB_BN *estado, STACK *partida){
-	int j;
-	int i;
-
-	for (i=0; i<estado->n_linhas; i++){
-		for (j=1; j<((estado->n_colunas)-2); j++){
-			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+2] == '~') ){
-				altera_estado(estado, i, j, '<', partida);
-				altera_estado(estado, i, j+1, '>', partida);
-			}
-		}
-	}
-
-
+void from_unknown_to_whatever_horizontal(TAB_BN *estado, STACK *partida, int linha){
+	int i=0;
+	int j=0;
+	int begin=0;
 
 	for (j=0; j<estado->n_colunas; j++){
-		for (i=1; i<((estado->n_colunas)-2); i++){
-			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+2][j] == '~') ){
-				altera_estado(estado, i, j, '^', partida);
-				altera_estado(estado, i+1, j, 'v', partida);
+		if ( (is_segmento(estado->tabuleiro[linha][j]) == FALSE) && (i==0) ) {
+			continue;
+		}
+
+		if (is_segmento(estado->tabuleiro[linha][j]) == FALSE && (i==1)) {
+			i=0;
+			continue;
+		}
+
+		else if (is_segmento(estado->tabuleiro[linha][j])){
+			i++;
+		}
+
+		if ( (is_segmento(estado->tabuleiro[linha][j]) == FALSE) && (i>1) ) {
+			begin=j-i;
+			for (i=begin ; i<j; i++){
+				altera_estado(estado,linha, i, 'B', partida);
+			}
+			i=0;
+			begin = 0;
+		}
+
+
+		
+		if (i>1 && j == estado->n_colunas-1){
+			begin = j-i;
+			for (i=begin+1 ; i<estado->n_colunas; i++){
+				altera_estado(estado,linha, i, 'B', partida);
 			}
 		}
 	}
 
-
-	j=0;
-	for (i=0; i<estado->n_linhas; i++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && estado->tabuleiro[i][j+2]=='~'){
-			altera_estado(estado, i, j, '<', partida);
-			altera_estado(estado, i, j+1, '>', partida);
-		}
-	}
 
 	i=0;
-	for (j=0; j<estado->n_colunas; j++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && estado->tabuleiro[i+2][j]=='~'){
-			altera_estado(estado, i, j, '^', partida);
-			altera_estado(estado, i+1, j, 'v', partida);
+	j=0;
+	begin=0;
+
+
+	if (estado->tabuleiro[linha][estado->n_colunas-1]=='B')
+		altera_estado(estado,linha, estado->n_colunas-1, '>', partida);
+
+	if (estado->tabuleiro[linha][0]=='B')
+		altera_estado(estado,linha, 0, '<', partida);
+
+
+	for (j=1; j<estado->n_colunas-1; j++){
+		if (estado->tabuleiro[linha][j]=='B' && estado->tabuleiro[linha][j-1]=='~'){
+			altera_estado(estado,linha, j, '<', partida);
+		}
+		if (estado->tabuleiro[linha][j]=='B' && estado->tabuleiro[linha][j+1]=='~'){
+			altera_estado(estado,linha, j, '>', partida);
+		}
+	}
+
+	for (j=1; j<estado->n_colunas-1; j++){
+		if (estado->tabuleiro[linha][j]=='B' && estado->tabuleiro[linha][j+1]=='B'){
+			altera_estado(estado,linha, j, '#', partida);
+		}
+	}
+
+	for (j=1; j<estado->n_colunas-1; j++){
+		if (estado->tabuleiro[linha][j]=='B'){
+			altera_estado(estado,linha, j, 'o', partida);
 		}
 	}
 
 
-	j=estado->n_colunas-1;
-	for (i=0; i<estado->n_linhas; i++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j-1]) && estado->tabuleiro[i][j-2]=='~' ){
-			altera_estado(estado, i, j, '>', partida);
-			altera_estado(estado, i, j-1, '<', partida);
-		}
-	}
-
-	i=estado->n_linhas-1;
-	for (j=0; j<estado->n_colunas; j++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i-1][j]) && estado->tabuleiro[i-2][j]=='~'){
-			altera_estado(estado, i, j, 'v', partida);
-			altera_estado(estado, i-1, j, '^', partida);
-		}
-	}
 }
+
+/**
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por barcos de tamanho N ('<#...N#>') verticalmente quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+@param coluna : Coluna do tabuleiro sobre a qual a função vai exercer efeito.
+
+
+*/
+
+
+
+void from_unknown_to_whatever_vertical(TAB_BN *estado, STACK *partida, int coluna){
+	int j=0;
+	int i=0;
+	int begin=0;
+
+	for (i=0; i<estado->n_linhas; i++){
+		if ( (is_segmento(estado->tabuleiro[i][coluna]) == FALSE) && (j==0) ) {
+			continue;
+		}
+
+
+		if (is_segmento(estado->tabuleiro[i][coluna]) == FALSE && (j==1)) {
+			j=0;
+			continue;
+		}
+
+		else if (is_segmento(estado->tabuleiro[i][coluna])){
+			j++;
+		}
+
+		if ( (is_segmento(estado->tabuleiro[i][coluna]) == FALSE) && (j>1) ) {
+			begin=i-j;
+			for (j=begin ; j<i; j++){
+				altera_estado(estado, j, coluna, 'B', partida);
+			}
+			j=0;
+			begin = 0;
+		}
+
+		if (j>1 && i == estado->n_linhas-1){
+			begin = i-j;
+			for (j=begin+1 ; j<estado->n_linhas; j++){
+				altera_estado(estado,j, coluna, 'B', partida);
+			}
+		}
+	}
+
+
+	i=0;
+	j=0;
+	begin=0;
+
+
+	if (estado->tabuleiro[estado->n_linhas-1][coluna]=='B')
+		altera_estado(estado,estado->n_linhas-1, coluna, 'v', partida);
+
+	if (estado->tabuleiro[0][coluna]=='B')
+		altera_estado(estado,0, coluna, '^', partida);
+
+
+	for (i=1; i<estado->n_linhas-1; i++){
+		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i-1][coluna]=='~'){
+			altera_estado(estado, i, coluna, '^', partida);
+		}
+		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='~'){
+			altera_estado(estado,i, coluna, 'v', partida);
+		}
+	}
+
+	for (i=1; i<estado->n_linhas-1; i++){
+		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='B'){
+			altera_estado(estado,i, coluna, '#', partida);
+		}
+	}
+
+	for (i=1; i<estado->n_linhas-1; i++){
+		if (estado->tabuleiro[i][coluna]=='B'){
+			altera_estado(estado,i, coluna, 'o', partida);
+		}
+	}
+
+}
+
 
 
 /**
-Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por cruisers ('<#>') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
+Função que substitui os caracteres 'o' (de meios de barcos) por caracteres '#' horizontalmente.
 
 @param estado : Contém toda a informaçao relativo ao tabuleiro usado.
 
 @param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
+@param linha : Linha do tabuleiro sobre a qual a função vai exercer efeito.
+
+
 */
 
-void from_unknown_to_cruiser(TAB_BN *estado, STACK *partida){
+
+void from_unknown_to_middle_horizontal(TAB_BN *estado, STACK *partida, int linha){
 	int j;
-	int i;
-
-	for (i=0; i<estado->n_linhas; i++){
-		for (j=1; j<((estado->n_colunas)-3); j++){
-			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && is_segmento(estado->tabuleiro[i][j+2]) && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+3] == '~') ){
-				altera_estado(estado, i, j, '<', partida);
-				altera_estado(estado, i, j+1, '#', partida);
-				altera_estado(estado, i, j+2, '>', partida);
-			}
-		}
-	}
-
-	for (j=0; j<estado->n_colunas; j++){
-		for (i=1; i<((estado->n_colunas)-3); i++){
-			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && is_segmento(estado->tabuleiro[i+2][j]) && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+3][j] == '~') ){
-				altera_estado(estado, i, j, '^', partida);
-				altera_estado(estado, i+1, j, '#', partida);
-				altera_estado(estado, i+2, j, 'v', partida);
-			}
-		}
-	}
-
-	j=0;
-	for (i=0; i<estado->n_linhas; i++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && is_segmento(estado->tabuleiro[i][j+2]) && estado->tabuleiro[i][j+3]=='~'){
-			altera_estado(estado, i, j, '<', partida);
-			altera_estado(estado, i, j+1, '#', partida);
-			altera_estado(estado, i, j+2, '>', partida);
-		}
-	}
-
-	i=0;
-	for (j=0; j<estado->n_colunas; j++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && is_segmento(estado->tabuleiro[i+2][j]) && estado->tabuleiro[i+3][j]=='~'){
-			altera_estado(estado, i, j, '^', partida);
-			altera_estado(estado, i+1, j, '#', partida);
-			altera_estado(estado, i+2, j, 'v', partida);
-		}
-	}
-
-	j=estado->n_colunas-1;
-	for (i=0; i<estado->n_linhas; i++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j-1]) && is_segmento(estado->tabuleiro[i][j-2]) && estado->tabuleiro[i][j-3]=='~'){
-			altera_estado(estado, i, j, '>', partida);
-			altera_estado(estado, i, j-1, '#', partida);
-			altera_estado(estado, i, j-2, '<', partida);
-		}
-	}
-
-	i=estado->n_linhas-1;
-	for (j=0; j<estado->n_colunas; j++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i-1][j]) && is_segmento(estado->tabuleiro[i-2][j]) && estado->tabuleiro[i-3][j]=='~'){
-			altera_estado(estado, i, j, 'v', partida);
-			altera_estado(estado, i-1, j, '#', partida);
-			altera_estado(estado, i-2, j, '^', partida);
+	for (j=1; j<estado->n_colunas-1; j++){
+		if (estado->tabuleiro[linha][j]=='o' && is_segmento(estado->tabuleiro[linha][j-1]) && is_segmento(estado->tabuleiro[linha][j+1])){
+			altera_estado(estado, linha, j, '#', partida);
 		}
 	}
 }
+
 
 
 /**
-Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por battleships ('<##>') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro
+Função que substitui os caracteres 'o' (de meios de barcos) por caracteres '#' horizontalmente.
 
 @param estado : Contém toda a informaçao relativo ao tabuleiro usado.
 
 @param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
+@param coluna : Coluna do tabuleiro sobre a qual a função vai exercer efeito.
+
+
 */
 
-void from_unknown_to_battleship(TAB_BN *estado, STACK *partida){
-
-	int j;
+void from_unknown_to_middle_vertical(TAB_BN *estado, STACK *partida, int coluna){
 	int i;
-
-	for (i=0; i<estado->n_linhas; i++){
-		for (j=1; j<((estado->n_colunas)-4); j++){
-			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && is_segmento(estado->tabuleiro[i][j+2]) && is_segmento(estado->tabuleiro[i][j+3]) && (estado->tabuleiro[i][j-1] == '~') && (estado->tabuleiro[i][j+4] == '~') ){
-				altera_estado(estado, i, j, '<', partida);
-				altera_estado(estado, i, j+1, '#', partida);
-				altera_estado(estado, i, j+2, '#', partida);
-				altera_estado(estado, i, j+3, '>', partida);
-			}
+	for (i=1; i<estado->n_linhas-1; i++){
+		if (estado->tabuleiro[i][coluna]=='o' && is_segmento(estado->tabuleiro[i-1][coluna]) && is_segmento(estado->tabuleiro[i+1][coluna])){
+			altera_estado(estado, i, coluna, '#', partida);
 		}
 	}
-
-	for (j=0; j<estado->n_colunas; j++){
-		for (i=1; i<((estado->n_colunas)-4); i++){
-			if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && is_segmento(estado->tabuleiro[i+2][j]) && is_segmento(estado->tabuleiro[i+3][j]) && (estado->tabuleiro[i-1][j] == '~') && (estado->tabuleiro[i+4][j] == '~') ){
-				altera_estado(estado, i, j, '^', partida);
-				altera_estado(estado, i+1, j, '#', partida);
-				altera_estado(estado, i+2, j, '#', partida);
-				altera_estado(estado, i+3, j, 'v', partida);
-			}
-		}
-	}
-
-
-	j=0;
-	for (i=0; i<estado->n_linhas; i++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j+1]) && is_segmento(estado->tabuleiro[i][j+2]) && is_segmento(estado->tabuleiro[i][j+3]) && estado->tabuleiro[i][j+4]=='~'){
-			altera_estado(estado, i, j, '<', partida);
-			altera_estado(estado, i, j+1, '#', partida);
-			altera_estado(estado, i, j+2, '#', partida);
-			altera_estado(estado, i, j+3, '>', partida);
-		}
-	}
-
-
-	i=0;
-	for (j=0; j<estado->n_colunas; j++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i+1][j]) && is_segmento(estado->tabuleiro[i+2][j]) && is_segmento(estado->tabuleiro[i+3][j]) && estado->tabuleiro[i+4][j]=='~'){
-			altera_estado(estado, i, j, '^', partida);
-			altera_estado(estado, i+1, j, '#', partida);
-			altera_estado(estado, i+2, j, '#', partida);
-			altera_estado(estado, i+3, j, 'v', partida);
-		}
-	}
-
-	j=estado->n_colunas-1;
-	for (i=0; i<estado->n_linhas; i++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i][j-1]) && is_segmento(estado->tabuleiro[i][j-2]) && is_segmento(estado->tabuleiro[i][j-3]) && estado->tabuleiro[i][j-4]=='~'){
-			altera_estado(estado, i, j, '>', partida);
-			altera_estado(estado, i, j-1, '#', partida);
-			altera_estado(estado, i, j-2, '#', partida);
-			altera_estado(estado, i, j-3, '<', partida);
-		}
-	}
-
-	i=estado->n_linhas-1;
-	for (j=0; j<estado->n_colunas; j++){
-		if (is_segmento(estado->tabuleiro[i][j]) && is_segmento(estado->tabuleiro[i-1][j]) && is_segmento(estado->tabuleiro[i-2][j]) && is_segmento(estado->tabuleiro[i-3][j]) && estado->tabuleiro[i-4][j]=='~'){
-			altera_estado(estado, i, j, 'v', partida);
-			altera_estado(estado, i-1, j, '#', partida);
-			altera_estado(estado, i-2, j, '#', partida);
-			altera_estado(estado, i-3, j, '^', partida);
-		}
-	}
-
 }
+
+
 
 
 

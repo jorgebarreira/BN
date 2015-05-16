@@ -32,22 +32,19 @@ Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhec
 */
 
 void estrategia_4(TAB_BN *estado,STACK *partida){
+	int i;
 
-	if (estado->n_linhas > 3 && estado->n_colunas > 3){
-		from_unknown_to_submarine(estado, partida);
+	from_unknown_to_submarine(estado, partida);
+
+
+	for (i=0; i<estado->n_linhas; i++){
+		from_unknown_to_whatever_horizontal(estado, partida,i);
+		from_unknown_to_middle_horizontal(estado, partida, i);
 	}
+	for (i=0; i<estado->n_colunas; i++){
+		from_unknown_to_whatever_vertical(estado, partida,i);
+		from_unknown_to_middle_vertical(estado, partida, i);
 
-	if (estado->n_linhas > 4 && estado->n_colunas > 4){
-		from_unknown_to_destroyer(estado, partida);
 	}
-
-	if (estado->n_linhas > 5 && estado->n_colunas > 5){
-		from_unknown_to_cruiser(estado, partida);
-	}
-
-	if (estado->n_linhas > 6 && estado->n_colunas > 6){
-		from_unknown_to_battleship(estado, partida);
-	}
-
 
 }
