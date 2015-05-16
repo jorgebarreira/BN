@@ -13,15 +13,19 @@
 {\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stel_8h_a7c15c1a8a59ab5207f36fdc903698f79}{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}
 \item 
 \#define \hyperlink{stel_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
 \item 
 \#define \hyperlink{stel_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
 \item 
-\#define \hyperlink{stel_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~100
+\#define \hyperlink{stel_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~105
 \item 
 \#define \hyperlink{stel_8h_a9e310b9f673a2ac6b8090780f3027fbf}{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}~1024
 \end{DoxyCompactItemize}
@@ -45,19 +49,22 @@ int \hyperlink{stel_8h_af748db96c29aa9b4f2cd75606c243886}{ler\-\_\-ficheiro} (F\
 
 
 \subsection{Macro Definition Documentation}
-\hypertarget{stel_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{stel.\-h@{stel.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\hypertarget{stel_8h_a7c15c1a8a59ab5207f36fdc903698f79}{\index{stel.\-h@{stel.\-h}!\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}!stel.h@{stel.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}\label{stel_8h_a7c15c1a8a59ab5207f36fdc903698f79}
+Flag para a condiçao de processamento das outras flags. \hypertarget{stel_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{stel.\-h@{stel.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
 \index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!stel.h@{stel.\-h}}
 \subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{stel_8h_aa93f0eb578d23995850d61f7d61c55c1}
-\hypertarget{stel_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{stel.\-h@{stel.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
+Flag cujo o valor é 0. \hypertarget{stel_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{stel.\-h@{stel.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
 \index{M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}!stel.h@{stel.\-h}}
 \subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-H\-A~1024}}\label{stel_8h_a9e310b9f673a2ac6b8090780f3027fbf}
-\hypertarget{stel_8h_a0592dba56693fad79136250c11e5a7fe}{\index{stel.\-h@{stel.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024. \hypertarget{stel_8h_a0592dba56693fad79136250c11e5a7fe}{\index{stel.\-h@{stel.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
 \index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!stel.h@{stel.\-h}}
-\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~100}}\label{stel_8h_a0592dba56693fad79136250c11e5a7fe}
-\hypertarget{stel_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{stel.\-h@{stel.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~105}}\label{stel_8h_a0592dba56693fad79136250c11e5a7fe}
+Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{stel_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{stel.\-h@{stel.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
 \index{T\-R\-U\-E@{T\-R\-U\-E}!stel.h@{stel.\-h}}
 \subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{stel_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
-
+Flag cujo o valor é 1. 
 
 \subsection{Function Documentation}
 \hypertarget{stel_8h_ae33fa160f6397424e2d4628f28d0f26f}{\index{stel.\-h@{stel.\-h}!cmd\-\_\-c@{cmd\-\_\-c}}
@@ -125,17 +132,12 @@ Comando que veriifica se o nosso tabuleiro esta valido ou nao.
 
 
 \begin{DoxyParams}{Parameters}
-{\em estado} & -\/ Apontador da estrutura que contém toda a informação sobre o tabuleiro.\\
+{\em estado} & -\/ Apontador da estrutura que contém toda a informação sob o tabuleiro.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Devolve 1. Função que verifica se a informação do tabuleiro é válida.
+Devolve 1. 
 \end{DoxyReturn}
-
-\begin{DoxyParams}{Parameters}
-{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado. \\
-\hline
-\end{DoxyParams}
 \hypertarget{stel_8h_a6809ffa8dee25ffa77db7fa2d2bd2dd0}{\index{stel.\-h@{stel.\-h}!imprime\-Tab@{imprime\-Tab}}
 \index{imprime\-Tab@{imprime\-Tab}!stel.h@{stel.\-h}}
 \subsubsection[{imprime\-Tab}]{\setlength{\rightskip}{0pt plus 5cm}void imprime\-Tab (

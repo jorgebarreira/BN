@@ -13,15 +13,19 @@
 {\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{estrategias_8h_a7c15c1a8a59ab5207f36fdc903698f79}{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}
 \item 
 \#define \hyperlink{estrategias_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
 \item 
 \#define \hyperlink{estrategias_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
 \item 
-\#define \hyperlink{estrategias_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~100
+\#define \hyperlink{estrategias_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~105
 \item 
 \#define \hyperlink{estrategias_8h_a9e310b9f673a2ac6b8090780f3027fbf}{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}~1024
 \end{DoxyCompactItemize}
@@ -37,19 +41,22 @@ void \hyperlink{estrategias_8h_a983e91eae9b9cb2ff18554d70a48b366}{estrategia\-\_
 
 
 \subsection{Macro Definition Documentation}
-\hypertarget{estrategias_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{estrategias.\-h@{estrategias.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\hypertarget{estrategias_8h_a7c15c1a8a59ab5207f36fdc903698f79}{\index{estrategias.\-h@{estrategias.\-h}!\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}!estrategias.h@{estrategias.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}\label{estrategias_8h_a7c15c1a8a59ab5207f36fdc903698f79}
+Flag para a condiçao de processamento das outras flags. \hypertarget{estrategias_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{estrategias.\-h@{estrategias.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
 \index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!estrategias.h@{estrategias.\-h}}
 \subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{estrategias_8h_aa93f0eb578d23995850d61f7d61c55c1}
-\hypertarget{estrategias_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{estrategias.\-h@{estrategias.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
+Flag cujo o valor é 0. \hypertarget{estrategias_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{estrategias.\-h@{estrategias.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
 \index{M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}!estrategias.h@{estrategias.\-h}}
 \subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-H\-A~1024}}\label{estrategias_8h_a9e310b9f673a2ac6b8090780f3027fbf}
-\hypertarget{estrategias_8h_a0592dba56693fad79136250c11e5a7fe}{\index{estrategias.\-h@{estrategias.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024. \hypertarget{estrategias_8h_a0592dba56693fad79136250c11e5a7fe}{\index{estrategias.\-h@{estrategias.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
 \index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!estrategias.h@{estrategias.\-h}}
-\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~100}}\label{estrategias_8h_a0592dba56693fad79136250c11e5a7fe}
-\hypertarget{estrategias_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{estrategias.\-h@{estrategias.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~105}}\label{estrategias_8h_a0592dba56693fad79136250c11e5a7fe}
+Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{estrategias_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{estrategias.\-h@{estrategias.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
 \index{T\-R\-U\-E@{T\-R\-U\-E}!estrategias.h@{estrategias.\-h}}
 \subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{estrategias_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
-
+Flag cujo o valor é 1. 
 
 \subsection{Function Documentation}
 \hypertarget{estrategias_8h_a12c3d4e3793e7d646e5e8d6060b6fa48}{\index{estrategias.\-h@{estrategias.\-h}!estrategia\-\_\-1@{estrategia\-\_\-1}}

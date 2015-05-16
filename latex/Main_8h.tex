@@ -10,87 +10,51 @@
 {\ttfamily \#include \char`\"{}stel.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}aux\-\_\-tabuleiro.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Main.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Main_8h_a7c15c1a8a59ab5207f36fdc903698f79}{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}
 \item 
 \#define \hyperlink{Main_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
 \item 
 \#define \hyperlink{Main_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
 \item 
-\#define \hyperlink{Main_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~100
+\#define \hyperlink{Main_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~105
 \item 
 \#define \hyperlink{Main_8h_a9e310b9f673a2ac6b8090780f3027fbf}{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}~1024
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{Main_8h_a6fa0be5cff8d6ba2202a03dd464d3eb3}{interpretar} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, char $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
-\item 
-void \hyperlink{Main_8h_a99ec5f21cc53762f6999ba78494e3a01}{interpretador} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
-\item 
 int \hyperlink{Main_8h_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
-\hypertarget{Main_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{Main.\-h@{Main.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\hypertarget{Main_8h_a7c15c1a8a59ab5207f36fdc903698f79}{\index{Main.\-h@{Main.\-h}!\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}!Main.h@{Main.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}\label{Main_8h_a7c15c1a8a59ab5207f36fdc903698f79}
+Flag para a condiçao de processamento das outras flags. \hypertarget{Main_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{Main.\-h@{Main.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
 \index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!Main.h@{Main.\-h}}
 \subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{Main_8h_aa93f0eb578d23995850d61f7d61c55c1}
-\hypertarget{Main_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{Main.\-h@{Main.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
+Flag cujo o valor é 0. \hypertarget{Main_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{Main.\-h@{Main.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
 \index{M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}!Main.h@{Main.\-h}}
 \subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-H\-A~1024}}\label{Main_8h_a9e310b9f673a2ac6b8090780f3027fbf}
-\hypertarget{Main_8h_a0592dba56693fad79136250c11e5a7fe}{\index{Main.\-h@{Main.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024. \hypertarget{Main_8h_a0592dba56693fad79136250c11e5a7fe}{\index{Main.\-h@{Main.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
 \index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!Main.h@{Main.\-h}}
-\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~100}}\label{Main_8h_a0592dba56693fad79136250c11e5a7fe}
-\hypertarget{Main_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{Main.\-h@{Main.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~105}}\label{Main_8h_a0592dba56693fad79136250c11e5a7fe}
+Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{Main_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{Main.\-h@{Main.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
 \index{T\-R\-U\-E@{T\-R\-U\-E}!Main.h@{Main.\-h}}
 \subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{Main_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
-
+Flag cujo o valor é 1. 
 
 \subsection{Function Documentation}
-\hypertarget{Main_8h_a99ec5f21cc53762f6999ba78494e3a01}{\index{Main.\-h@{Main.\-h}!interpretador@{interpretador}}
-\index{interpretador@{interpretador}!Main.h@{Main.\-h}}
-\subsubsection[{interpretador}]{\setlength{\rightskip}{0pt plus 5cm}void interpretador (
-\begin{DoxyParamCaption}
-\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
-\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
-\end{DoxyParamCaption}
-)}}\label{Main_8h_a99ec5f21cc53762f6999ba78494e3a01}
-Interpretador de comandos.
-
-
-\begin{DoxyParams}{Parameters}
-{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
-\hline
-{\em partida} & \-: Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro. \\
-\hline
-\end{DoxyParams}
-\hypertarget{Main_8h_a6fa0be5cff8d6ba2202a03dd464d3eb3}{\index{Main.\-h@{Main.\-h}!interpretar@{interpretar}}
-\index{interpretar@{interpretar}!Main.h@{Main.\-h}}
-\subsubsection[{interpretar}]{\setlength{\rightskip}{0pt plus 5cm}int interpretar (
-\begin{DoxyParamCaption}
-\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
-\item[{char $\ast$}]{linha, }
-\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
-\end{DoxyParamCaption}
-)}}\label{Main_8h_a6fa0be5cff8d6ba2202a03dd464d3eb3}
-Interpreta um comando passado numa linha
-
-
-\begin{DoxyParams}{Parameters}
-{\em linha} & Endereço do array/string que contem as informaçoes que foram escritas no standart input.\\
-\hline
-{\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
-\hline
-{\em partida} & \-: Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro.\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
--\/1 caso o comando introduzido é invalido, podendo nao pertencer as instruçoes possiveis ou ter informaçao erradas.\-O valor de retorno tambem pode ser 0 caso o comando a ser executado é a saida do programa. O valor 1 sera retornado quando nao houver problemas na realizaçao da instrução. 
-\end{DoxyReturn}
 \hypertarget{Main_8h_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{Main.\-h@{Main.\-h}!main@{main}}
 \index{main@{main}!Main.h@{Main.\-h}}
 \subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (

@@ -1,0 +1,106 @@
+\hypertarget{rand___8h}{\section{rand\-\_\-.\-h File Reference}
+\label{rand___8h}\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}}
+}
+{\ttfamily \#include \char`\"{}estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estrategias.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}estrategias\-\_\-auxiliares.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}stel.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-tabuleiro.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Main.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{rand___8h_a7c15c1a8a59ab5207f36fdc903698f79}{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}
+\item 
+\#define \hyperlink{rand___8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
+\item 
+\#define \hyperlink{rand___8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
+\item 
+\#define \hyperlink{rand___8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~105
+\item 
+\#define \hyperlink{rand___8h_a9e310b9f673a2ac6b8090780f3027fbf}{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}~1024
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{rand___8h_a67c4abb520693ac2635377caf0176ff6}{verifica\-\_\-posicao} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, int)
+\item 
+int \hyperlink{rand___8h_a6e84afa6c159b16b2605519e811efe52}{rand\-\_\-to} (int)
+\item 
+\hyperlink{structJOGADAS}{J\-O\-G\-A\-D\-A\-S} $\ast$ \hyperlink{rand___8h_ae2157c523b7a6b3fdf0e05f8fc3ec1c2}{jogada\-\_\-aleatoria} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{rand___8h_a7c15c1a8a59ab5207f36fdc903698f79}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}\label{rand___8h_a7c15c1a8a59ab5207f36fdc903698f79}
+Flag para a condiçao de processamento das outras flags. \hypertarget{rand___8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{rand___8h_aa93f0eb578d23995850d61f7d61c55c1}
+Flag cujo o valor é 0. \hypertarget{rand___8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
+\index{M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-H\-A~1024}}\label{rand___8h_a9e310b9f673a2ac6b8090780f3027fbf}
+Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024. \hypertarget{rand___8h_a0592dba56693fad79136250c11e5a7fe}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+\index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~105}}\label{rand___8h_a0592dba56693fad79136250c11e5a7fe}
+Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{rand___8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{rand___8h_aa8cecfc5c5c054d2875c03e77b7be15d}
+Flag cujo o valor é 1. 
+
+\subsection{Function Documentation}
+\hypertarget{rand___8h_ae2157c523b7a6b3fdf0e05f8fc3ec1c2}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!jogada\-\_\-aleatoria@{jogada\-\_\-aleatoria}}
+\index{jogada\-\_\-aleatoria@{jogada\-\_\-aleatoria}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{jogada\-\_\-aleatoria}]{\setlength{\rightskip}{0pt plus 5cm}{\bf J\-O\-G\-A\-D\-A\-S}$\ast$ jogada\-\_\-aleatoria (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
+\end{DoxyParamCaption}
+)}}\label{rand___8h_ae2157c523b7a6b3fdf0e05f8fc3ec1c2}
+Funçao que faz uma jogada semi-\/aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & Apontador da estrutura que contém toda a informação sobre o tabuleiro.\\
+\hline
+{\em partida} & Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve um inteiro aleatorio entre 0 e n. 
+\end{DoxyReturn}
+\hypertarget{rand___8h_a6e84afa6c159b16b2605519e811efe52}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!rand\-\_\-to@{rand\-\_\-to}}
+\index{rand\-\_\-to@{rand\-\_\-to}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{rand\-\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}int rand\-\_\-to (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{rand___8h_a6e84afa6c159b16b2605519e811efe52}
+Funçao que devolve um numero entre 0 e o seu argumento incluido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Inteiro que serve a criar o intervalo dos numeros que serao devolvidos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve um inteiro aleatorio entre 0 e n. 
+\end{DoxyReturn}
+\hypertarget{rand___8h_a67c4abb520693ac2635377caf0176ff6}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!verifica\-\_\-posicao@{verifica\-\_\-posicao}}
+\index{verifica\-\_\-posicao@{verifica\-\_\-posicao}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{verifica\-\_\-posicao}]{\setlength{\rightskip}{0pt plus 5cm}int verifica\-\_\-posicao (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{rand___8h_a67c4abb520693ac2635377caf0176ff6}

@@ -98,17 +98,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="aux__muda__tab_8h_source.html">aux_muda_tab.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="aux__stack_8h_source.html">aux_stack.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="desf__f_8h_source.html">desf_f.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="rand___8h_source.html">rand_.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="interpretador_8h_source.html">interpretador.h</a>&quot;</code><br/>
+<code>#include &lt;time.h&gt;</code><br/>
 </div>
 <p><a href="aux__muda__tab_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a7c15c1a8a59ab5207f36fdc903698f79"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__muda__tab_8h.html#a7c15c1a8a59ab5207f36fdc903698f79">___AUX_TABULEIRO_H___</a></td></tr>
+<tr class="separator:a7c15c1a8a59ab5207f36fdc903698f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__muda__tab_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa93f0eb578d23995850d61f7d61c55c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__muda__tab_8h.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:aa93f0eb578d23995850d61f7d61c55c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0592dba56693fad79136250c11e5a7fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__muda__tab_8h.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memitem:a0592dba56693fad79136250c11e5a7fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__muda__tab_8h.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>&#160;&#160;&#160;105</td></tr>
 <tr class="separator:a0592dba56693fad79136250c11e5a7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e310b9f673a2ac6b8090780f3027fbf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__muda__tab_8h.html#a9e310b9f673a2ac6b8090780f3027fbf">MAX_LINHA</a>&#160;&#160;&#160;1024</td></tr>
 <tr class="separator:a9e310b9f673a2ac6b8090780f3027fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +131,19 @@ Functions</h2></td></tr>
 <tr class="separator:aba53266076b1ba73d7dc0db01a58c9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a7c15c1a8a59ab5207f36fdc903698f79"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ___AUX_TABULEIRO_H___</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Flag para a condiçao de processamento das outras flags. </p>
+
+</div>
+</div>
 <a class="anchor" id="aa93f0eb578d23995850d61f7d61c55c1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -136,6 +153,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag cujo o valor é 0. </p>
 
 </div>
 </div>
@@ -148,6 +166,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024. </p>
 
 </div>
 </div>
@@ -156,10 +175,11 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_SIZE&#160;&#160;&#160;100</td>
+          <td class="memname">#define MAX_SIZE&#160;&#160;&#160;105</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag usado para o tamanho dos nossos vetores, tendo valor 105. </p>
 
 </div>
 </div>
@@ -172,6 +192,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag cujo o valor é 1. </p>
 
 </div>
 </div>
@@ -373,7 +394,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2015 11:33:50 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 16 2015 19:38:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

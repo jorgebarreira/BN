@@ -98,7 +98,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="aux__muda__tab_8h_source.html">aux_muda_tab.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="aux__stack_8h_source.html">aux_stack.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="desf__f_8h_source.html">desf_f.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="rand___8h_source.html">rand_.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="interpretador_8h_source.html">interpretador.h</a>&quot;</code><br/>
+<code>#include &lt;time.h&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -108,7 +110,7 @@ Macros</h2></td></tr>
 <tr class="separator:aa8cecfc5c5c054d2875c03e77b7be15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa93f0eb578d23995850d61f7d61c55c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#aa93f0eb578d23995850d61f7d61c55c1">FALSE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:aa93f0eb578d23995850d61f7d61c55c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0592dba56693fad79136250c11e5a7fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memitem:a0592dba56693fad79136250c11e5a7fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a0592dba56693fad79136250c11e5a7fe">MAX_SIZE</a>&#160;&#160;&#160;105</td></tr>
 <tr class="separator:a0592dba56693fad79136250c11e5a7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e310b9f673a2ac6b8090780f3027fbf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a9e310b9f673a2ac6b8090780f3027fbf">MAX_LINHA</a>&#160;&#160;&#160;1024</td></tr>
 <tr class="separator:a9e310b9f673a2ac6b8090780f3027fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,12 +133,14 @@ Functions</h2></td></tr>
 <tr class="separator:af498399080b2b8ebaa8a124ebd8b0600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c8c2b26dc93db9ab5274d6090c1c247"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a7c8c2b26dc93db9ab5274d6090c1c247">from_unknown_to_submarine</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida)</td></tr>
 <tr class="separator:a7c8c2b26dc93db9ab5274d6090c1c247"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58633fd834dff1881289be06035ddb0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a58633fd834dff1881289be06035ddb0d">from_unknown_to_destroyer</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida)</td></tr>
-<tr class="separator:a58633fd834dff1881289be06035ddb0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29f042b105439f8328b4460a1e3c1bcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a29f042b105439f8328b4460a1e3c1bcb">from_unknown_to_cruiser</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida)</td></tr>
-<tr class="separator:a29f042b105439f8328b4460a1e3c1bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6f8ea83626a311b7a35f07401d59263"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#af6f8ea83626a311b7a35f07401d59263">from_unknown_to_battleship</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida)</td></tr>
-<tr class="separator:af6f8ea83626a311b7a35f07401d59263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451a72c4511fe5e48f25aa48eb0aeaa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a451a72c4511fe5e48f25aa48eb0aeaa9">from_unknown_to_whatever_horizontal</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida, int linha)</td></tr>
+<tr class="separator:a451a72c4511fe5e48f25aa48eb0aeaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa25bc7a4b881aaa21d653f4c3c139410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#aa25bc7a4b881aaa21d653f4c3c139410">from_unknown_to_whatever_vertical</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida, int coluna)</td></tr>
+<tr class="separator:aa25bc7a4b881aaa21d653f4c3c139410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6228f1dbfb35f19c96c5aff631982f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#ac6228f1dbfb35f19c96c5aff631982f8">from_unknown_to_middle_horizontal</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida, int linha)</td></tr>
+<tr class="separator:ac6228f1dbfb35f19c96c5aff631982f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011b6fbd89bfbe122cd2b3143c5c630e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a011b6fbd89bfbe122cd2b3143c5c630e">from_unknown_to_middle_vertical</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida, int coluna)</td></tr>
+<tr class="separator:a011b6fbd89bfbe122cd2b3143c5c630e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5216a70d9fae4bd405e05c34e1b0ca10"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a5216a70d9fae4bd405e05c34e1b0ca10">verifica_info</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado)</td></tr>
 <tr class="separator:a5216a70d9fae4bd405e05c34e1b0ca10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f1e2b8bf6874397b20f6c0fe2af4f6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux__tabuleiro_8c.html#a7f1e2b8bf6874397b20f6c0fe2af4f6e">verifica_char</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, int i, int j, char a)</td></tr>
@@ -158,6 +162,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag para a condiçao de processamento das outras flags. </p>
 
 </div>
 </div>
@@ -170,6 +175,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag cujo o valor é 0. </p>
 
 </div>
 </div>
@@ -182,6 +188,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024. </p>
 
 </div>
 </div>
@@ -190,10 +197,11 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_SIZE&#160;&#160;&#160;100</td>
+          <td class="memname">#define MAX_SIZE&#160;&#160;&#160;105</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag usado para o tamanho dos nossos vetores, tendo valor 105. </p>
 
 </div>
 </div>
@@ -206,6 +214,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Flag cujo o valor é 1. </p>
 
 </div>
 </div>
@@ -374,12 +383,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af6f8ea83626a311b7a35f07401d59263"></a>
+<a class="anchor" id="ac6228f1dbfb35f19c96c5aff631982f8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void from_unknown_to_battleship </td>
+          <td class="memname">void from_unknown_to_middle_horizontal </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
           <td class="paramname"><em>estado</em>, </td>
@@ -388,7 +397,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *&#160;</td>
-          <td class="paramname"><em>partida</em>&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>linha</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -397,23 +412,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por battleships ('&lt;##&gt;') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro</p>
+<p>Função que substitui os caracteres 'o' (de meios de barcos) por caracteres '#' horizontalmente.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado.</td></tr>
-    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. </td></tr>
+    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.</td></tr>
+    <tr><td class="paramname">linha</td><td>: Linha do tabuleiro sobre a qual a função vai exercer efeito. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a29f042b105439f8328b4460a1e3c1bcb"></a>
+<a class="anchor" id="a011b6fbd89bfbe122cd2b3143c5c630e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void from_unknown_to_cruiser </td>
+          <td class="memname">void from_unknown_to_middle_vertical </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
           <td class="paramname"><em>estado</em>, </td>
@@ -422,41 +438,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *&#160;</td>
-          <td class="paramname"><em>partida</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por cruisers ('&lt;#&gt;') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado.</td></tr>
-    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a58633fd834dff1881289be06035ddb0d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void from_unknown_to_destroyer </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
-          <td class="paramname"><em>estado</em>, </td>
+          <td class="paramname"><em>partida</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *&#160;</td>
-          <td class="paramname"><em>partida</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coluna</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -465,11 +453,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por destroyers ('&lt;&gt;') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro</p>
+<p>Função que substitui os caracteres 'o' (de meios de barcos) por caracteres '#' horizontalmente.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado.</td></tr>
-    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. </td></tr>
+    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.</td></tr>
+    <tr><td class="paramname">coluna</td><td>: Coluna do tabuleiro sobre a qual a função vai exercer efeito. </td></tr>
   </table>
   </dd>
 </dl>
@@ -504,6 +493,88 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado.</td></tr>
     <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a451a72c4511fe5e48f25aa48eb0aeaa9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void from_unknown_to_whatever_horizontal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
+          <td class="paramname"><em>estado</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>linha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por barcos de tamanho N ('&lt;#...N#&gt;') horizontalmente quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado.</td></tr>
+    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.</td></tr>
+    <tr><td class="paramname">linha</td><td>: Linha do tabuleiro sobre a qual a função vai exercer efeito. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa25bc7a4b881aaa21d653f4c3c139410"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void from_unknown_to_whatever_vertical </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
+          <td class="paramname"><em>estado</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *&#160;</td>
+          <td class="paramname"><em>partida</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coluna</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por barcos de tamanho N ('&lt;#...N#&gt;') verticalmente quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado.</td></tr>
+    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.</td></tr>
+    <tr><td class="paramname">coluna</td><td>: Coluna do tabuleiro sobre a qual a função vai exercer efeito. </td></tr>
   </table>
   </dd>
 </dl>
@@ -827,7 +898,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2015 11:33:50 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 16 2015 19:38:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

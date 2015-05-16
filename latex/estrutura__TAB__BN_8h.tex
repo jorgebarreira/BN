@@ -13,7 +13,9 @@
 {\ttfamily \#include \char`\"{}aux\-\_\-muda\-\_\-tab.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}aux\-\_\-stack.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}desf\-\_\-f.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,15 +30,17 @@ struct \hyperlink{structSTACK__L}{S\-T\-A\-C\-K\-\_\-\-L}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \hyperlink{estrutura__TAB__BN_8h_a7c15c1a8a59ab5207f36fdc903698f79}{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}
+\item 
 \#define \hyperlink{estrutura__TAB__BN_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~1
 \item 
 \#define \hyperlink{estrutura__TAB__BN_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~0
 \item 
-\#define \hyperlink{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~100
+\#define \hyperlink{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~105
 \item 
 \#define \hyperlink{estrutura__TAB__BN_8h_a9e310b9f673a2ac6b8090780f3027fbf}{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}~1024
 \item 
-\#define \hyperlink{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~100
+\#define \hyperlink{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~105
 \end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -52,22 +56,25 @@ typedef struct \hyperlink{structSTACK__L}{S\-T\-A\-C\-K\-\_\-\-L} \hyperlink{est
 
 
 \subsection{Macro Definition Documentation}
-\hypertarget{estrutura__TAB__BN_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\hypertarget{estrutura__TAB__BN_8h_a7c15c1a8a59ab5207f36fdc903698f79}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-@{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}!estrutura_TAB_BN.h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-\_\-\-A\-U\-X\-\_\-\-T\-A\-B\-U\-L\-E\-I\-R\-O\-\_\-\-H\-\_\-\-\_\-\-\_\-}}\label{estrutura__TAB__BN_8h_a7c15c1a8a59ab5207f36fdc903698f79}
+Flag para a condiçao de processamento das outras flags. \hypertarget{estrutura__TAB__BN_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
 \index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!estrutura_TAB_BN.h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}}
 \subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~0}}\label{estrutura__TAB__BN_8h_aa93f0eb578d23995850d61f7d61c55c1}
-\hypertarget{estrutura__TAB__BN_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
+Flag cujo o valor é 0. \hypertarget{estrutura__TAB__BN_8h_a9e310b9f673a2ac6b8090780f3027fbf}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}}
 \index{M\-A\-X\-\_\-\-L\-I\-N\-H\-A@{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}!estrutura_TAB_BN.h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}}
 \subsubsection[{M\-A\-X\-\_\-\-L\-I\-N\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-I\-N\-H\-A~1024}}\label{estrutura__TAB__BN_8h_a9e310b9f673a2ac6b8090780f3027fbf}
-\hypertarget{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024. \hypertarget{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
 \index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!estrutura_TAB_BN.h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}}
-\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~100}}\label{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}
-\hypertarget{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~105}}\label{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}
+Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
 \index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!estrutura_TAB_BN.h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}}
-\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~100}}\label{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}
-\hypertarget{estrutura__TAB__BN_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~105}}\label{estrutura__TAB__BN_8h_a0592dba56693fad79136250c11e5a7fe}
+Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{estrutura__TAB__BN_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
 \index{T\-R\-U\-E@{T\-R\-U\-E}!estrutura_TAB_BN.h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}}
 \subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~1}}\label{estrutura__TAB__BN_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
-
+Flag cujo o valor é 1. 
 
 \subsection{Typedef Documentation}
 \hypertarget{estrutura__TAB__BN_8h_a8b5410302770bc5e034baedd0b61b4e8}{\index{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h@{estrutura\-\_\-\-T\-A\-B\-\_\-\-B\-N.\-h}!J\-O\-G\-A\-D\-A\-S@{J\-O\-G\-A\-D\-A\-S}}
