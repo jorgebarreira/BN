@@ -685,7 +685,7 @@ void from_unknown_to_whatever_horizontal(TAB_BN *estado, STACK *partida, int lin
 	}
 
 	for (j=1; j<estado->n_colunas-1; j++){
-		if (estado->tabuleiro[linha][j]=='B' && estado->tabuleiro[linha][j+1]=='B'){
+		if (estado->tabuleiro[linha][j]=='B' && estado->tabuleiro[linha][j+1]=='B' && (estado->tabuleiro[linha][j-1]=='B' || is_segmento(estado->tabuleiro[linha][j-1] ) )){
 			altera_estado(estado,linha, j, '#', partida);
 		}
 	}
@@ -773,7 +773,7 @@ void from_unknown_to_whatever_vertical(TAB_BN *estado, STACK *partida, int colun
 	}
 
 	for (i=1; i<estado->n_linhas-1; i++){
-		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='B'){
+		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='B' && (estado->tabuleiro[i-1][coluna]=='B' || is_segmento(estado->tabuleiro[i-1][coluna]))){
 			altera_estado(estado,i, coluna, '#', partida);
 		}
 	}
