@@ -66,6 +66,9 @@ void estrategia_1(TAB_BN *estado,STACK *partida){
 			}
 		}
 	}
+
+	estrategia_4(estado, partida);
+
 }
 
 /**
