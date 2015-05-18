@@ -60,6 +60,7 @@ void particular_middleSegment_case_horizontal(TAB_BN *, STACK *, int);
 void particular_middleSegment_case_vertical(TAB_BN *, STACK *, int);
 int verifica_info(TAB_BN *);
 int verifica_char(TAB_BN *, int , int , char );
+int verifica_char_esp(TAB_BN *, int , int , char );
 int verifica_lado(TAB_BN *, int, int);
 int verifica_cantos(int, int, TAB_BN *);
 int verifica_meio(int , int , TAB_BN *);

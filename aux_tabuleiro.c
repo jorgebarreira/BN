@@ -896,14 +896,22 @@ int verifica_info(TAB_BN *estado){
 		for(j=0;j<estado->n_colunas;j++){
 			if(estado->tabuleiro[i][j] != '~' && estado->tabuleiro[i][j] != '.')
 				contador_linhas++;
-			if(estado->tabuleiro[j][i] != '~' && estado->tabuleiro[j][i] != '.')
-				contador_colunas++;
 		}
-		if(contador_linhas > (estado->info_linhas[i]) || contador_colunas > (estado->info_colunas[i]))
+		if(contador_linhas > (estado->info_linhas[i]))
 			resultado=0;
 		contador_linhas=0;
+	}
+
+	for(j=0;j<estado->n_colunas;j++){
+		for(i=0;i<estado->n_linhas;i++){
+			if(estado->tabuleiro[i][j] != '~' && estado->tabuleiro[i][j] != '.')
+				contador_colunas++;
+		}
+		if(contador_colunas > (estado->info_colunas[j]))
+			resultado=0;
 		contador_colunas=0;
 	}
+
 	return resultado;
 }
 
@@ -923,6 +931,13 @@ Esse segmento poderá ser '#', 'o', '.' ou um segmento passado como parâmetro.
 
 int verifica_char(TAB_BN *estado, int i, int j, char a){
 	if(estado->tabuleiro[i][j] == a || estado->tabuleiro[i][j] == '#' || estado->tabuleiro[i][j] == 'o' || estado->tabuleiro[i][j] == '.')
+		return 0;
+	else
+		return 1;
+}
+
+int verifica_char_esp(TAB_BN *estado, int i, int j, char a){
+	if(estado->tabuleiro[i][j] == a || estado->tabuleiro[i][j] == '#' || estado->tabuleiro[i][j] == 'o' || estado->tabuleiro[i][j] == '.' || estado->tabuleiro[i][j] == '~')
 		return 0;
 	else
 		return 1;
@@ -1151,7 +1166,7 @@ int verifica_meio(int i, int j, TAB_BN *estado){
 			resultado = 0;
 	}
 	else if(estado->tabuleiro[i][j] == '#'){
-		if(verifica_lado(estado, i-1, j-1) || verifica_char(estado, i, j-1, '<') || verifica_lado(estado, i+1, j-1) || verifica_char(estado, i+1, j, 'v') || verifica_lado(estado, i+1, j+1) || verifica_char(estado, i, j+1, '>') || verifica_lado(estado, i-1, j+1) || verifica_char(estado, i-1, j, '^'))
+		if(verifica_lado(estado, i-1, j-1) || verifica_char_esp(estado, i, j-1, '<') || verifica_lado(estado, i+1, j-1) || verifica_char_esp(estado, i+1, j, 'v') || verifica_lado(estado, i+1, j+1) || verifica_char_esp(estado, i, j+1, '>') || verifica_lado(estado, i-1, j+1) || verifica_char_esp(estado, i-1, j, '^'))
 			resultado = 0;
 	}
 	else if(estado->tabuleiro[i][j] == 'v'){
