@@ -838,6 +838,18 @@ void from_unknown_to_middle_vertical(TAB_BN *estado, STACK *partida, int coluna)
 }
 
 
+/**
+Função que coloca '~#~' quando encontra '.#~'
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+@param coluna : Coluna do tabuleiro sobre a qual a função vai exercer efeito.
+
+
+*/
+
 void particular_middleSegment_case_horizontal(TAB_BN *estado, STACK *partida, int coluna){
 	int i;
 	for (i=1; i<estado->n_linhas-1; i++){
@@ -856,6 +868,18 @@ void particular_middleSegment_case_horizontal(TAB_BN *estado, STACK *partida, in
 
 	}
 }
+
+/**
+Função que coloca '~#~' quando encontra '.#~'
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+
+@param linha : Linha do tabuleiro sobre a qual a função vai exercer efeito.
+
+
+*/
 
 void particular_middleSegment_case_vertical(TAB_BN *estado, STACK *partida, int linha){
 	int j;
