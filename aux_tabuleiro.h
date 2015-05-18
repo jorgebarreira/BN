@@ -56,6 +56,8 @@ void from_unknown_to_whatever_horizontal(TAB_BN *, STACK *, int );
 void from_unknown_to_whatever_vertical(TAB_BN *, STACK *, int );
 void from_unknown_to_middle_horizontal(TAB_BN *, STACK *, int );
 void from_unknown_to_middle_vertical(TAB_BN *, STACK *, int );
+void particular_middleSegment_case_horizontal(TAB_BN *, STACK *, int);
+void particular_middleSegment_case_vertical(TAB_BN *, STACK *, int);
 int verifica_info(TAB_BN *);
 int verifica_char(TAB_BN *, int , int , char );
 int verifica_lado(TAB_BN *, int, int);

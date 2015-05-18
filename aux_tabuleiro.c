@@ -838,6 +838,45 @@ void from_unknown_to_middle_vertical(TAB_BN *estado, STACK *partida, int coluna)
 }
 
 
+void particular_middleSegment_case_horizontal(TAB_BN *estado, STACK *partida, int coluna){
+	int i;
+	for (i=1; i<estado->n_linhas-1; i++){
+		if (estado->tabuleiro[i][coluna]== '#' && estado->tabuleiro[i][coluna+1]=='~'){
+			altera_estado(estado,i, coluna-1, '~', partida);
+		}
+		if (estado->tabuleiro[i][coluna]== '#' && estado->tabuleiro[i][coluna-1]=='~'){
+			altera_estado(estado,i, coluna+1, '~', partida);
+		}
+		if (estado->tabuleiro[i][coluna]== '#' && estado->tabuleiro[i+1][coluna]=='~'){
+			altera_estado(estado,i-1, coluna, '~', partida);
+		}
+		if (estado->tabuleiro[i][coluna]== '#' && estado->tabuleiro[i-1][coluna]=='~'){
+			altera_estado(estado,i+1, coluna, '~', partida);
+		}
+
+	}
+}
+
+void particular_middleSegment_case_vertical(TAB_BN *estado, STACK *partida, int linha){
+	int j;
+	for (j=1; j<estado->n_colunas-1; j++){
+		if (estado->tabuleiro[linha][j]== '#' && estado->tabuleiro[linha+1][j]=='~'){
+			altera_estado(estado, linha-1, j, '~', partida);
+		}
+		if (estado->tabuleiro[linha][j]== '#' && estado->tabuleiro[linha-1][j]=='~'){
+			altera_estado(estado, linha+1, j, '~', partida);
+		}
+		if (estado->tabuleiro[linha][j]== '#' && estado->tabuleiro[linha][j+1]=='~'){
+			altera_estado(estado, linha, j-1, '~', partida);
+		}
+		if (estado->tabuleiro[linha][j]== '#' && estado->tabuleiro[linha][j-1]=='~'){
+			altera_estado(estado, linha, j+1, '~', partida);
+		}
+
+	}
+}
+
+
 /**
 Função que verifica se o tabuleiro é válido tendo em conta as informações das linhas e das colunas.
 Caso o número de segmentos de barcos detetados sejam maiores que as informações da respectiva linha ou coluna, o tabuleiro é inválido.
