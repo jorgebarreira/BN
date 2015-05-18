@@ -646,7 +646,7 @@ void from_unknown_to_whatever_horizontal(TAB_BN *estado, STACK *partida, int lin
 		if ( (is_segmento(estado->tabuleiro[linha][j]) == FALSE) && (i>1) ) {
 			begin=j-i;
 			for (i=begin ; i<j; i++){
-				if (estado->tabuleiro[linha][i]=='.')
+				if (estado->tabuleiro[linha][i]=='.' || estado->tabuleiro[linha][i]=='o' )
 				altera_estado(estado,linha, i, 'B', partida);
 			}
 			i=0;
@@ -658,7 +658,7 @@ void from_unknown_to_whatever_horizontal(TAB_BN *estado, STACK *partida, int lin
 		if (i>1 && j == estado->n_colunas-1){
 			begin = j-i;
 			for (i=begin+1 ; i<estado->n_colunas; i++){
-				if (estado->tabuleiro[linha][i]=='.')
+				if (estado->tabuleiro[linha][i]=='.'  || estado->tabuleiro[linha][i]=='o' )
 				altera_estado(estado,linha, i, 'B', partida);
 			}
 		}
@@ -738,7 +738,7 @@ void from_unknown_to_whatever_vertical(TAB_BN *estado, STACK *partida, int colun
 		if ( (is_segmento(estado->tabuleiro[i][coluna]) == FALSE) && (j>1) ) {
 			begin=i-j;
 			for (j=begin ; j<i; j++){
-				if (estado->tabuleiro[j][coluna]=='.')
+				if (estado->tabuleiro[j][coluna]=='.'  || estado->tabuleiro[j][coluna]=='o' )
 				altera_estado(estado, j, coluna, 'B', partida);
 			}
 			j=0;
@@ -748,7 +748,7 @@ void from_unknown_to_whatever_vertical(TAB_BN *estado, STACK *partida, int colun
 		if (j>1 && i == estado->n_linhas-1){
 			begin = i-j;
 			for (j=begin+1 ; j<estado->n_linhas; j++){
-				if (estado->tabuleiro[j][coluna]=='.')
+				if (estado->tabuleiro[j][coluna]=='.'  || estado->tabuleiro[j][coluna]=='o' )
 				altera_estado(estado,j, coluna, 'B', partida);
 			}
 		}
