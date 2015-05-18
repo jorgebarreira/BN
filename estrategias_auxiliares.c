@@ -63,12 +63,16 @@ void estrategia_4(TAB_BN *estado,STACK *partida){
 	for (i=0; i<estado->n_linhas; i++){
 		from_unknown_to_whatever_horizontal(estado, partida,i);
 		from_unknown_to_middle_horizontal(estado, partida, i);
-		particular_middleSegment_case_horizontal(estado, partida, i);
+		if (i>0 || i<estado->n_linhas){
+			particular_middleSegment_case_horizontal(estado, partida, i);
+		}
 	}
 	for (i=0; i<estado->n_colunas; i++){
 		from_unknown_to_whatever_vertical(estado, partida,i);
 		from_unknown_to_middle_vertical(estado, partida, i);
-		particular_middleSegment_case_vertical(estado, partida, i);
+		if (i>0 || i<estado->n_colunas){
+			particular_middleSegment_case_vertical(estado, partida, i);
+		}
 
 	}
 
