@@ -45,19 +45,19 @@
 #endif
 
 int is_segmento(char );
-void preenche_meio(int ,int ,TAB_BN *,STACK *);
-void preenche_cantos(int ,int ,TAB_BN *,STACK *);
-void arruma_linha(TAB_BN *,int ,STACK *);
-void arruma_coluna(TAB_BN *, int ,STACK *);
-void coloca_o_na_linha (TAB_BN *, int , STACK *);
-void coloca_o_na_coluna (TAB_BN *, int , STACK *);
-void from_unknown_to_submarine(TAB_BN *, STACK *);
-void from_unknown_to_whatever_horizontal(TAB_BN *, STACK *, int );
-void from_unknown_to_whatever_vertical(TAB_BN *, STACK *, int );
-void from_unknown_to_middle_horizontal(TAB_BN *, STACK *, int );
-void from_unknown_to_middle_vertical(TAB_BN *, STACK *, int );
-void particular_middleSegment_case_horizontal(TAB_BN *, STACK *, int);
-void particular_middleSegment_case_vertical(TAB_BN *, STACK *, int);
+int preenche_meio(int ,int ,TAB_BN *,STACK *);
+int preenche_cantos(int ,int ,TAB_BN *,STACK *);
+int arruma_linha(TAB_BN *,int ,STACK *);
+int arruma_coluna(TAB_BN *, int ,STACK *);
+int coloca_o_na_linha (TAB_BN *, int , STACK *);
+int coloca_o_na_coluna (TAB_BN *, int , STACK *);
+int from_unknown_to_submarine(TAB_BN *, STACK *);
+int from_unknown_to_whatever_horizontal(TAB_BN *, STACK *, int );
+int from_unknown_to_whatever_vertical(TAB_BN *, STACK *, int );
+int from_unknown_to_middle_horizontal(TAB_BN *, STACK *, int );
+int from_unknown_to_middle_vertical(TAB_BN *, STACK *, int );
+int particular_middleSegment_case_horizontal(TAB_BN *, STACK *, int);
+int particular_middleSegment_case_vertical(TAB_BN *, STACK *, int);
 int verifica_info(TAB_BN *);
 int verifica_char(TAB_BN *, int , int , char );
 int verifica_char_esp(TAB_BN *, int , int , char );

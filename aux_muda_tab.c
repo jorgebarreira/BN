@@ -57,28 +57,29 @@ Função que invoca a estrategia apropriada.
 
 @param partida : Endereço da nossa stack, onde vão ser guardadas as modifficaçoes feitas no nosso tabuleiro.
 
-@return retorna 1 caso tudo correr bem.Só devolvará 0 se o caracter dado nao pertencer a lista definida.
+@return retorna 1 caso a estrategia é aplicada e -1 caso contrario.
 */
 
 int cmd_E(int indice, TAB_BN *estado,STACK *partida){
-    int n=1;
+    int n;
 switch (indice){
 case 1:
-    estrategia_1(estado,partida);
+    n=estrategia_1(estado,partida);
     break;
 case 2:
-    estrategia_2(estado,partida);
+    n=estrategia_2(estado,partida);
     break;
 case 3:
-    estrategia_3(estado,partida);
+    n=estrategia_3(estado,partida);
     break;
 case 4:
-    estrategia_4(estado,partida);
+    n=estrategia_4(estado,partida);
     break;
 default:
 	 n=-1;
 	 break;
 }
+    if(n==1) printf("A estrategia foi aplicada e mudou o estado do tabuleiro\n");
     return n;
 }
 

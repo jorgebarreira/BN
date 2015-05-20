@@ -44,7 +44,7 @@
 /* Fim da condiçao if do inicio.*/
 #endif
 
-void estrategia_4(TAB_BN *, STACK *);
+int estrategia_4(TAB_BN *, STACK *);
 
 
 

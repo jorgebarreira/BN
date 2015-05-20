@@ -72,7 +72,8 @@ Função que preenche os cantos do tabuleiro em função do caracter presente.
 */
 
 
-void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
+int preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
+JOGADAS *tmp= partida->head->head_jogadas;
 	if(i==0 && j==0){
 		if(estado->tabuleiro[i][j]=='O'){
 			altera_estado(estado,i+1,j,'~',partida);
@@ -346,8 +347,21 @@ void preenche_cantos(int i, int j, TAB_BN *estado,STACK *partida){
 			altera_estado(estado,i+1,j+1,'~',partida);
 		}
 	}
+
+	return tmp!=partida->head->head_jogadas;
+
 }
 
+/*
+int ifmudou(JOGADAS *cabeca_anterior, JOGADAS *cabeca_atual){
+int n =0;
+if(cabeca_anterior != cabeca_atual) n=1;
+
+return n;
+
+
+}
+*/
 /**
 Função que preenche lugares dentro do tabuleiro em função do caracter presente.
 
@@ -360,7 +374,8 @@ Função que preenche lugares dentro do tabuleiro em função do caracter presen
 @param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 */
-void preenche_meio(int i, int j, TAB_BN *estado, STACK *partida){
+int preenche_meio(int i, int j, TAB_BN *estado, STACK *partida){
+JOGADAS *tmp=partida->head->head_jogadas;
 	if(estado->tabuleiro[i][j]=='O'){
 		altera_estado(estado,i-1,j-1,'~',partida);
 		altera_estado(estado,i,j-1,'~',partida);
@@ -427,6 +442,7 @@ void preenche_meio(int i, int j, TAB_BN *estado, STACK *partida){
 			altera_estado(estado,i+1,j+1,'~',partida);
 			altera_estado(estado,i-1,j+1,'~',partida);
 	}
+return tmp!=partida->head->head_jogadas;
 }
 
 
@@ -443,7 +459,8 @@ Função que caso a linha seja completa,isto é, ja estao todos os segmentos met
 @param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 */
-void arruma_linha(TAB_BN *estado, int linha, STACK *partida){
+int arruma_linha(TAB_BN *estado, int linha, STACK *partida){
+JOGADAS *tmp = partida->head->head_jogadas;
 	int j;
 	int count_boats=0;
 	for (j=0;j<(estado->n_colunas);j++){
@@ -459,6 +476,7 @@ void arruma_linha(TAB_BN *estado, int linha, STACK *partida){
 			
 		}
 	}
+return tmp!=partida->head->head_jogadas;
 }
 
 /**
@@ -471,7 +489,8 @@ Função que caso a coluna seja completa, isto é, ja estao todos os segmentos m
 @param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 */
-void arruma_coluna(TAB_BN *estado, int coluna, STACK *partida){
+int arruma_coluna(TAB_BN *estado, int coluna, STACK *partida){
+JOGADAS *tmp =partida->head->head_jogadas;
 	int i;
 	int count_boats=0;
 	for (i=0;i<(estado->n_linhas);i++){
@@ -488,6 +507,7 @@ void arruma_coluna(TAB_BN *estado, int coluna, STACK *partida){
 			
 		}
 	}
+return tmp!=partida->head->head_jogadas;
 }
 
 /**
@@ -500,7 +520,8 @@ Função que verifica o conteudo de uma linha e caso seja possivel mete o caract
 @param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 */
-void coloca_o_na_linha (TAB_BN *estado, int linha, STACK *partida){
+int coloca_o_na_linha (TAB_BN *estado, int linha, STACK *partida){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int j;
 	int count = 0;
 	for (j=0; j<(estado->n_colunas); j++){
@@ -515,6 +536,7 @@ void coloca_o_na_linha (TAB_BN *estado, int linha, STACK *partida){
 				altera_estado(estado, linha, j, 'o', partida);
 		}
 	}
+return tmp!=partida->head->head_jogadas;
 }
 /**
 Função que verifica o conteudo de uma coluna e caso seja possivel mete o caracter 'o' nos lugares desconhecidos ('.').
@@ -527,7 +549,8 @@ Função que verifica o conteudo de uma coluna e caso seja possivel mete o carac
 
 */
 
-void coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida){
+int coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida){
+JOGADAS *tmp =partida->head->head_jogadas;
 	int i;
 	int count = 0;
 	for (i=0; i<(estado->n_linhas); i++){
@@ -542,6 +565,7 @@ void coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida){
 				altera_estado(estado, i, coluna, 'o', partida);
 		}
 	}
+return tmp!=partida->head->head_jogadas;
 }
 
 
@@ -556,7 +580,8 @@ Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhec
 */
 
 
-void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
+int from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
+JOGADAS *tmp =partida->head->head_jogadas;
 	int j;
 	int i;
 
@@ -608,6 +633,8 @@ void from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 
 	if (estado->tabuleiro[estado->n_linhas-1][estado->n_colunas-1]=='o' && estado->tabuleiro[estado->n_linhas-1][estado->n_colunas-2]=='~' && estado->tabuleiro[estado->n_linhas-2][estado->n_colunas-1]=='~' )
 		altera_estado(estado,estado->n_linhas-1,estado->n_colunas-1,'O', partida);
+
+return tmp!=partida->head->head_jogadas;
 }
 
 
@@ -624,7 +651,8 @@ Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhec
 
 */
 
-void from_unknown_to_whatever_horizontal(TAB_BN *estado, STACK *partida, int linha){
+int from_unknown_to_whatever_horizontal(TAB_BN *estado, STACK *partida, int linha){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int i=0;
 	int j=0;
 	int begin=0;
@@ -697,7 +725,7 @@ void from_unknown_to_whatever_horizontal(TAB_BN *estado, STACK *partida, int lin
 			altera_estado(estado,linha, j, 'o', partida);
 		}
 	}
-
+return tmp!=partida->head->head_jogadas;
 
 }
 
@@ -715,7 +743,8 @@ Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhec
 
 
 
-void from_unknown_to_whatever_vertical(TAB_BN *estado, STACK *partida, int coluna){
+int from_unknown_to_whatever_vertical(TAB_BN *estado, STACK *partida, int coluna){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int j=0;
 	int i=0;
 	int begin=0;
@@ -787,7 +816,7 @@ void from_unknown_to_whatever_vertical(TAB_BN *estado, STACK *partida, int colun
 			altera_estado(estado,i, coluna, 'o', partida);
 		}
 	}
-
+return tmp!=partida->head->head_jogadas;
 }
 
 
@@ -805,13 +834,15 @@ Função que substitui os caracteres 'o' (de meios de barcos) por caracteres '#'
 */
 
 
-void from_unknown_to_middle_horizontal(TAB_BN *estado, STACK *partida, int linha){
+int from_unknown_to_middle_horizontal(TAB_BN *estado, STACK *partida, int linha){
+JOGADAS * tmp=partida->head->head_jogadas;
 	int j;
 	for (j=1; j<estado->n_colunas-1; j++){
 		if (estado->tabuleiro[linha][j]=='o' && is_segmento(estado->tabuleiro[linha][j-1]) && is_segmento(estado->tabuleiro[linha][j+1])){
 			altera_estado(estado, linha, j, '#', partida);
 		}
 	}
+return tmp!=partida->head->head_jogadas;
 }
 
 
@@ -828,13 +859,15 @@ Função que substitui os caracteres 'o' (de meios de barcos) por caracteres '#'
 
 */
 
-void from_unknown_to_middle_vertical(TAB_BN *estado, STACK *partida, int coluna){
+int from_unknown_to_middle_vertical(TAB_BN *estado, STACK *partida, int coluna){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int i;
 	for (i=1; i<estado->n_linhas-1; i++){
 		if (estado->tabuleiro[i][coluna]=='o' && is_segmento(estado->tabuleiro[i-1][coluna]) && is_segmento(estado->tabuleiro[i+1][coluna])){
 			altera_estado(estado, i, coluna, '#', partida);
 		}
 	}
+return tmp!=partida->head->head_jogadas;
 }
 
 
@@ -850,7 +883,8 @@ Função que coloca '~#~' quando encontra '.#~'
 
 */
 
-void particular_middleSegment_case_horizontal(TAB_BN *estado, STACK *partida, int coluna){
+int particular_middleSegment_case_horizontal(TAB_BN *estado, STACK *partida, int coluna){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int i;
 	for (i=1; i<estado->n_linhas-1; i++){
 		if (estado->tabuleiro[i][coluna]== '#' && estado->tabuleiro[i][coluna+1]=='~' && estado->tabuleiro[i][coluna-1]=='.'){
@@ -867,6 +901,7 @@ void particular_middleSegment_case_horizontal(TAB_BN *estado, STACK *partida, in
 		}
 
 	}
+return tmp!=partida->head->head_jogadas;
 }
 
 /**
@@ -881,7 +916,8 @@ Função que coloca '~#~' quando encontra '.#~'
 
 */
 
-void particular_middleSegment_case_vertical(TAB_BN *estado, STACK *partida, int linha){
+int particular_middleSegment_case_vertical(TAB_BN *estado, STACK *partida, int linha){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int j;
 	for (j=1; j<estado->n_colunas-1; j++){
 		if (estado->tabuleiro[linha][j]== '#' && estado->tabuleiro[linha+1][j]=='~' && estado->tabuleiro[linha-1][j]=='.'){
@@ -898,6 +934,7 @@ void particular_middleSegment_case_vertical(TAB_BN *estado, STACK *partida, int 
 		}
 
 	}
+return tmp!=partida->head->head_jogadas;
 }
 
 
@@ -906,6 +943,8 @@ Função que verifica se o tabuleiro é válido tendo em conta as informações 
 Caso o número de segmentos de barcos detetados sejam maiores que as informações da respectiva linha ou coluna, o tabuleiro é inválido.
 
 @param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@return Devolve 1 caso nao encontra problemas, 0 caso o tabuleiro é invalido.
 
 */
 
@@ -950,6 +989,8 @@ Esse segmento poderá ser '#', 'o', '.' ou um segmento passado como parâmetro.
 @param j: Indice da coluna que se quer testar.
 
 @param a: Segmento que se quer verificar se existe numa determinada posição.
+
+@return Devolve
 
 */
 

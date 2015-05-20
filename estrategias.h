@@ -44,10 +44,10 @@
 /* Fim da condiçao if do inicio.*/
 #endif
 
-void estrategia_1(TAB_BN *, STACK *);
+int estrategia_1(TAB_BN *, STACK *);
 
-void estrategia_2(TAB_BN *, STACK *);
+int estrategia_2(TAB_BN *, STACK *);
 
-void estrategia_3(TAB_BN *,STACK *);
+int estrategia_3(TAB_BN *,STACK *);
 
 

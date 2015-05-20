@@ -63,23 +63,23 @@ int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
     int nargs;
     int n = -1;
     nargs = sscanf(linha , "%s %s %s", comando, arg1, arg2 );
-    
+ 
     if (strcmp(comando , "c") == 0 && nargs == 1){
          n= cmd_c(estado,partida);
           /*if( initJOGO( estado, partida) == -1) printf("Memoria insuficiente"); */
           }
     else if (strcmp(comando, "m") == 0 && nargs == 1)
                n = cmd_m(estado);
-    else if (strcmp(comando, "h") == 0 && nargs == 2) {
+    else if (strcmp(comando, "h") == 0 && nargs == 2 && partida->head!=NULL) {
           partida->head->n_com++;
           n= cmd_h(estado, atoi (arg1),partida);
       }
-    else if (strcmp(comando, "v") == 0 && nargs == 2){
+    else if (strcmp(comando, "v") == 0 && nargs == 2 && partida->head!=NULL){
        	       partida->head->n_com++;
                n = cmd_v(estado, atoi(arg1),partida);
         
           }
-    else if (comando[0] == 'p' && nargs == 3){
+    else if (comando[0] == 'p' && nargs == 3 && partida->head!=NULL){
         partida->head->n_com++;
         n=cmd_p(comando, atoi(arg1) , atoi(arg2) ,estado,partida);
         
@@ -94,7 +94,7 @@ int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
             if(partida->head!=NULL) free(partida->head);
             n = 0;  
           }
-    else if ( comando[0]=='E' && nargs == 1){
+    else if ( comando[0]=='E' && nargs == 1 && partida->head != NULL){
 	partida->head->n_com++;
         n=cmd_E( atoi(comando+1) , estado,partida);
 	

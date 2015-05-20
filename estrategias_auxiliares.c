@@ -54,8 +54,9 @@ Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhec
 
 */
 
-void estrategia_4(TAB_BN *estado,STACK *partida){
-	int i;
+int estrategia_4(TAB_BN *estado,STACK *partida){
+JOGADAS *tmp=partida->head->head_jogadas;
+	int i; int n=-1;
 
 	from_unknown_to_submarine(estado, partida);
 
@@ -75,5 +76,7 @@ void estrategia_4(TAB_BN *estado,STACK *partida){
 		}
 
 	}
+if(tmp!=partida->head->head_jogadas) n=1;
+return n;
 
 }
