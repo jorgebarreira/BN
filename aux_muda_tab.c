@@ -40,7 +40,7 @@
 #define MAX_SIZE 105
 /** Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024.*/
 #define MAX_LINHA 1024
-
+#include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
 #endif
 
@@ -80,6 +80,7 @@ default:
 	 break;
 }
     if(n==1) printf("A estrategia foi aplicada e mudou o estado do tabuleiro\n");
+    if(n==-1 && indice<=4 && indice >=1) {printf("Nenhuma modificaçao efetuada\n");n=1;}
     return n;
 }
 

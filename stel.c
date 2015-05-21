@@ -266,7 +266,7 @@ Comando que veriifica se o nosso tabuleiro esta valido ou nao.
 */
 
 
-int cmd_V(TAB_BN *estado){
+int cmd_V(TAB_BN *estado, int indice){
   int i,j;
   int res,res2 = 1,res3= 1;
   res=verifica_info(estado);
@@ -292,9 +292,12 @@ int cmd_V(TAB_BN *estado){
       }
     }
   }
-  if(res && res2 && res3)
+if(indice){
+  if(res && res2 && res3 )
     printf("SIM\n");
   else
     printf("NAO\n");
+}
+else if((res && res2 && res3)==0) return -1;
   return 1;
 }

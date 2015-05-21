@@ -55,22 +55,20 @@ Função para percorrer todo o tabuleiro e sempre que encontrar um segmento pree
 */
 
 int estrategia_1(TAB_BN *estado,STACK *partida){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int i,j;
-	int n=-1,a=0,r=0;
+	int n=-1;
 	for(i=0;i<estado->n_linhas;i++){
 		for(j=0;j<estado->n_colunas;j++){
 			if(is_segmento(estado->tabuleiro[i][j])){
 				if(i==0 || j==0 || i==(estado->n_linhas)-1 || j==(estado->n_colunas)-1)
-					a=preenche_cantos(i,j,estado,partida);
+					preenche_cantos(i,j,estado,partida);
 				else
-					a=preenche_meio(i,j,estado,partida);
-			}
-			if(a != r && a==1) r=a; 
+					preenche_meio(i,j,estado,partida);
+			} 
 		}
 	}
-	a=r;
-	r=estrategia_4(estado, partida);
-	if(a || r) n = 1;	
+	if(tmp!=partida->head->head_jogadas) n=1;
 	return n;
 }
 
@@ -86,18 +84,19 @@ Estrategia que percorre todo o tabuleiro e sempre que a linha/coluna já tiver t
 */
 
 int estrategia_2(TAB_BN *estado,STACK *partida){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int i;
-	int n = -1, a=0,b=0,r=0;
+	int n = -1;
 	for (i=0;i<(estado->n_linhas);i++){
-		a=arruma_linha(estado, i,partida);
-		if(a != r && a==1) r=a; 
+		arruma_linha(estado, i,partida);
+		
 	}
-	a=r;
-	for (r=0,i=0;i<(estado->n_colunas);i++){
-		b=arruma_coluna(estado, i,partida);
-		if(b != r && b==1) r=b; 	
+	
+	for (i=0;i<(estado->n_colunas);i++){
+		arruma_coluna(estado, i,partida);
+			
 	}
-	if(a || r) n=1;
+	if(tmp!=partida->head->head_jogadas) n=1;
 	/*estrategia_4(estado, partida);*/
 	/*if(partida->head->head_jogadas!=NULL && partida->head->head_jogadas->indcom==partida->head->n_com) partida->head->n_com++;*/
 	return n;
@@ -114,18 +113,19 @@ Estrategia que percorre todo o tabuleiro e sempre que for possivel adiciona o se
 
 */
 int estrategia_3(TAB_BN *estado, STACK *partida){
+JOGADAS *tmp=partida->head->head_jogadas;
 	int i;
-	int n=-1,c=0, a=0,b=0,r=0;
+	int n=-1;
 	for (i=0; i<(estado->n_linhas); i++){
-		a=coloca_o_na_linha(estado, i, partida);
-		if(a != r && a==1) r=a; 
+		coloca_o_na_linha(estado, i, partida);
+		
 	}
-	a=r;
-	for (i=0,r=0; i<(estado->n_colunas); i++){
-		b=coloca_o_na_coluna(estado, i, partida);
-		if(b != r && b==1) r=b;
+	
+	for (i=0; i<(estado->n_colunas); i++){
+		coloca_o_na_coluna(estado, i, partida);
+		
 	}
-	c= estrategia_4(estado, partida);
-	if(a || r || c) n=1;
+	estrategia_4(estado, partida);
+	if(tmp!=partida->head->head_jogadas) n=1;
 	return n; 
 }

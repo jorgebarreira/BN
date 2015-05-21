@@ -43,77 +43,10 @@
 
 /* Fim da condiçao if do inicio.*/
 #endif
-/*
-char caracter(int linha,int coluna){
 
-if(linha==coluna)
-*/
+void cmd_R(TAB_BN *, STACK *);
+void desfazer_ate_g(TAB_BN *,STACK *,JOGADAS *);
+int esta_resolvido(TAB_BN *);
 
-/**
-Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao desse na linha.
-
-@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
-
-@param linha: Numero da linha que vai ser percorrida.
-
-@return: A coluna que pode ser modificada na linha ou -1 caso a linha ja esta preenchida.
-*/
-int encontra_posicao(TAB_BN *estado,int linha){
-int r=1;
-int i=0;
-while(estado->tabuleiro[linha][i]!='.' && i<estado->n_linhas) i++;
-if(i==estado->n_colunas) r=-1; 
-else r=i;
-/*
-{
-    char c= estado->tabuleiro[linha][i];
-    verificar_voltas(linha,i, estado);
-}
-*/
-return r;
-}
-
-/**
-Funçao que devolve um numero entre 0 e o seu argumento incluido.
-
-@param n: Inteiro que serve a criar o intervalo dos numeros que serao devolvidos.
-
-@return Devolve um inteiro aleatorio entre 0 e n.
-*/
-int rand_to(int n){
-int w= RAND_MAX/(n+1);
-int limit= w*(n+1);
-int r;
-do
- r=rand();
-while(r>=limit);
-return (r/w);
-}
-/**
-Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.
-
-
-@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
-
-@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
-
-@return Devolve um inteiro aleatorio entre 0 e n.
-*/
-JOGADAS *jogada_aleatoria(TAB_BN *estado, STACK *partida){
-JOGADAS *tmp; int linha; int ciclo=-1; int coluna; int count= 0; /*char c;*/
-tmp=partida->head->head_jogadas;
-srand((unsigned int) time (NULL));
-do{
-linha=rand_to(estado->n_linhas-1);
-coluna=encontra_posicao(estado,linha);
-if(coluna!=-1){
-	/*c= caracter(estado,linha,coluna)*/
-	altera_estado(estado, linha,coluna,'o',partida);
-	ciclo=1;
-	      }
-else count++;
-}while(ciclo==-1 && count !=100);
-return tmp;
-}
 
 

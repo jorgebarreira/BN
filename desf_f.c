@@ -77,8 +77,8 @@ Desfaz um comando até ao anterior.
 void desfCmd(TAB_BN *estado,STACK *partida){
         int i; JOGADAS *tmp;
         i= partida->head->head_jogadas->indcom ;
-        
-        while((partida->head->head_jogadas!=NULL) && (partida->head->head_jogadas->indcom==i ) ){
+      
+       	 while((partida->head->head_jogadas!=NULL) && (partida->head->head_jogadas->indcom==i ) ){
 
              int l = partida->head->head_jogadas->linha, col = partida->head->head_jogadas->coluna;
 

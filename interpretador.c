@@ -100,10 +100,10 @@ int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
 	
 	}
   else if((strcmp(comando , "V") == 0) && nargs == 1)
-        n=cmd_V(estado);
+        n=cmd_V(estado,1);
     else if (strcmp(comando,"D") == 0 && nargs==1)
                    n = cmd_D(estado,partida);
-  else if( strcmp(comando,"teste")== 0 && nargs==1) { n=1; jogada_aleatoria(estado,partida);}
+  else if( strcmp(comando,"teste")== 0 && nargs==1) { n=1; cmd_R(estado,partida);}
 
   else  n = -1;
  

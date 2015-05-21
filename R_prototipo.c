@@ -43,77 +43,57 @@
 
 /* Fim da condiçao if do inicio.*/
 #endif
-/*
-char caracter(int linha,int coluna){
 
-if(linha==coluna)
-*/
 
-/**
-Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao desse na linha.
 
-@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
-
-@param linha: Numero da linha que vai ser percorrida.
-
-@return: A coluna que pode ser modificada na linha ou -1 caso a linha ja esta preenchida.
-*/
-int encontra_posicao(TAB_BN *estado,int linha){
-int r=1;
-int i=0;
-while(estado->tabuleiro[linha][i]!='.' && i<estado->n_linhas) i++;
-if(i==estado->n_colunas) r=-1; 
-else r=i;
-/*
-{
-    char c= estado->tabuleiro[linha][i];
-    verificar_voltas(linha,i, estado);
-}
-*/
-return r;
+int esta_resolvido(TAB_BN *estado){
+	int i,j;
+for(i=0;i<estado->n_linhas;i++)
+	for(j=0;j<estado->n_colunas;j++)
+		if(estado->tabuleiro[i][j]=='.') return 0;
+return 1;
 }
 
-/**
-Funçao que devolve um numero entre 0 e o seu argumento incluido.
 
-@param n: Inteiro que serve a criar o intervalo dos numeros que serao devolvidos.
+void desfazer_ate_g(TAB_BN *estado,STACK *partida,JOGADAS *g){
+        /*int i;*/ JOGADAS *tmp;
+        /*i= partida->head->head_jogadas->indcom ;*/
+      
+       	 while((partida->head->head_jogadas!=NULL) && (partida->head->head_jogadas!=g ) ){
 
-@return Devolve um inteiro aleatorio entre 0 e n.
-*/
-int rand_to(int n){
-int w= RAND_MAX/(n+1);
-int limit= w*(n+1);
-int r;
-do
- r=rand();
-while(r>=limit);
-return (r/w);
+             int l = partida->head->head_jogadas->linha, col = partida->head->head_jogadas->coluna;
+
+             estado->tabuleiro[l][col] = partida->head->head_jogadas->modificado;
+             tmp = partida->head->head_jogadas; /* uma vez desfazido é preciso libertar a memoria;*/
+             partida->head->head_jogadas=partida->head->head_jogadas->proxima; /* modifica-se a cabeça da lista;*/
+             
+             free(tmp); /* liberta-se a antiga cabeça.*/
+             partida->head->n_elementos--;
+            }
 }
-/**
-Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.
 
 
-@param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
 
-@param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
+void cmd_R(TAB_BN *estado, STACK *partida){
+/*TAB_BN tmp = *estado;*/ JOGADAS *g[MAX_SIZE]; int n=0;
+int ciclo=1; int controlo=0;
+while(ciclo==1) {
 
-@return Devolve um inteiro aleatorio entre 0 e n.
-*/
-JOGADAS *jogada_aleatoria(TAB_BN *estado, STACK *partida){
-JOGADAS *tmp; int linha; int ciclo=-1; int coluna; int count= 0; /*char c;*/
-tmp=partida->head->head_jogadas;
-srand((unsigned int) time (NULL));
-do{
-linha=rand_to(estado->n_linhas-1);
-coluna=encontra_posicao(estado,linha);
-if(coluna!=-1){
-	/*c= caracter(estado,linha,coluna)*/
-	altera_estado(estado, linha,coluna,'o',partida);
-	ciclo=1;
-	      }
-else count++;
-}while(ciclo==-1 && count !=100);
-return tmp;
+while(( (estrategia_1(estado,partida) == 1 )|| (estrategia_2(estado,partida) == 1 ) ||(estrategia_3(estado,partida) == 1) || (estrategia_4(estado,partida) ==1) ))
+	controlo++; 
+	
+	n=cmd_V(estado,0);
+	if( esta_resolvido(estado) && (  n==1 ) ) ciclo = 0;
+	else if( controlo >=100) ciclo=0;	
+         	     if(n==1) g[n++]=jogada_aleatoria(estado,partida);
+		     else desfazer_ate_g(estado,partida,g[--n]);
+
 }
+
+}
+
+
+
+
 
 
