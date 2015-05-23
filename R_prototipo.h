@@ -44,9 +44,11 @@
 /* Fim da condiçao if do inicio.*/
 #endif
 
-void cmd_R(TAB_BN *, STACK *);
-void desfazer_ate_g(TAB_BN *,STACK *,JOGADAS *);
+int cmd_R(TAB_BN *, STACK *);
+void desfazer_ate_a(TAB_BN *,STACK *,JOGADAS *);
 int esta_resolvido(TAB_BN *);
+int resolver(TAB_BN *,STACK *);
+
 
 
 

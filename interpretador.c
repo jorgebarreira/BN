@@ -42,7 +42,11 @@
 #define MAX_LINHA 1024
 
 /* Fim da condiçao if do inicio.*/
+
 #endif
+
+void cmd_R(TAB_BN *,STACK *);
+
 /** 
 Interpreta um comando passado numa linha 
 
@@ -103,7 +107,14 @@ int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
         n=cmd_V(estado,1);
     else if (strcmp(comando,"D") == 0 && nargs==1)
                    n = cmd_D(estado,partida);
-  else if( strcmp(comando,"teste")== 0 && nargs==1) { n=1; cmd_R(estado,partida);}
+  else if( strcmp(comando,"R")== 0 && nargs==1 && partida->head != NULL) { 
+		partida->head->n_com++;		
+		cmd_R(estado,partida);
+		}
+  else if( strcmp(comando,"teste")==0 && nargs==1 && partida->head != NULL){
+	n=1;
+	jogada_aleatoria(estado,partida);
+	}
 
   else  n = -1;
  

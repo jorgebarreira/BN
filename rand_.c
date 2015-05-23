@@ -90,30 +90,33 @@ while(r>=limit);
 return (r/w);
 }
 /**
-Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.
+Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha aleatoria onde ha '.' um segmento de barco desconhecido.
 
 
 @param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.
 
 @param partida: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
-@return Devolve um inteiro aleatorio entre 0 e n.
+@return Devolve o endereço da nossa jogada ou NULL caso nao foi efetuada.
 */
 JOGADAS *jogada_aleatoria(TAB_BN *estado, STACK *partida){
-JOGADAS *tmp; int linha; int ciclo=-1; int coluna; int count= 0; /*char c;*/
-tmp=partida->head->head_jogadas;
-srand((unsigned int) time (NULL));
+JOGADAS /*tmp,*/*tmp1=NULL; int linha; int ciclo=-1; int coluna; int count= 0; /*char c;*/
+/*tmp=partida->head->head_jogadas;*/
+
 do{
+srand((unsigned int) time (NULL));
 linha=rand_to(estado->n_linhas-1);
 coluna=encontra_posicao(estado,linha);
 if(coluna!=-1){
 	/*c= caracter(estado,linha,coluna)*/
 	altera_estado(estado, linha,coluna,'o',partida);
 	ciclo=1;
+	tmp1 = partida->head->head_jogadas;
 	      }
 else count++;
-}while(ciclo==-1 && count !=100);
-return tmp;
+}while(ciclo==-1 && count !=500);
+
+return tmp1;
 }
 
 
