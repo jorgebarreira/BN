@@ -47,8 +47,8 @@
 char caracter(int linha,int coluna){
 
 if(linha==coluna)
-*/
 
+*/
 /**
 Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao desse na linha.
 
@@ -59,17 +59,21 @@ Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao des
 @return: A coluna que pode ser modificada na linha ou -1 caso a linha ja esta preenchida.
 */
 int encontra_posicao(TAB_BN *estado,int linha){
-int r=1;
-int i=0;
-while(estado->tabuleiro[linha][i]!='.' && i<estado->n_linhas) i++;
-if(i==estado->n_colunas) r=-1; 
-else r=i;
-/*
-{
-    char c= estado->tabuleiro[linha][i];
-    verificar_voltas(linha,i, estado);
+int r=-1;
+int i;
+int max=0;
+int a =estado->n_colunas;
+for(i=0;i<a;i++){
+int test=0;
+	if(estado->tabuleiro[linha][i] == '.') {
+			if(i!=0 && estado->tabuleiro[linha+1][i-1]=='.') test++;
+			if(i!=a-1 && estado->tabuleiro[linha+1][i+1]=='.') test++;
+			if(linha!=0 && i!=0 && estado->tabuleiro[linha-1][i-1]=='.') test++;
+			if(linha!= estado->n_colunas-1 && i!= a-1 && estado->tabuleiro[linha+1][i+1]=='.') test++;
+			if(test > max) {max=test;r=i;}
+				}
 }
-*/
+
 return r;
 }
 
@@ -99,22 +103,21 @@ Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha
 
 @return Devolve o endereço da nossa jogada ou NULL caso nao foi efetuada.
 */
-JOGADAS *jogada_aleatoria(TAB_BN *estado, STACK *partida){
-JOGADAS /*tmp,*/*tmp1=NULL; int linha; int ciclo=-1; int coluna; int count= 0; /*char c;*/
-/*tmp=partida->head->head_jogadas;*/
 
-do{
+JOGADAS *jogada_aleatoria(TAB_BN *estado, STACK *partida){
+JOGADAS *tmp1=NULL; int linha; int ciclo=-1; int coluna; int count= 0;
 srand((unsigned int) time (NULL));
+do{
+
 linha=rand_to(estado->n_linhas-1);
 coluna=encontra_posicao(estado,linha);
 if(coluna!=-1){
-	/*c= caracter(estado,linha,coluna)*/
 	altera_estado(estado, linha,coluna,'o',partida);
 	ciclo=1;
 	tmp1 = partida->head->head_jogadas;
 	      }
 else count++;
-}while(ciclo==-1 && count !=500);
+}while(ciclo==-1 && count !=100);
 
 return tmp1;
 }

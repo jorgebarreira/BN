@@ -32,6 +32,7 @@
 #include "interpretador.h"
 /* Inclusão do ficheiro sobre o tempo das bibliotecas C. As suas funçoes sao aqui usadas para a criaçao de numeros aleatorios.*/
 #include <time.h>
+#include "R_prototipo.h"
 /** Flag cujo o valor é 1.*/
 #define TRUE 1
 /** Flag cujo o valor é 0. */

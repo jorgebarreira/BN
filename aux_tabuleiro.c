@@ -95,7 +95,7 @@ JOGADAS *tmp= partida->head->head_jogadas;
 		else if(estado->tabuleiro[i][j]=='o')
 			altera_estado(estado,i+1,j+1,'~',partida);
 	}
-	else if((i!=0 && i!=(estado->n_linhas)-1) && j==0){
+	else if((i!=0 && i<=(estado->n_linhas)-1) && j==0){
 		if(estado->tabuleiro[i][j]=='O'){
 			altera_estado(estado,i+1,j,'~',partida);
 			altera_estado(estado,i+1,j+1,'~',partida);
@@ -800,9 +800,12 @@ JOGADAS *tmp=partida->head->head_jogadas;
 		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i-1][coluna]=='~'){
 			altera_estado(estado, i, coluna, '^', partida);
 		}
-		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='~'){
+		if (estado->tabuleiro[i][coluna]=='B' && i+1!=estado->n_linhas && estado->tabuleiro[i+1][coluna]=='~'){
 			altera_estado(estado,i, coluna, 'v', partida);
-		}
+			}
+		/*if (i+1==estado->n_linhas && estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='~'){
+			altera_estado(estado,i, coluna, 'v', partida);
+		}*/
 	}
 
 	for (i=1; i<estado->n_linhas-1; i++){
@@ -1019,6 +1022,8 @@ Nessa posição só poderão existir os caractéres '~' e '.'.
 
 @param j: Indice da coluna que se quer testar.
 
+@return: Devolve 0 caso esta um '.' ou '~',1 caso seja um elemento de barco.
+
 */
 
 int verifica_lado(TAB_BN *estado, int i, int j){
@@ -1214,6 +1219,7 @@ Função que verifica para o interior do tabuleiro, mediante o tipo de segmento 
 
 @param estado: Contém toda a informaçao relativo ao tabuleiro usado.
 
+@return: Devolve 1 caso nao haver problemas, 0 caso existe um erro.
 */
 
 int verifica_meio(int i, int j, TAB_BN *estado){

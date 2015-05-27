@@ -109,7 +109,7 @@ int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
                    n = cmd_D(estado,partida);
   else if( strcmp(comando,"R")== 0 && nargs==1 && partida->head != NULL) { 
 		partida->head->n_com++;		
-		cmd_R(estado,partida);
+		cmd_R(estado,partida);n=1;
 		}
   else if( strcmp(comando,"teste")==0 && nargs==1 && partida->head != NULL){
 	n=1;

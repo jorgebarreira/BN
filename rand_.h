@@ -47,3 +47,4 @@
 int verifica_posicao(TAB_BN *,int);
 int rand_to(int );
 JOGADAS *jogada_aleatoria(TAB_BN *, STACK *);
+
