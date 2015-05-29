@@ -57,21 +57,21 @@ Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhec
 int estrategia_4(TAB_BN *estado,STACK *partida){
 JOGADAS *tmp=partida->head->head_jogadas;
 	int i; int n=-1;
-
+	int lin = estado->n_linhas, col = estado->n_colunas;
 	from_unknown_to_submarine(estado, partida);
 
 
-	for (i=0; i<estado->n_linhas; i++){
+	for (i=0; i<lin; i++){
 		from_unknown_to_whatever_horizontal(estado, partida,i);
 		from_unknown_to_middle_horizontal(estado, partida, i);
 		if (i>0 || i<estado->n_linhas){
 			particular_middleSegment_case_horizontal(estado, partida, i);
 		}
 	}
-	for (i=0; i<estado->n_colunas; i++){
+	for (i=0; i<col; i++){
 		from_unknown_to_whatever_vertical(estado, partida,i);
 		from_unknown_to_middle_vertical(estado, partida, i);
-		if (i>0 || i<estado->n_colunas){
+		if (i>0 || i<col){
 			particular_middleSegment_case_vertical(estado, partida, i);
 		}
 

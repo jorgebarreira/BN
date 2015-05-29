@@ -181,7 +181,7 @@ else{
 estrategia_1(estado,partida);
 estrategia_2(estado,partida);
 estrategia_3(estado,partida);
-estrategia_4(estado,partida);
+/*estrategia_4(estado,partida);*/
 
 if (tmp == partida->head->head_jogadas) {
 		encontra_posicao1(estado,partida);

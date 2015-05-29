@@ -463,14 +463,15 @@ int arruma_linha(TAB_BN *estado, int linha, STACK *partida){
 JOGADAS *tmp = partida->head->head_jogadas;
 	int j;
 	int count_boats=0;
-	for (j=0;j<(estado->n_colunas);j++){
+int col = estado->n_colunas;
+	for (j=0;j<(col);j++){
 		if ((estado->tabuleiro[linha][j]!='.') && (estado->tabuleiro[linha][j]!='~')){
 			count_boats++;
 		}
 	}
 
 	if (count_boats==(estado->info_linhas[linha])){
-		for (j=0;j<(estado->n_colunas);j++){
+		for (j=0;j<(col);j++){
 			if (estado->tabuleiro[linha][j]=='.')
 				altera_estado(estado,linha,j,'~',partida);
 			
@@ -493,14 +494,15 @@ int arruma_coluna(TAB_BN *estado, int coluna, STACK *partida){
 JOGADAS *tmp =partida->head->head_jogadas;
 	int i;
 	int count_boats=0;
-	for (i=0;i<(estado->n_linhas);i++){
+int lin = estado->n_linhas, col = estado->n_colunas;
+	for (i=0;i<(lin);i++){
 		if ((estado->tabuleiro[i][coluna]!='.') && (estado->tabuleiro[i][coluna]!='~')){
 			count_boats++;
 		}
 	}
 
 	if (count_boats==(estado->info_colunas[coluna])){
-		for (i=0;i<(estado->n_colunas);i++){
+		for (i=0;i<(col);i++){
 			if (estado->tabuleiro[i][coluna]=='.')
 				altera_estado(estado,i,coluna,'~',partida);
 				
@@ -524,14 +526,15 @@ int coloca_o_na_linha (TAB_BN *estado, int linha, STACK *partida){
 JOGADAS *tmp=partida->head->head_jogadas;
 	int j;
 	int count = 0;
-	for (j=0; j<(estado->n_colunas); j++){
+	int col = estado->n_colunas;
+	for (j=0; j<(col); j++){
 		if (estado->tabuleiro[linha][j]=='~')
 			count ++;
 	}
 
-	count = (estado->n_colunas) - count;
+	count = (col) - count;
 	if (count == estado->info_linhas[linha]){
-		for (j=0; j<(estado->n_colunas); j++){
+		for (j=0; j<(col); j++){
 			if (estado->tabuleiro[linha][j]=='.')
 				altera_estado(estado, linha, j, 'o', partida);
 		}
@@ -553,14 +556,15 @@ int coloca_o_na_coluna (TAB_BN *estado, int coluna, STACK *partida){
 JOGADAS *tmp =partida->head->head_jogadas;
 	int i;
 	int count = 0;
-	for (i=0; i<(estado->n_linhas); i++){
+int lin = estado->n_linhas;
+	for (i=0; i<(lin); i++){
 		if (estado->tabuleiro[i][coluna]=='~')
 			count ++;
 	}
 
-	count = (estado->n_linhas) - count;
+	count = (lin) - count;
 	if (count == estado->info_colunas[coluna]){
-		for (i=0; i<(estado->n_linhas); i++){
+		for (i=0; i<(lin); i++){
 			if (estado->tabuleiro[i][coluna]=='.')
 				altera_estado(estado, i, coluna, 'o', partida);
 		}
@@ -584,10 +588,10 @@ int from_unknown_to_submarine(TAB_BN *estado, STACK *partida){
 JOGADAS *tmp =partida->head->head_jogadas;
 	int j;
 	int i;
+int lin = estado->n_linhas, col = estado->n_colunas;
 
-
-	for (i=1; i<estado->n_linhas-1; i++){
-		for (j=1; j<estado->n_colunas-1; j++){
+	for (i=1; i<(lin-1); i++){
+		for (j=1; j<(col-1); j++){
 			if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i-1][j]=='~' && estado->tabuleiro[i+1][j]=='~' && estado->tabuleiro[i][j-1]=='~' && estado->tabuleiro[i][j+1]=='~' )
 				altera_estado(estado, i, j, 'O', partida);
 		}
@@ -595,28 +599,28 @@ JOGADAS *tmp =partida->head->head_jogadas;
 
 
 	i=0;
-	for (j=1; j<estado->n_colunas-1; j++){
+	for (j=1; j<(col-1); j++){
 		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i][j+1]=='~' && estado->tabuleiro[i][j-1]=='~' && estado->tabuleiro[i+1][j]=='~'){
 				altera_estado(estado, i, j, 'O', partida);
 		}		
 	}
 
-	i=estado->n_linhas-1;
-	for (j=1; j<estado->n_colunas-1; j++){
+	i=(lin-1);
+	for (j=1; j<(col-1); j++){
 		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i][j+1]=='~' && estado->tabuleiro[i][j-1]=='~' && estado->tabuleiro[i-1][j]=='~'){
 				altera_estado(estado, i, j, 'O', partida);
 		}		
 	}
 
 	j=0;
-	for (i=1; i<estado->n_linhas-1; i++){
+	for (i=1; i<(lin-1); i++){
 		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i+1][j]=='~' && estado->tabuleiro[i-1][j]=='~' && estado->tabuleiro[i][j+1]=='~'){
 				altera_estado(estado, i, j, 'O', partida);
 		}		
 	}
 
-	j=estado->n_colunas-1;
-	for (i=1; i<estado->n_linhas-1; i++){
+	j=col-1;
+	for (i=1; i<(lin-1); i++){
 		if (estado->tabuleiro[i][j]=='o' && estado->tabuleiro[i+1][j]=='~' && estado->tabuleiro[i-1][j]=='~' && estado->tabuleiro[i][j-1]=='~'){
 				altera_estado(estado, i, j, 'O', partida);
 		}		
@@ -625,14 +629,14 @@ JOGADAS *tmp =partida->head->head_jogadas;
 	if (estado->tabuleiro[0][0]=='o' && estado->tabuleiro[0][1]=='~' && estado->tabuleiro[1][0]=='~' )
 		altera_estado(estado,0,0,'O', partida);
 
-	if (estado->tabuleiro[estado->n_linhas-1][0]=='o' && estado->tabuleiro[estado->n_linhas-2][0]=='~' && estado->tabuleiro[estado->n_linhas-1][1]=='~' )
-		altera_estado(estado,estado->n_linhas-1,0,'O', partida);
+	if (estado->tabuleiro[lin-1][0]=='o' && estado->tabuleiro[lin-2][0]=='~' && estado->tabuleiro[lin-1][1]=='~' )
+		altera_estado(estado,lin-1,0,'O', partida);
 
 	if (estado->tabuleiro[0][estado->n_colunas-1]=='o' && estado->tabuleiro[0][estado->n_colunas-2]=='~' && estado->tabuleiro[1][estado->n_colunas-1]=='~' )
 		altera_estado(estado,0,estado->n_colunas-1,'O', partida);
 
-	if (estado->tabuleiro[estado->n_linhas-1][estado->n_colunas-1]=='o' && estado->tabuleiro[estado->n_linhas-1][estado->n_colunas-2]=='~' && estado->tabuleiro[estado->n_linhas-2][estado->n_colunas-1]=='~' )
-		altera_estado(estado,estado->n_linhas-1,estado->n_colunas-1,'O', partida);
+	if (estado->tabuleiro[lin-1][estado->n_colunas-1]=='o' && estado->tabuleiro[lin-1][estado->n_colunas-2]=='~' && estado->tabuleiro[lin-2][estado->n_colunas-1]=='~' )
+		altera_estado(estado,lin-1,estado->n_colunas-1,'O', partida);
 
 return tmp!=partida->head->head_jogadas;
 }
@@ -656,8 +660,8 @@ JOGADAS *tmp=partida->head->head_jogadas;
 	int i=0;
 	int j=0;
 	int begin=0;
-
-	for (j=0; j<estado->n_colunas; j++){
+int col = estado->n_colunas;
+	for (j=0; j<col; j++){
 		if ( (is_segmento(estado->tabuleiro[linha][j]) == FALSE) && (i==0) ) {
 			continue;
 		}
@@ -683,9 +687,9 @@ JOGADAS *tmp=partida->head->head_jogadas;
 
 
 		
-		if (i>1 && j == estado->n_colunas-1){
+		if (i>1 && j == col-1){
 			begin = j-i;
-			for (i=begin+1 ; i<estado->n_colunas; i++){
+			for (i=begin+1 ; i<col; i++){
 				if (estado->tabuleiro[linha][i]=='.'  || estado->tabuleiro[linha][i]=='o' )
 				altera_estado(estado,linha, i, 'B', partida);
 			}
@@ -698,14 +702,14 @@ JOGADAS *tmp=partida->head->head_jogadas;
 	begin=0;
 
 
-	if (estado->tabuleiro[linha][estado->n_colunas-1]=='B')
-		altera_estado(estado,linha, estado->n_colunas-1, '>', partida);
+	if (estado->tabuleiro[linha][col-1]=='B')
+		altera_estado(estado,linha, col-1, '>', partida);
 
 	if (estado->tabuleiro[linha][0]=='B')
 		altera_estado(estado,linha, 0, '<', partida);
 
 
-	for (j=1; j<estado->n_colunas-1; j++){
+	for (j=1; j<(col-1); j++){
 		if (estado->tabuleiro[linha][j]=='B' && estado->tabuleiro[linha][j-1]=='~'){
 			altera_estado(estado,linha, j, '<', partida);
 		}
@@ -714,13 +718,13 @@ JOGADAS *tmp=partida->head->head_jogadas;
 		}
 	}
 
-	for (j=1; j<estado->n_colunas-1; j++){
+	for (j=1; j<(col-1); j++){
 		if (estado->tabuleiro[linha][j]=='B' && estado->tabuleiro[linha][j+1]=='B' && (estado->tabuleiro[linha][j-1]=='B' || is_segmento(estado->tabuleiro[linha][j-1] ) )){
 			altera_estado(estado,linha, j, '#', partida);
 		}
 	}
 
-	for (j=1; j<estado->n_colunas-1; j++){
+	for (j=1; j<col-1; j++){
 		if (estado->tabuleiro[linha][j]=='B'){
 			altera_estado(estado,linha, j, 'o', partida);
 		}
@@ -748,8 +752,8 @@ JOGADAS *tmp=partida->head->head_jogadas;
 	int j=0;
 	int i=0;
 	int begin=0;
-
-	for (i=0; i<estado->n_linhas; i++){
+int lin = estado->n_linhas;
+	for (i=0; i<lin; i++){
 		if ( (is_segmento(estado->tabuleiro[i][coluna]) == FALSE) && (j==0) ) {
 			continue;
 		}
@@ -774,9 +778,9 @@ JOGADAS *tmp=partida->head->head_jogadas;
 			begin = 0;
 		}
 
-		if (j>1 && i == estado->n_linhas-1){
+		if (j>1 && i == lin-1){
 			begin = i-j;
-			for (j=begin+1 ; j<estado->n_linhas; j++){
+			for (j=begin+1 ; j<lin; j++){
 				if (estado->tabuleiro[j][coluna]=='.'  || estado->tabuleiro[j][coluna]=='o' )
 				altera_estado(estado,j, coluna, 'B', partida);
 			}
@@ -789,18 +793,18 @@ JOGADAS *tmp=partida->head->head_jogadas;
 	begin=0;
 
 
-	if (estado->tabuleiro[estado->n_linhas-1][coluna]=='B')
-		altera_estado(estado,estado->n_linhas-1, coluna, 'v', partida);
+	if (estado->tabuleiro[lin-1][coluna]=='B')
+		altera_estado(estado,lin-1, coluna, 'v', partida);
 
 	if (estado->tabuleiro[0][coluna]=='B')
 		altera_estado(estado,0, coluna, '^', partida);
 
 
-	for (i=1; i<estado->n_linhas-1; i++){
+	for (i=1; i<lin-1; i++){
 		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i-1][coluna]=='~'){
 			altera_estado(estado, i, coluna, '^', partida);
 		}
-		if (estado->tabuleiro[i][coluna]=='B' && i+1!=estado->n_linhas && estado->tabuleiro[i+1][coluna]=='~'){
+		if (estado->tabuleiro[i][coluna]=='B' && i+1!=lin && estado->tabuleiro[i+1][coluna]=='~'){
 			altera_estado(estado,i, coluna, 'v', partida);
 			}
 		/*if (i+1==estado->n_linhas && estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='~'){
@@ -808,13 +812,13 @@ JOGADAS *tmp=partida->head->head_jogadas;
 		}*/
 	}
 
-	for (i=1; i<estado->n_linhas-1; i++){
+	for (i=1; i<lin-1; i++){
 		if (estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='B' && (estado->tabuleiro[i-1][coluna]=='B' || is_segmento(estado->tabuleiro[i-1][coluna]))){
 			altera_estado(estado,i, coluna, '#', partida);
 		}
 	}
 
-	for (i=1; i<estado->n_linhas-1; i++){
+	for (i=1; i<lin-1; i++){
 		if (estado->tabuleiro[i][coluna]=='B'){
 			altera_estado(estado,i, coluna, 'o', partida);
 		}
@@ -865,7 +869,8 @@ Função que substitui os caracteres 'o' (de meios de barcos) por caracteres '#'
 int from_unknown_to_middle_vertical(TAB_BN *estado, STACK *partida, int coluna){
 JOGADAS *tmp=partida->head->head_jogadas;
 	int i;
-	for (i=1; i<estado->n_linhas-1; i++){
+int lin = estado->n_linhas;
+	for (i=1; i<lin-1; i++){
 		if (estado->tabuleiro[i][coluna]=='o' && is_segmento(estado->tabuleiro[i-1][coluna]) && is_segmento(estado->tabuleiro[i+1][coluna])){
 			altera_estado(estado, i, coluna, '#', partida);
 		}
@@ -889,7 +894,8 @@ Função que coloca '~#~' quando encontra '.#~'
 int particular_middleSegment_case_horizontal(TAB_BN *estado, STACK *partida, int coluna){
 JOGADAS *tmp=partida->head->head_jogadas;
 	int i;
-	for (i=1; i<estado->n_linhas-1; i++){
+int lin = estado->n_linhas;
+	for (i=1; i<lin-1; i++){
 		if (estado->tabuleiro[i][coluna]== '#' && estado->tabuleiro[i][coluna+1]=='~' && estado->tabuleiro[i][coluna-1]=='.'){
 			altera_estado(estado,i, coluna-1, '~', partida);
 		}
@@ -958,7 +964,8 @@ int verifica_info(TAB_BN *estado){
 	int resultado=1;
 	int contador_linhas=0;
 	int contador_colunas=0;
-	for(i=0;i<estado->n_linhas;i++){
+int lin = estado->n_linhas;
+	for(i=0;i<lin;i++){
 		for(j=0;j<estado->n_colunas;j++){
 			if(estado->tabuleiro[i][j] != '~' && estado->tabuleiro[i][j] != '.')
 				contador_linhas++;
@@ -969,7 +976,7 @@ int verifica_info(TAB_BN *estado){
 	}
 
 	for(j=0;j<estado->n_colunas;j++){
-		for(i=0;i<estado->n_linhas;i++){
+		for(i=0;i<lin;i++){
 			if(estado->tabuleiro[i][j] != '~' && estado->tabuleiro[i][j] != '.')
 				contador_colunas++;
 		}
