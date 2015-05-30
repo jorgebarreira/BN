@@ -40,7 +40,7 @@
 #define MAX_SIZE 105
 /** Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024.*/
 #define MAX_LINHA 1024
-
+#include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
 #endif
 /**
@@ -95,29 +95,28 @@ Função que irá apresentar no ecrã o estado onde se encontra o tabuleiro.
 
 @return Devolve 1 no final. 
 
-Nota: Nao vejo possíveis erros que possam ocorrer durante a impressão.
+
 */
 int cmd_m(TAB_BN *estado){
-       int indLinha,indCol; /*2 indices, um para as linha e outro para as colunas do tabuleiro */
-       /* printf("%d %d\n",estado->n_linhas,estado->n_colunas);*/ /* 1º imprima-se os 2 inteiros que representam o tamanho do tabuleiro.
-    Inutil. Nao se precisa dessa informaçao */
-        for(indLinha=0;indLinha<=estado->n_linhas;indLinha++) /* 2º Cria-se um ciclo que faz variar o indice das linha. O <= é explicado mais abaixo. */
+       int indLinha,indCol; 
+        for(indLinha=0;indLinha<=estado->n_linhas;indLinha++) 
         {
             if(indLinha==estado->n_linhas) 
-            {   int nlin;
+            {   
+		int nlin;
               for(nlin=0;nlin<2;nlin++){
-                if(nlin==0){
-                            for(indCol=0;indCol<estado->n_colunas;indCol++)
-                                if(estado->info_colunas[indCol]>=10) printf("%d",estado->info_colunas[indCol]/10);
-                                else printf("%d",estado->info_colunas[indCol]%10);
-                            putchar('\n');
-                          };
-                if(nlin==1) {
-                            for(indCol=0;indCol<estado->n_colunas;indCol++)
-                                if(estado->info_colunas[indCol]>=10) printf("%d",estado->info_colunas[indCol]%10);
-                                else putchar(' ');
-                            putchar('\n');
-                            };
+                	if(nlin==0){
+                          	  for(indCol=0;indCol<estado->n_colunas;indCol++)
+                          	      if(estado->info_colunas[indCol]>=10) printf("%d",estado->info_colunas[indCol]/10);
+                          	      else printf("%d",estado->info_colunas[indCol]%10);
+                        	      putchar('\n');
+                          	   };
+               		 if(nlin==1) {
+                           	 for(indCol=0;indCol<estado->n_colunas;indCol++)
+                           	     if(estado->info_colunas[indCol]>=10) printf("%d",estado->info_colunas[indCol]%10);
+                              	     else putchar(' ');
+                            	    putchar('\n');
+                           	    };
 
                                         }  
             } 
@@ -202,13 +201,12 @@ Função que irá ler as informaçoes presentes no ficheiro aberto.
 */
 int ler_ficheiro(FILE *fp,TAB_BN *estado){
     int lin;
-    int r=1; /* permite tirar os varios returns. O seu resultado nao mudará se não houver problemas durante a execução.*/
+    int r=1; 
     int col;
     char linha_lida[MAX_LINHA];
     char resto_linha[MAX_LINHA];
     if(fgets(linha_lida, MAX_LINHA,fp) == NULL) return -1;
     sscanf(linha_lida, "%d %d", &estado->n_linhas, &estado->n_colunas);
-/*if(estado->n_linhas!= estado->n_colunas) { printf("O tabuleiro tem que ser quadrado."); return -1;};*/
     if(fgets(linha_lida, MAX_LINHA, fp)!=NULL)
       for (lin=0; lin<estado->n_linhas; lin++){
           sscanf(linha_lida, "%d %[^\n]", &estado->info_linhas[lin],resto_linha);
@@ -261,8 +259,9 @@ Comando que veriifica se o nosso tabuleiro esta valido ou nao.
 
 @param estado - Apontador da estrutura que contém toda a informação sob o tabuleiro.
 
+@param indice: Permite escolher se queremos usar a funçao para ter uma mensagem ou so se quere o inteiro que devolve. 
 
-@return Devolve 1. 
+@return Se o indice >0 a funçao devolvera 1 imprimindo uma mensagem. Caso o indice é 0, o valor de retorno sera 1 caso o tabuleiro é valido,-1 caso contrario.
 */
 
 

@@ -101,6 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="rand___8h_source.html">rand_.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="interpretador_8h_source.html">interpretador.h</a>&quot;</code><br/>
 <code>#include &lt;time.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="R__prototipo_8h_source.html">R_prototipo.h</a>&quot;</code><br/>
 </div>
 <p><a href="aux__muda__tab_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -226,7 +227,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Função que invoca a estrategia apropriada.</p>
+<p>Função que invoca a estrategia apropriada em funçao do indice dado.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">indice</td><td>Inteiro correspondente ao numero da estrategia que se quer aplicar.</td></tr>
@@ -235,7 +236,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>retorna 1 caso tudo correr bem.Só devolvará 0 se o caracter dado nao pertencer a lista definida. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>retorna 1 caso a estrategia é aplicada e -1 caso contrario. </dd></dl>
 
 </div>
 </div>
@@ -394,7 +395,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2015 19:38:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 19:19:01 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -40,12 +40,9 @@
 #define MAX_SIZE 105
 /** Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024.*/
 #define MAX_LINHA 1024
-
+#include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
-
 #endif
-
-void cmd_R(TAB_BN *,STACK *);
 
 /** 
 Interpreta um comando passado numa linha 
@@ -111,11 +108,6 @@ int interpretar(TAB_BN *estado, char *linha, STACK *partida) {
 		partida->head->n_com++;		
 		cmd_R(estado,partida);n=1;
 		}
-  else if( strcmp(comando,"teste")==0 && nargs==1 && partida->head != NULL){
-	n=1;
-	jogada_aleatoria(estado,partida);
-	}
-
   else  n = -1;
  
     /*else printf("Comando Invalido\n"); Erro comando nao existe*/

@@ -16,6 +16,7 @@
 {\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}R\-\_\-prototipo.\-h\char`\"{}}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -87,7 +88,7 @@ Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao des
 \item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
 \end{DoxyParamCaption}
 )}}\label{rand___8c_aef8d77ae57da7a72a40194f650091fe5}
-Funçao que faz uma jogada semi-\/aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.
+Funçao que faz uma jogada semi-\/aleatoria, ponde na coluna mais apropriado de uma linha aleatoria onde ha um '.' um segmento de barco desconhecido.
 
 
 \begin{DoxyParams}{Parameters}
@@ -97,7 +98,7 @@ Funçao que faz uma jogada semi-\/aleatoria, ponde na primeira coluna de uma lin
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Devolve um inteiro aleatorio entre 0 e n. 
+Devolve o endereço da nossa jogada ou N\-U\-L\-L caso nao foi efetuada. 
 \end{DoxyReturn}
 \hypertarget{rand___8c_a6ae8c8349b0274ff3cbc24c73d0cf4d8}{\index{rand\-\_\-.\-c@{rand\-\_\-.\-c}!rand\-\_\-to@{rand\-\_\-to}}
 \index{rand\-\_\-to@{rand\-\_\-to}!rand_.c@{rand\-\_\-.\-c}}

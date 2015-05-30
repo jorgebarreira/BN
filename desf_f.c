@@ -40,10 +40,9 @@
 #define MAX_SIZE 105
 /** Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024.*/
 #define MAX_LINHA 1024
-
+#include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
 #endif
-
 
 /**
 
@@ -54,6 +53,7 @@ Funçao que irá desfazer o ultimo comando executado.
 @param partida : Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.
 
 */
+
 int cmd_D(TAB_BN *estado,STACK *partida){
       int n=1;
       if(partida->head==NULL && partida->tamanho==1) n=-1;
@@ -83,10 +83,10 @@ void desfCmd(TAB_BN *estado,STACK *partida){
              int l = partida->head->head_jogadas->linha, col = partida->head->head_jogadas->coluna;
 
              estado->tabuleiro[l][col] = partida->head->head_jogadas->modificado;
-             tmp = partida->head->head_jogadas; /* uma vez desfazido é preciso libertar a memoria;*/
-             partida->head->head_jogadas=partida->head->head_jogadas->proxima; /* modifica-se a cabeça da lista;*/
+             tmp = partida->head->head_jogadas; 
+             partida->head->head_jogadas=partida->head->head_jogadas->proxima; 
              
-             free(tmp); /* liberta-se a antiga cabeça.*/
+             free(tmp); 
              partida->head->n_elementos--;
             }
 }

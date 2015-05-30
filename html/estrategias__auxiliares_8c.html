@@ -101,6 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="rand___8h_source.html">rand_.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="interpretador_8h_source.html">interpretador.h</a>&quot;</code><br/>
 <code>#include &lt;time.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="R__prototipo_8h_source.html">R_prototipo.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -117,8 +118,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a484e569cbaf57288388091df8b4160c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="estrategias__auxiliares_8c.html#a484e569cbaf57288388091df8b4160c0">estrategia_4</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida)</td></tr>
-<tr class="separator:a484e569cbaf57288388091df8b4160c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c2f367620ec9ef9c98271fe1af97a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="estrategias__auxiliares_8c.html#ab7c2f367620ec9ef9c98271fe1af97a4">estrategia_4</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *partida)</td></tr>
+<tr class="separator:ab7c2f367620ec9ef9c98271fe1af97a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a7c15c1a8a59ab5207f36fdc903698f79"></a>
@@ -187,12 +188,12 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a484e569cbaf57288388091df8b4160c0"></a>
+<a class="anchor" id="ab7c2f367620ec9ef9c98271fe1af97a4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void estrategia_4 </td>
+          <td class="memname">int estrategia_4 </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
           <td class="paramname"><em>estado</em>, </td>
@@ -210,21 +211,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) pelos 4 respectivos tipos de barcos existentes ('O', '&lt;&gt;', '&lt;#&gt;', '&lt;##&gt;') quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro</p>
+<p>Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por pedaços de barcos quando à volta for tudo '~' ou esses caracteres se encontrem no limite do tabuleiro.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">estado</td><td>: Contém toda a informaçao relativo ao tabuleiro usado.</td></tr>
-    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. </td></tr>
+    <tr><td class="paramname">partida</td><td>: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>1 caso foi aplicada modificaçoes no tabuleiro, -1 caso contrario. </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2015 19:38:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 19:19:01 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

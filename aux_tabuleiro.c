@@ -40,7 +40,7 @@
 #define MAX_SIZE 105
 /** Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024.*/
 #define MAX_LINHA 1024
-
+#include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
 #endif
 
@@ -446,9 +446,8 @@ return tmp!=partida->head->head_jogadas;
 }
 
 
-/*
-Funções usadas na Estrategia 2
-*/
+/* Funções usadas na Estrategia 2 */
+
 /**
 Função que caso a linha seja completa,isto é, ja estao todos os segmentos metidos na linha, preencha os lugares desconhecidas ('.') por agua ('~').
 
@@ -807,9 +806,6 @@ int lin = estado->n_linhas;
 		if (estado->tabuleiro[i][coluna]=='B' && i+1!=lin && estado->tabuleiro[i+1][coluna]=='~'){
 			altera_estado(estado,i, coluna, 'v', partida);
 			}
-		/*if (i+1==estado->n_linhas && estado->tabuleiro[i][coluna]=='B' && estado->tabuleiro[i+1][coluna]=='~'){
-			altera_estado(estado,i, coluna, 'v', partida);
-		}*/
 	}
 
 	for (i=1; i<lin-1; i++){
@@ -964,25 +960,32 @@ int verifica_info(TAB_BN *estado){
 	int resultado=1;
 	int contador_linhas=0;
 	int contador_colunas=0;
-int lin = estado->n_linhas;
-	for(i=0;i<lin;i++){
+	int conta_geral=0;
+int lin = estado->n_linhas, col = estado->n_colunas;
+	for(i=0;i<lin && resultado !=0 ;i++){
 		for(j=0;j<estado->n_colunas;j++){
 			if(estado->tabuleiro[i][j] != '~' && estado->tabuleiro[i][j] != '.')
 				contador_linhas++;
+			if(estado->tabuleiro[i][j] != '~') conta_geral++;
 		}
 		if(contador_linhas > (estado->info_linhas[i]))
 			resultado=0;
+		else if(conta_geral <(estado->info_linhas[i])) resultado =0;
 		contador_linhas=0;
+		conta_geral=0;
 	}
 
-	for(j=0;j<estado->n_colunas;j++){
+	for(j=0;j<col && resultado!=0;j++){
 		for(i=0;i<lin;i++){
 			if(estado->tabuleiro[i][j] != '~' && estado->tabuleiro[i][j] != '.')
 				contador_colunas++;
+			if(estado->tabuleiro[i][j] != '~') conta_geral++;
 		}
 		if(contador_colunas > (estado->info_colunas[j]))
 			resultado=0;
+		else if(conta_geral < (estado->info_colunas[j]) ) resultado=0;
 		contador_colunas=0;
+		conta_geral=0;
 	}
 
 	return resultado;

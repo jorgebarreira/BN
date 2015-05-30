@@ -16,6 +16,7 @@
 {\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}R\-\_\-prototipo.\-h\char`\"{}}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -72,7 +73,7 @@ Flag cujo o valor é 1.
 \item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
 \end{DoxyParamCaption}
 )}}\label{aux__muda__tab_8c_a409c0e235a4c55e10d6abc02e4b1ed4f}
-Função que invoca a estrategia apropriada.
+Função que invoca a estrategia apropriada em funçao do indice dado.
 
 
 \begin{DoxyParams}{Parameters}
@@ -84,7 +85,7 @@ Função que invoca a estrategia apropriada.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-retorna 1 caso tudo correr bem.\-Só devolvará 0 se o caracter dado nao pertencer a lista definida. 
+retorna 1 caso a estrategia é aplicada e -\/1 caso contrario. 
 \end{DoxyReturn}
 \hypertarget{aux__muda__tab_8c_a7477d4551c898ce496cb82ea645538f8}{\index{aux\-\_\-muda\-\_\-tab.\-c@{aux\-\_\-muda\-\_\-tab.\-c}!cmd\-\_\-h@{cmd\-\_\-h}}
 \index{cmd\-\_\-h@{cmd\-\_\-h}!aux_muda_tab.c@{aux\-\_\-muda\-\_\-tab.\-c}}

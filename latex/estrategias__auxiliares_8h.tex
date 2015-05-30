@@ -16,6 +16,7 @@
 {\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}R\-\_\-prototipo.\-h\char`\"{}}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,7 +33,7 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{estrategias__auxiliares_8h_a2841d8fb1707eaf95e1c0cd349a7a100}{estrategia\-\_\-4} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
+int \hyperlink{estrategias__auxiliares_8h_ad601adba17ab3363106be9888466e64c}{estrategia\-\_\-4} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$)
 \end{DoxyCompactItemize}
 
 
@@ -55,20 +56,23 @@ Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{estr
 Flag cujo o valor é 1. 
 
 \subsection{Function Documentation}
-\hypertarget{estrategias__auxiliares_8h_a2841d8fb1707eaf95e1c0cd349a7a100}{\index{estrategias\-\_\-auxiliares.\-h@{estrategias\-\_\-auxiliares.\-h}!estrategia\-\_\-4@{estrategia\-\_\-4}}
+\hypertarget{estrategias__auxiliares_8h_ad601adba17ab3363106be9888466e64c}{\index{estrategias\-\_\-auxiliares.\-h@{estrategias\-\_\-auxiliares.\-h}!estrategia\-\_\-4@{estrategia\-\_\-4}}
 \index{estrategia\-\_\-4@{estrategia\-\_\-4}!estrategias_auxiliares.h@{estrategias\-\_\-auxiliares.\-h}}
-\subsubsection[{estrategia\-\_\-4}]{\setlength{\rightskip}{0pt plus 5cm}void estrategia\-\_\-4 (
+\subsubsection[{estrategia\-\_\-4}]{\setlength{\rightskip}{0pt plus 5cm}int estrategia\-\_\-4 (
 \begin{DoxyParamCaption}
 \item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
 \item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
 \end{DoxyParamCaption}
-)}}\label{estrategias__auxiliares_8h_a2841d8fb1707eaf95e1c0cd349a7a100}
-Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) pelos 4 respectivos tipos de barcos existentes ('O', '$<$$>$', '$<$\#$>$', '$<$\#\#$>$') quando à volta for tudo '$\sim$' ou esses caracteres se encontrem no limite do tabuleiro
+)}}\label{estrategias__auxiliares_8h_ad601adba17ab3363106be9888466e64c}
+Função que substitui os caracteres 'o' (pedaços de barco de tamanho desconhecido) por pedaços de barcos quando à volta for tudo '$\sim$' ou esses caracteres se encontrem no limite do tabuleiro.
 
 
 \begin{DoxyParams}{Parameters}
 {\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
 \hline
-{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 caso foi aplicada modificaçoes no tabuleiro, -\/1 caso contrario. 
+\end{DoxyReturn}

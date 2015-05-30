@@ -16,6 +16,7 @@
 {\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}R\-\_\-prototipo.\-h\char`\"{}}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,7 +33,7 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{rand___8h_a67c4abb520693ac2635377caf0176ff6}{verifica\-\_\-posicao} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, int)
+int \hyperlink{rand___8h_a5d4db9128e8718990bbc1ab2e7fc0322}{encontra\-\_\-posicao} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, int)
 \item 
 int \hyperlink{rand___8h_a6e84afa6c159b16b2605519e811efe52}{rand\-\_\-to} (int)
 \item 
@@ -59,6 +60,26 @@ Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{rand
 Flag cujo o valor é 1. 
 
 \subsection{Function Documentation}
+\hypertarget{rand___8h_a5d4db9128e8718990bbc1ab2e7fc0322}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!encontra\-\_\-posicao@{encontra\-\_\-posicao}}
+\index{encontra\-\_\-posicao@{encontra\-\_\-posicao}!rand_.h@{rand\-\_\-.\-h}}
+\subsubsection[{encontra\-\_\-posicao}]{\setlength{\rightskip}{0pt plus 5cm}int encontra\-\_\-posicao (
+\begin{DoxyParamCaption}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{int}]{linha}
+\end{DoxyParamCaption}
+)}}\label{rand___8h_a5d4db9128e8718990bbc1ab2e7fc0322}
+Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao desse na linha.
+
+
+\begin{DoxyParams}{Parameters}
+{\em estado} & Apontador da estrutura que contém toda a informação sobre o tabuleiro.\\
+\hline
+{\em linha} & Numero da linha que vai ser percorrida.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\-: A coluna que pode ser modificada na linha ou -\/1 caso a linha ja esta preenchida. 
+\end{DoxyReturn}
 \hypertarget{rand___8h_ae2157c523b7a6b3fdf0e05f8fc3ec1c2}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!jogada\-\_\-aleatoria@{jogada\-\_\-aleatoria}}
 \index{jogada\-\_\-aleatoria@{jogada\-\_\-aleatoria}!rand_.h@{rand\-\_\-.\-h}}
 \subsubsection[{jogada\-\_\-aleatoria}]{\setlength{\rightskip}{0pt plus 5cm}{\bf J\-O\-G\-A\-D\-A\-S}$\ast$ jogada\-\_\-aleatoria (
@@ -67,7 +88,7 @@ Flag cujo o valor é 1.
 \item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
 \end{DoxyParamCaption}
 )}}\label{rand___8h_ae2157c523b7a6b3fdf0e05f8fc3ec1c2}
-Funçao que faz uma jogada semi-\/aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.
+Funçao que faz uma jogada semi-\/aleatoria, ponde na coluna mais apropriado de uma linha aleatoria onde ha um '.' um segmento de barco desconhecido.
 
 
 \begin{DoxyParams}{Parameters}
@@ -77,7 +98,7 @@ Funçao que faz uma jogada semi-\/aleatoria, ponde na primeira coluna de uma lin
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Devolve um inteiro aleatorio entre 0 e n. 
+Devolve o endereço da nossa jogada ou N\-U\-L\-L caso nao foi efetuada. 
 \end{DoxyReturn}
 \hypertarget{rand___8h_a6e84afa6c159b16b2605519e811efe52}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!rand\-\_\-to@{rand\-\_\-to}}
 \index{rand\-\_\-to@{rand\-\_\-to}!rand_.h@{rand\-\_\-.\-h}}
@@ -96,11 +117,3 @@ Funçao que devolve um numero entre 0 e o seu argumento incluido.
 \begin{DoxyReturn}{Returns}
 Devolve um inteiro aleatorio entre 0 e n. 
 \end{DoxyReturn}
-\hypertarget{rand___8h_a67c4abb520693ac2635377caf0176ff6}{\index{rand\-\_\-.\-h@{rand\-\_\-.\-h}!verifica\-\_\-posicao@{verifica\-\_\-posicao}}
-\index{verifica\-\_\-posicao@{verifica\-\_\-posicao}!rand_.h@{rand\-\_\-.\-h}}
-\subsubsection[{verifica\-\_\-posicao}]{\setlength{\rightskip}{0pt plus 5cm}int verifica\-\_\-posicao (
-\begin{DoxyParamCaption}
-\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{, }
-\item[{int}]{}
-\end{DoxyParamCaption}
-)}}\label{rand___8h_a67c4abb520693ac2635377caf0176ff6}

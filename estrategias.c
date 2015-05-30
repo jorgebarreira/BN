@@ -40,7 +40,7 @@
 #define MAX_SIZE 105
 /** Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024.*/
 #define MAX_LINHA 1024
-
+#include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
 #endif
 
@@ -58,10 +58,11 @@ int estrategia_1(TAB_BN *estado,STACK *partida){
 JOGADAS *tmp=partida->head->head_jogadas;
 	int i,j;
 	int n=-1;
-	for(i=0;i<estado->n_linhas;i++){
-		for(j=0;j<estado->n_colunas;j++){
+int linha= estado->n_linhas, coluna=estado->n_colunas;
+	for(i=0;i<linha;i++){
+		for(j=0;j<coluna;j++){
 			if(is_segmento(estado->tabuleiro[i][j])){
-				if(i==0 || j==0 || i==(estado->n_linhas)-1 || j==(estado->n_colunas)-1)
+				if(i==0 || j==0 || i==(linha-1) || j==(coluna-1) )
 					preenche_cantos(i,j,estado,partida);
 				else
 					preenche_meio(i,j,estado,partida);
@@ -87,18 +88,17 @@ int estrategia_2(TAB_BN *estado,STACK *partida){
 JOGADAS *tmp=partida->head->head_jogadas;
 	int i;
 	int n = -1;
-	for (i=0;i<(estado->n_linhas);i++){
+	int linha= estado->n_linhas, coluna=estado->n_colunas;
+	for (i=0;i<(linha);i++){
 		arruma_linha(estado, i,partida);
 		
 	}
 	
-	for (i=0;i<(estado->n_colunas);i++){
+	for (i=0;i<(coluna);i++){
 		arruma_coluna(estado, i,partida);
 			
 	}
 	if(tmp!=partida->head->head_jogadas) n=1;
-	/*estrategia_4(estado, partida);*/
-	/*if(partida->head->head_jogadas!=NULL && partida->head->head_jogadas->indcom==partida->head->n_com) partida->head->n_com++;*/
 	return n;
 }
 
@@ -116,12 +116,13 @@ int estrategia_3(TAB_BN *estado, STACK *partida){
 JOGADAS *tmp=partida->head->head_jogadas;
 	int i;
 	int n=-1;
-	for (i=0; i<(estado->n_linhas); i++){
+	int linha= estado->n_linhas, coluna=estado->n_colunas;
+	for (i=0; i<(linha); i++){
 		coloca_o_na_linha(estado, i, partida);
 		
 	}
 	
-	for (i=0; i<(estado->n_colunas); i++){
+	for (i=0; i<(coluna); i++){
 		coloca_o_na_coluna(estado, i, partida);
 		
 	}

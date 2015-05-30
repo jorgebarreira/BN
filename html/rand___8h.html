@@ -101,6 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="rand___8h_source.html">rand_.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="interpretador_8h_source.html">interpretador.h</a>&quot;</code><br/>
 <code>#include &lt;time.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="R__prototipo_8h_source.html">R_prototipo.h</a>&quot;</code><br/>
 </div>
 <p><a href="rand___8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -119,8 +120,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a67c4abb520693ac2635377caf0176ff6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rand___8h.html#a67c4abb520693ac2635377caf0176ff6">verifica_posicao</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *, int)</td></tr>
-<tr class="separator:a67c4abb520693ac2635377caf0176ff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d4db9128e8718990bbc1ab2e7fc0322"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rand___8h.html#a5d4db9128e8718990bbc1ab2e7fc0322">encontra_posicao</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *, int)</td></tr>
+<tr class="separator:a5d4db9128e8718990bbc1ab2e7fc0322"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e84afa6c159b16b2605519e811efe52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rand___8h.html#a6e84afa6c159b16b2605519e811efe52">rand_to</a> (int)</td></tr>
 <tr class="separator:a6e84afa6c159b16b2605519e811efe52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2157c523b7a6b3fdf0e05f8fc3ec1c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structJOGADAS.html">JOGADAS</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rand___8h.html#ae2157c523b7a6b3fdf0e05f8fc3ec1c2">jogada_aleatoria</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *, <a class="el" href="estrutura__TAB__BN_8h.html#a9ffde068ad5c78dc186aee48faf36e03">STACK</a> *)</td></tr>
@@ -193,6 +194,41 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a5d4db9128e8718990bbc1ab2e7fc0322"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int encontra_posicao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
+          <td class="paramname"><em>estado</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>linha</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao desse na linha.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">estado</td><td>Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
+    <tr><td class="paramname">linha</td><td>Numero da linha que vai ser percorrida.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: A coluna que pode ser modificada na linha ou -1 caso a linha ja esta preenchida. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ae2157c523b7a6b3fdf0e05f8fc3ec1c2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +252,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.</p>
+<p>Funçao que faz uma jogada semi-aleatoria, ponde na coluna mais apropriado de uma linha aleatoria onde ha um '.' um segmento de barco desconhecido.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">estado</td><td>Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
@@ -224,7 +260,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Devolve um inteiro aleatorio entre 0 e n. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Devolve o endereço da nossa jogada ou NULL caso nao foi efetuada. </dd></dl>
 
 </div>
 </div>
@@ -252,36 +288,10 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a67c4abb520693ac2635377caf0176ff6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int verifica_posicao </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2015 19:38:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 19:19:01 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

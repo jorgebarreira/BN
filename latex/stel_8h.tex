@@ -38,7 +38,7 @@ int \hyperlink{stel_8h_ae33fa160f6397424e2d4628f28d0f26f}{cmd\-\_\-c} (\hyperlin
 \item 
 int \hyperlink{stel_8h_ae774297274031ad2be9c1f643fc95bba}{cmd\-\_\-m} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$)
 \item 
-int \hyperlink{stel_8h_ac6a0042c9f37f47e062ce4ee474fae5c}{cmd\-\_\-\-V} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado)
+int \hyperlink{stel_8h_a5d864cb291f4031ea3d10e57fca4e40a}{cmd\-\_\-\-V} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, int)
 \item 
 void \hyperlink{stel_8h_a6809ffa8dee25ffa77db7fa2d2bd2dd0}{imprime\-Tab} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$, F\-I\-L\-E $\ast$)
 \item 
@@ -119,24 +119,27 @@ Função que irá apresentar no ecrã o estado onde se encontra o tabuleiro.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Devolve 1 no final.
+Devolve 1 no final. 
 \end{DoxyReturn}
-Nota\-: Nao vejo possíveis erros que possam ocorrer durante a impressão. \hypertarget{stel_8h_ac6a0042c9f37f47e062ce4ee474fae5c}{\index{stel.\-h@{stel.\-h}!cmd\-\_\-\-V@{cmd\-\_\-\-V}}
+\hypertarget{stel_8h_a5d864cb291f4031ea3d10e57fca4e40a}{\index{stel.\-h@{stel.\-h}!cmd\-\_\-\-V@{cmd\-\_\-\-V}}
 \index{cmd\-\_\-\-V@{cmd\-\_\-\-V}!stel.h@{stel.\-h}}
 \subsubsection[{cmd\-\_\-\-V}]{\setlength{\rightskip}{0pt plus 5cm}int cmd\-\_\-\-V (
 \begin{DoxyParamCaption}
-\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado}
+\item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
+\item[{int}]{indice}
 \end{DoxyParamCaption}
-)}}\label{stel_8h_ac6a0042c9f37f47e062ce4ee474fae5c}
+)}}\label{stel_8h_a5d864cb291f4031ea3d10e57fca4e40a}
 Comando que veriifica se o nosso tabuleiro esta valido ou nao.
 
 
 \begin{DoxyParams}{Parameters}
 {\em estado} & -\/ Apontador da estrutura que contém toda a informação sob o tabuleiro.\\
 \hline
+{\em indice} & Permite escolher se queremos usar a funçao para ter uma mensagem ou so se quere o inteiro que devolve.\\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Devolve 1. 
+Se o indice $>$0 a funçao devolvera 1 imprimindo uma mensagem. Caso o indice é 0, o valor de retorno sera 1 caso o tabuleiro é valido,-\/1 caso contrario. 
 \end{DoxyReturn}
 \hypertarget{stel_8h_a6809ffa8dee25ffa77db7fa2d2bd2dd0}{\index{stel.\-h@{stel.\-h}!imprime\-Tab@{imprime\-Tab}}
 \index{imprime\-Tab@{imprime\-Tab}!stel.h@{stel.\-h}}

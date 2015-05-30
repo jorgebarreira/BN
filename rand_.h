@@ -40,11 +40,11 @@
 #define MAX_SIZE 105
 /** Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024.*/
 #define MAX_LINHA 1024
-
+#include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
 #endif
 
-int verifica_posicao(TAB_BN *,int);
+int encontra_posicao(TAB_BN *,int);
 int rand_to(int );
 JOGADAS *jogada_aleatoria(TAB_BN *, STACK *);
 

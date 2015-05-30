@@ -16,6 +16,7 @@
 {\ttfamily \#include \char`\"{}rand\-\_\-.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}interpretador.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}R\-\_\-prototipo.\-h\char`\"{}}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,11 +33,11 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{estrategias_8c_adf92dfc2ef84a85b82426f6d2da49c30}{estrategia\-\_\-1} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+int \hyperlink{estrategias_8c_aa82b9bf28dcf4aa84fcd542d73d7717b}{estrategia\-\_\-1} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
 \item 
-void \hyperlink{estrategias_8c_a49a8be893c30008f26901459ece27c40}{estrategia\-\_\-2} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+int \hyperlink{estrategias_8c_ae2959f9543fcb45a62dbd5d11efbfa46}{estrategia\-\_\-2} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
 \item 
-void \hyperlink{estrategias_8c_a0275d940a057c5a6fdea27bd1d4f5bfd}{estrategia\-\_\-3} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
+int \hyperlink{estrategias_8c_a3ba74cebff2aee4e32e57d3f55adac4d}{estrategia\-\_\-3} (\hyperlink{estrutura__TAB__BN_8h_a71a4477e2433da6b70d13b4c01b28917}{T\-A\-B\-\_\-\-B\-N} $\ast$estado, \hyperlink{estrutura__TAB__BN_8h_a9ffde068ad5c78dc186aee48faf36e03}{S\-T\-A\-C\-K} $\ast$partida)
 \end{DoxyCompactItemize}
 
 
@@ -59,54 +60,63 @@ Flag usado para o tamanho dos nossos vetores, tendo valor 105. \hypertarget{estr
 Flag cujo o valor é 1. 
 
 \subsection{Function Documentation}
-\hypertarget{estrategias_8c_adf92dfc2ef84a85b82426f6d2da49c30}{\index{estrategias.\-c@{estrategias.\-c}!estrategia\-\_\-1@{estrategia\-\_\-1}}
+\hypertarget{estrategias_8c_aa82b9bf28dcf4aa84fcd542d73d7717b}{\index{estrategias.\-c@{estrategias.\-c}!estrategia\-\_\-1@{estrategia\-\_\-1}}
 \index{estrategia\-\_\-1@{estrategia\-\_\-1}!estrategias.c@{estrategias.\-c}}
-\subsubsection[{estrategia\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}void estrategia\-\_\-1 (
+\subsubsection[{estrategia\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}int estrategia\-\_\-1 (
 \begin{DoxyParamCaption}
 \item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
 \item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
 \end{DoxyParamCaption}
-)}}\label{estrategias_8c_adf92dfc2ef84a85b82426f6d2da49c30}
+)}}\label{estrategias_8c_aa82b9bf28dcf4aa84fcd542d73d7717b}
 Função para percorrer todo o tabuleiro e sempre que encontrar um segmento preencher agua a volta onde necessario.
 
 
 \begin{DoxyParams}{Parameters}
 {\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
 \hline
-{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
 \hline
 \end{DoxyParams}
-\hypertarget{estrategias_8c_a49a8be893c30008f26901459ece27c40}{\index{estrategias.\-c@{estrategias.\-c}!estrategia\-\_\-2@{estrategia\-\_\-2}}
+\begin{DoxyReturn}{Returns}
+Devolve 1 se fez algo, -\/1 caso contrario. 
+\end{DoxyReturn}
+\hypertarget{estrategias_8c_ae2959f9543fcb45a62dbd5d11efbfa46}{\index{estrategias.\-c@{estrategias.\-c}!estrategia\-\_\-2@{estrategia\-\_\-2}}
 \index{estrategia\-\_\-2@{estrategia\-\_\-2}!estrategias.c@{estrategias.\-c}}
-\subsubsection[{estrategia\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}void estrategia\-\_\-2 (
+\subsubsection[{estrategia\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}int estrategia\-\_\-2 (
 \begin{DoxyParamCaption}
 \item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
 \item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
 \end{DoxyParamCaption}
-)}}\label{estrategias_8c_a49a8be893c30008f26901459ece27c40}
+)}}\label{estrategias_8c_ae2959f9543fcb45a62dbd5d11efbfa46}
 Estrategia que percorre todo o tabuleiro e sempre que a linha/coluna já tiver todos os barcos colocar agua.
 
 
 \begin{DoxyParams}{Parameters}
 {\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
 \hline
-{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
 \hline
 \end{DoxyParams}
-\hypertarget{estrategias_8c_a0275d940a057c5a6fdea27bd1d4f5bfd}{\index{estrategias.\-c@{estrategias.\-c}!estrategia\-\_\-3@{estrategia\-\_\-3}}
+\begin{DoxyReturn}{Returns}
+Devolve 1 se fez uma modificaçao, -\/1 caso contrario. 
+\end{DoxyReturn}
+\hypertarget{estrategias_8c_a3ba74cebff2aee4e32e57d3f55adac4d}{\index{estrategias.\-c@{estrategias.\-c}!estrategia\-\_\-3@{estrategia\-\_\-3}}
 \index{estrategia\-\_\-3@{estrategia\-\_\-3}!estrategias.c@{estrategias.\-c}}
-\subsubsection[{estrategia\-\_\-3}]{\setlength{\rightskip}{0pt plus 5cm}void estrategia\-\_\-3 (
+\subsubsection[{estrategia\-\_\-3}]{\setlength{\rightskip}{0pt plus 5cm}int estrategia\-\_\-3 (
 \begin{DoxyParamCaption}
 \item[{{\bf T\-A\-B\-\_\-\-B\-N} $\ast$}]{estado, }
 \item[{{\bf S\-T\-A\-C\-K} $\ast$}]{partida}
 \end{DoxyParamCaption}
-)}}\label{estrategias_8c_a0275d940a057c5a6fdea27bd1d4f5bfd}
+)}}\label{estrategias_8c_a3ba74cebff2aee4e32e57d3f55adac4d}
 Estrategia que percorre todo o tabuleiro e sempre que for possivel adiciona o segmento desconhecido('o') na posiçao.
 
 
 \begin{DoxyParams}{Parameters}
 {\em estado} & \-: Contém toda a informaçao relativo ao tabuleiro usado.\\
 \hline
-{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas. \\
+{\em partida} & \-: Endereço da nossa stack, onde estao guardados todas as informaçoes correspondente as jogafas efetuadas.\\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve 1 se fez modificaçoes, -\/1 se nao fez nada. 
+\end{DoxyReturn}

@@ -101,6 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="rand___8h_source.html">rand_.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="interpretador_8h_source.html">interpretador.h</a>&quot;</code><br/>
 <code>#include &lt;time.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="R__prototipo_8h_source.html">R_prototipo.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
@@ -249,7 +250,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha aleatoria onde have '.' um segmento de barco desconhecido.</p>
+<p>Funçao que faz uma jogada semi-aleatoria, ponde na coluna mais apropriado de uma linha aleatoria onde ha um '.' um segmento de barco desconhecido.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">estado</td><td>Apontador da estrutura que contém toda a informação sobre o tabuleiro.</td></tr>
@@ -257,7 +258,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Devolve um inteiro aleatorio entre 0 e n. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Devolve o endereço da nossa jogada ou NULL caso nao foi efetuada. </dd></dl>
 
 </div>
 </div>
@@ -288,7 +289,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2015 19:38:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 19:19:01 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

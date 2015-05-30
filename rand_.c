@@ -40,15 +40,11 @@
 #define MAX_SIZE 105
 /** Flag usado para o tamanho maximo que podera ser lido num ficheiro, tendo valor 1024.*/
 #define MAX_LINHA 1024
-
+#include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
 #endif
-/*
-char caracter(int linha,int coluna){
 
-if(linha==coluna)
 
-*/
 /**
 Funçao que percorre a linha até encontrar um '.' devolvendo a localizaçao desse na linha.
 
@@ -93,8 +89,9 @@ do
 while(r>=limit);
 return (r/w);
 }
+
 /**
-Funçao que faz uma jogada semi-aleatoria, ponde na primeira coluna de uma linha aleatoria onde ha '.' um segmento de barco desconhecido.
+Funçao que faz uma jogada semi-aleatoria, ponde na coluna mais apropriado de uma linha aleatoria onde ha um '.' um segmento de barco desconhecido.
 
 
 @param estado: Apontador da estrutura que contém toda a informação sobre o tabuleiro.

@@ -49,7 +49,7 @@
 
 /**
 
-Função que invoca a estrategia apropriada.
+Função que invoca a estrategia apropriada em funçao do indice dado.
 
 @param indice: Inteiro correspondente ao numero da estrategia que se quer aplicar.
 
@@ -61,26 +61,28 @@ Função que invoca a estrategia apropriada.
 */
 
 int cmd_E(int indice, TAB_BN *estado,STACK *partida){
-    int n;
+    int n=1;
 switch (indice){
 case 1:
-    n=estrategia_1(estado,partida);
+    estrategia_1(estado,partida);
     break;
 case 2:
-    n=estrategia_2(estado,partida);
+    estrategia_2(estado,partida);
     break;
 case 3:
-    n=estrategia_3(estado,partida);
+    estrategia_3(estado,partida);
     break;
 case 4:
-    n=estrategia_4(estado,partida);
+    estrategia_4(estado,partida);
     break;
 default:
 	 n=-1;
 	 break;
 }
+/*
     if(n==1) printf("A estrategia foi aplicada e mudou o estado do tabuleiro\n");
     if(n==-1 && indice<=4 && indice >=1) {printf("Nenhuma modificaçao efetuada\n");n=1;}
+*/
     return n;
 }
 
@@ -156,13 +158,13 @@ Função para transformar os elementos não determinados de uma linha em água.
 */
 int cmd_h(TAB_BN *estado, int num_linha,STACK *partida) {  /* transforma todos os elementos nao determinado como águas. */
     int i, n=1;
-	if((num_linha - 1) >= estado->n_linhas || (num_linha-1)<0 ) n=-1;
-    else for(i=0;i<estado->n_colunas;i++){ /* vai-se da coluna 0 da linha num_linha até a ultima coluna determinada no estado (n_colunas); */
-       	
-	if(estado->tabuleiro[num_linha-1][i]=='.') altera_estado(estado,num_linha-1,i,'~',partida); 
-    /* caso seja '.' isto é indeterminado, muda-se para agua.Senao nao se muda nada. */
-    }
-    return n; /* se tudo correr bem, o tabuleiro tera esta linha com '~'. */
+  int coluna=estado->n_colunas;
+ int linha = num_linha-1;
+	if(linha >= estado->n_linhas || linha<0 ) n=-1;
+    	else for(i=0;i<coluna;i++){        	
+			if(estado->tabuleiro[linha][i]=='.') altera_estado(estado,linha,i,'~',partida); 
+    				  }
+    return n; 
 }
 
 /**
@@ -177,13 +179,13 @@ Função para transformar os elementos não determinados de uma coluna em água.
 
 @return retorna 1 caso tudo correr.Só devolvará -1 se a linha dada é maior do que a do numero de colunas definido.
 */
-int cmd_v(TAB_BN *estado, int num_coluna, STACK *partida){ /* Variante de cmd_h so que desta vez, em vez de modificar as linhas modifica uma coluna */
-    int i =1; /* indice usado para o for, permitindo mudar de linha */
-	if((num_coluna - 1) >= estado->n_colunas || (num_coluna-1)<0 ) return -1;
-    for(i=0;i<estado->n_linhas;i++){ /* Ciclo que permita o processamento de todas as linhas do tabuleiro */
-        if(estado->tabuleiro[i][num_coluna-1]=='.') altera_estado(estado,i,num_coluna-1,'~',partida);
-        /* o numero da coluna nao muda pois quera-se modificar os caracteres nessa. */
-    }
+int cmd_v(TAB_BN *estado, int num_coluna, STACK *partida){ 
+    int i =1;
+int coluna= num_coluna-1, linha=estado->n_linhas;
+	if(coluna >= estado->n_colunas || coluna<0 ) return -1;
+        else for(i=0;i<linha;i++){ 
+        			  if(estado->tabuleiro[i][coluna]=='.') altera_estado(estado,i,coluna,'~',partida);
+     				 }
     return i;
 }
 

@@ -125,8 +125,8 @@ Functions</h2></td></tr>
 <tr class="separator:ae33fa160f6397424e2d4628f28d0f26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae774297274031ad2be9c1f643fc95bba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stel_8h.html#ae774297274031ad2be9c1f643fc95bba">cmd_m</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *)</td></tr>
 <tr class="separator:ae774297274031ad2be9c1f643fc95bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6a0042c9f37f47e062ce4ee474fae5c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stel_8h.html#ac6a0042c9f37f47e062ce4ee474fae5c">cmd_V</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *estado)</td></tr>
-<tr class="separator:ac6a0042c9f37f47e062ce4ee474fae5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d864cb291f4031ea3d10e57fca4e40a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stel_8h.html#a5d864cb291f4031ea3d10e57fca4e40a">cmd_V</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *, int)</td></tr>
+<tr class="separator:a5d864cb291f4031ea3d10e57fca4e40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6809ffa8dee25ffa77db7fa2d2bd2dd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stel_8h.html#a6809ffa8dee25ffa77db7fa2d2bd2dd0">imprimeTab</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *, FILE *)</td></tr>
 <tr class="separator:a6809ffa8dee25ffa77db7fa2d2bd2dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5f2a70adbda5fa88b11234cec7ff8d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stel_8h.html#ae5f2a70adbda5fa88b11234cec7ff8d6">cmd_e</a> (<a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *, char *)</td></tr>
@@ -314,12 +314,11 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Devolve 1 no final.</dd></dl>
-<p>Nota: Nao vejo possíveis erros que possam ocorrer durante a impressão. </p>
+<dl class="section return"><dt>Returns</dt><dd>Devolve 1 no final. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ac6a0042c9f37f47e062ce4ee474fae5c"></a>
+<a class="anchor" id="a5d864cb291f4031ea3d10e57fca4e40a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -327,8 +326,18 @@ Functions</h2></td></tr>
           <td class="memname">int cmd_V </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="estrutura__TAB__BN_8h.html#a71a4477e2433da6b70d13b4c01b28917">TAB_BN</a> *&#160;</td>
-          <td class="paramname"><em>estado</em></td><td>)</td>
+          <td class="paramname"><em>estado</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -336,10 +345,11 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">estado</td><td>- Apontador da estrutura que contém toda a informação sob o tabuleiro.</td></tr>
+    <tr><td class="paramname">indice</td><td>Permite escolher se queremos usar a funçao para ter uma mensagem ou so se quere o inteiro que devolve.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Devolve 1. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Se o indice &gt;0 a funçao devolvera 1 imprimindo uma mensagem. Caso o indice é 0, o valor de retorno sera 1 caso o tabuleiro é valido,-1 caso contrario. </dd></dl>
 
 </div>
 </div>
@@ -415,7 +425,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2015 19:38:43 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat May 30 2015 19:19:01 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
