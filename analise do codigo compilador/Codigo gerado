@@ -1,0 +1,50 @@
+0x08048400 <contar_segs+0>:	push   %ebp
+0x08048401 <contar_segs+1>:	mov    %esp,%ebp
+0x08048403 <contar_segs+3>:	push   %edi
+0x08048404 <contar_segs+4>:	push   %esi
+0x08048405 <contar_segs+5>:	push   %ebx
+0x08048406 <contar_segs+6>:	sub    $0xc,%esp
+0x08048409 <contar_segs+9>:	xor    %edi,%edi
+0x0804840b <contar_segs+11>:	xor    %ecx,%ecx
+0x0804840d <contar_segs+13>:	xor    %edx,%edx
+0x0804840f <contar_segs+15>:	cmpb   $0x0,0x2720(%ebp)
+0x08048416 <contar_segs+22>:	mov    0x2724(%ebp),%eax
+0x0804841c <contar_segs+28>:	movl   $0x0,-0x10(%ebp)
+0x08048423 <contar_segs+35>:	movl   $0x0,-0x14(%ebp)
+0x0804842a <contar_segs+42>:	je     0x8048486 <contar_segs+134>
+0x0804842c <contar_segs+44>:	lea    -0x1(%eax),%ecx
+0x0804842f <contar_segs+47>:	movl   $0x1,-0x10(%ebp)
+0x08048436 <contar_segs+54>:	mov    0x2718(%ebp),%eax
+0x0804843c <contar_segs+60>:	test   %eax,%eax
+0x0804843e <contar_segs+62>:	jle    0x804847b <contar_segs+123>
+0x08048440 <contar_segs+64>:	mov    %eax,%esi
+0x08048442 <contar_segs+66>:	lea    0x0(,%edx,4),%eax
+0x08048449 <contar_segs+73>:	add    %edx,%eax
+0x0804844b <contar_segs+75>:	lea    (%ecx,%ecx,4),%ebx
+0x0804844e <contar_segs+78>:	mov    %eax,-0x18(%ebp)
+0x08048451 <contar_segs+81>:	lea    0x0(%esi),%esi
+0x08048454 <contar_segs+84>:	lea    (%ebx,%ebx,4),%eax
+0x08048457 <contar_segs+87>:	lea    0x8(%ebp,%eax,4),%eax
+0x0804845b <contar_segs+91>:	sub    $0xc,%esp
+0x0804845e <contar_segs+94>:	movsbl (%edi,%eax,1),%eax
+0x08048462 <contar_segs+98>:	push   %eax
+0x08048463 <contar_segs+99>:	call   0x80483e4 <e_seg>
+0x08048468 <contar_segs+104>:	add    $0x10,%esp
+0x0804846b <contar_segs+107>:	test   %al,%al
+0x0804846d <contar_segs+109>:	je     0x8048472 <contar_segs+114>
+0x0804846f <contar_segs+111>:	incl   -0x14(%ebp)
+0x08048472 <contar_segs+114>:	add    -0x10(%ebp),%edi
+0x08048475 <contar_segs+117>:	add    -0x18(%ebp),%ebx
+0x08048478 <contar_segs+120>:	dec    %esi
+0x08048479 <contar_segs+121>:	jne    0x8048454 <contar_segs+84>
+0x0804847b <contar_segs+123>:	mov    -0x14(%ebp),%eax
+0x0804847e <contar_segs+126>:	lea    -0xc(%ebp),%esp
+0x08048481 <contar_segs+129>:	pop    %ebx
+0x08048482 <contar_segs+130>:	pop    %esi
+0x08048483 <contar_segs+131>:	pop    %edi
+0x08048484 <contar_segs+132>:	leave  
+0x08048485 <contar_segs+133>:	ret    
+0x08048486 <contar_segs+134>:	lea    -0x1(%eax),%edi
+0x08048489 <contar_segs+137>:	mov    $0x1,%edx
+0x0804848e <contar_segs+142>:	mov    0x271c(%ebp),%eax
+0x08048494 <contar_segs+148>:	jmp    0x804843c <contar_segs+60>

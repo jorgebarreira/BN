@@ -1,0 +1,148 @@
+0x08048400 <contar_segs+0>:	push   %ebp
+--salvaguarda o antigo base pointer. (endereço de regresso)
+
+0x08048401 <contar_segs+1>:	mov    %esp, %ebp
+--iguala o stack pointer com o base pointer
+
+0x08048403 <contar_segs+3>:	push   %edi                       
+--salvaguarda o registo (3ºarg)
+
+0x08048404 <contar_segs+4>:	push   %esi                       
+--salvaguarda o registo (2ºarg)
+
+0x08048405 <contar_segs+5>:	push   %ebx                       
+--salvaguarda o registo (1ºarg)
+
+0x08048406 <contar_segs+6>:	sub    $0xc,%esp                  
+--%esp-0xc(aumentar 12 bytes na stack)
+
+0x08048409 <contar_segs+9>:	xor    %edi,%edi                  
+--iguala a 0 (x=0)
+
+0x0804840b <contar_segs+11>:	xor    %ecx,%ecx                  
+--iguala a 0 (y=0)
+
+0x0804840d <contar_segs+13>:	xor    %edx,%edx                  
+--iguala a 0 (dy=0)
+
+0x0804840f <contar_segs+15>:	cmpb   $0x0,0x2720(%ebp)          
+--if(lin)
+
+0x08048416 <contar_segs+22>:	mov    0x2724(%ebp),%eax         
+--chama o valor de num e coloca em %eax
+
+0x0804841c <contar_segs+28>:	movl   $0x0,-0x10(%ebp)          
+--dx=0
+
+0x08048423 <contar_segs+35>:	movl   $0x0,-0x14(%ebp)           
+--count=0
+
+0x0804842a <contar_segs+42>:	je     0x8048486 <contar_segs+134>
+--caso seja igual a 0, salta para o endereço 0x8048486 (avança para o else)
+
+0x0804842c <contar_segs+44>:	lea    -0x1(%eax),%ecx            
+--y=num-1
+
+0x0804842f <contar_segs+47>:	movl   $0x1,-0x10(%ebp)           
+--dx=1
+
+0x08048436 <contar_segs+54>:	mov    0x2718(%ebp),%eax          
+--tam=t.lins
+
+0x0804843c <contar_segs+60>:	test   %eax,%eax                  
+--Verifica se tamanho é maior ou menor que 0
+
+0x0804843e <contar_segs+62>:	jle    0x804847b <contar_segs+123>
+--salta se %eax for 0 ou menor, ou seja, salta para depois do ciclo for
+
+0x08048440 <contar_segs+64>:	mov    %eax,%esi                  
+--passa o valor de tam para esi
+
+0x08048442 <contar_segs+66>:	lea    0x0(,%edx,4),%eax          
+--sendo %edx=dy,o valor (4*dy) é colocado em %eax (se dy=1 -> eax=4; se dy=0 -> eax=0)
+
+0x08048449 <contar_segs+73>:	add    %edx,%eax                  
+--%eax=eax+dy
+
+0x0804844b <contar_segs+75>:	lea    (%ecx,%ecx,4),%ebx         
+--5*y->ebx
+
+0x0804844e <contar_segs+78>:	mov    %eax,-0x18(%ebp)           
+--Guarda o valor de dy em memoria
+
+0x08048451 <contar_segs+81>:	lea    0x0(%esi),%esi             
+--Verifica o valor de tam
+ 
+0x08048454 <contar_segs+84>:	lea    (%ebx,%ebx,4),%eax         
+--5*(5*y)->eax
+
+0x08048457 <contar_segs+87>:	lea    0x8(%ebp,%eax,4),%eax      
+--ebp+(25*y*4)+8->eax
+
+0x0804845b <contar_segs+91>:	sub    $0xc,%esp                  
+--sobe o stack pointer mais 12 bytes
+
+0x0804845e <contar_segs+94>:	movsbl (%edi,%eax,1),%eax         
+--vai buscar à memoria o caracter que será passado como argumento para %eax (t.tab[y][x])
+
+0x08048462 <contar_segs+98>:	push   %eax                       
+--salvaguarda registo %eax (que contém o caracter de t.tab[y][x])
+
+0x08048463 <contar_segs+99>:	call   0x80483e4 <e_seg>          
+--chamada da funçao e_seg
+
+0x08048468 <contar_segs+104>:	add    $0x10,%esp                 
+--desce o stack pointer 16 bytes
+
+0x0804846b <contar_segs+107>:	test   %al,%al                    
+--verifica se o resultado de e_seg é 0 ou 1
+
+0x0804846d <contar_segs+109>:	je     0x8048472 <contar_segs+114>
+--saltar para o endereço 0x8048472 se o rsultado de e_seg for 0
+
+0x0804846f <contar_segs+111>:	incl   -0x14(%ebp)                
+--count++
+
+0x08048472 <contar_segs+114>:	add    -0x10(%ebp),%edi           
+--x+=dx
+
+0x08048475 <contar_segs+117>:	add    -0x18(%ebp),%ebx           
+--y+=dy
+
+0x08048478 <contar_segs+120>:	dec    %esi                       
+--tam--
+
+0x08048479 <contar_segs+121>:	jne    0x8048454 <contar_segs+84> 
+--salta para endereço 0x8048454 atualização dos parametros do ciclo for
+
+0x0804847b <contar_segs+123>:	mov    -0x14(%ebp),%eax         
+--eax=count
+
+0x0804847e <contar_segs+126>:	lea    -0xc(%ebp),%esp            
+--recupera o endereço do stack pointer inicial
+
+0x08048481 <contar_segs+129>:	pop    %ebx                       
+--recupera registo
+
+0x08048482 <contar_segs+130>:	pop    %esi                       
+--recupera registo
+
+0x08048483 <contar_segs+131>:	pop    %edi                       
+--recupera registo
+
+0x08048484 <contar_segs+132>:	leave                            
+
+0x08048485 <contar_segs+133>:	ret                               
+
+0x08048486 <contar_segs+134>:	lea    -0x1(%eax),%edi            
+--x=num-1
+
+0x08048489 <contar_segs+137>:	mov    $0x1,%edx                  
+--dy=1
+
+0x0804848e <contar_segs+142>:	mov    0x271c(%ebp),%eax          
+--tam=t.cols
+
+0x08048494 <contar_segs+148>:	jmp    0x804843c <contar_segs+60> 
+--salto para o endereço 0x804843c, inicio do ciclo for()
+
