@@ -50,5 +50,5 @@ int esta_resolvido(TAB_BN *);
 int resolver(TAB_BN *,STACK *);
 int verificar_solucao(TAB_BN *);
 int poe_um_segmento_no_tab(TAB_BN *,STACK *);
-
+int soma_informacoes(TAB_BN * );
 

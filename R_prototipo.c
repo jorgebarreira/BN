@@ -43,6 +43,26 @@
 #include "R_prototipo.h"
 /* Fim da condiçao if do inicio.*/
 #endif
+/**
+Funçao que verifica se a soma das informaçoes para as linhas e colunas correspondem.
+
+@param estado : Contém toda a informaçao relativo ao tabuleiro usado.
+
+@return TRUE caso o tabuleiro é valido, FALSE caso contrario.
+*/
+
+int soma_informacoes(TAB_BN *estado){
+	int i , j;
+	int soma_l=0, soma_c=0;
+for(i=0;i< estado->n_linhas; i++){
+	soma_l += estado->info_linhas[i];
+	
+}
+for(j=0;j<estado->n_colunas;j++){
+	soma_c += estado->info_colunas[j];
+}
+return (soma_c==soma_l);
+}
 
 
 /**
